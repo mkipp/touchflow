@@ -1,0 +1,1383 @@
+aalex	[x11mouse] generates a X11 mouse event
+	[x11key]   generates a X11 keyboard event
+	[xmms]     controls the X Multimedia System
+	[pcre]     matches a symbol against a Perl compatible regular expression. Still needs symbol as a selector for arguments.
+ann	Artificial Neural Networks
+	ann_som: self-organized maps
+	ann_mlp: multi layer perceptrons
+	ann_td: time delay
+arraysize	report the size of an array
+readanysf~	a puredata external for reading multiple file formats.
+bogart:
+ chaos	lorenz, rossler, henon, ikeda, attract1, base, base3, dejong, gingerbreadman, hopalong, latoocarfian, latoomutalpha, latoomutbeta, latoomutgamma, logistic, lotka_volterra, martin,mlogistic, pickover, popcorn, quadruptwo, standardmap, strange1, tent, three_d, threeply, tinkerbell and unity.
+ entry	a text entry widget popup	a popup menu
+ PSO	a Particle Swarm Optimizer
+beatpipe	scheduler/event-delay/quantizer
+Boids	bird flight and animal flock simulator
+bsaylor:
+ aenv~	asymptotic ADSR envelope generator
+ partconv~	partitioned fast convolution
+ pvoc~	phase vocoder
+ susloop~	sample player
+ svf~	signal-controlled state variable filter
+ zhzhx~	Turns the input signal into a staticky, distorted mess
+control:
+ choice	search for a best match to an incoming list
+ popen
+creb:
+cxc:
+ ixprint	print data on console without prefix (needed for ascwave)
+ binshift	binary shift objects (<<,>>)
+ ascseq	ascii-sequencer: input anything, which is output again sequentially character by character with a given delay
+ ascwave	print funny ascii constructions on console
+ bfilt	alias bangfilter: re-output every argumen-th event useful for modulo-sequencers internal: modulo x -> sel 0
+ bfilt2	features internal counter, output just bangs
+ counter	cloned out of markex so i dont need to load gem to have these
+ reson	same as above
+ cxc_prepend	prepend stuff with another symbol
+ cxc_split	split incoming string at specified delimiter
+ utime	output seconds since epoch and microsecond fraction
+ random1, random_fl, random_icg, random_tw, dist_normal: various PRNG algorithms from http://remus.rutgers.edu/~rhoads/Code
+ random1~, random_fl~, random_icg~:	signal version of above algorithms
+ ENV	get and set environment variables and certain defines like RAND_MAX
+ proc	get stuff out of the linux proc directory (so far: cpuinfo, loadavg, version, uptime)
+ delta~	emit distance to last sample as signal.
+ cx.mean, cx.avgdev, cx.stddev	calculate mean, standard and average deviation of a signal in an array
+dfx:
+ buffer_override, polarizer, transverb, skidder:	pd_dfx collection of the super destroy fx vst plugins
+ekext:
+ cup	counts up
+ doubledelta	?
+ framescore~	calculates a weighted similarity value for two signal vectors
+ framespect~	Weighted alpha comparison, block-by-block
+ hasc~	Highest Absolute Spectral Component
+ hssc~	Highest Absolute Spectral Component
+ listmoses	splits two lists
+ lpc~	Linear Predictive Coding - PARCOR and residual generation
+ lpreson~	Lattice IIR filter from PARCOR coefficients
+ maskxor	takes two lists 
+ peakit~	find frequency peaks of an FFT and output lists of frequencies and magnitudes.
+ polymap	two-dimensional polyphony-restricted map
+ polystat	outputs a list of the instances of voices 0 to HIGHEST
+ sieve	takes integers and maps them to floats if they are set
+ simile	compare two numbers according to an error window
+ simile~	compare two signals according to an error window
+ steady	can be useful for eliminating errors from the raw pitch output of fiddle~
+ voicing_detector~	estimates whether a frame of speech is voiced (uses the vocal chords) or unvoiced (does not).
+ zeroxpos~	find n-th zero crossing in frame
+ext13:
+ catch13~	original objects with set-message for changing 
+ cdplayer
+ filesize
+ ftos
+ kalashnikov
+ mandelbrot~
+ messages
+ openpatch
+ ossmixer
+ piperead~
+ pipewrite~
+ promiscous~
+ receive13
+ receive13~
+ scramble~
+ send13
+ send13~
+ sfread
+ sfwrite13~
+ streamin13~
+ streamout13~
+ strippath
+ throw13~
+ wavinfo
+ff:
+ ff-autocenter	sets the amount of "autocentering" of the force-feedback joystick
+ ff-constant	sets up a constant force in one direction
+ ff-friction	
+ ff-gain	Sets the overall gain of the force-feedback joystick on the device.
+ ff-periodic	generates a periodic force \, basically a waveform that can be a pulsing or a vibration depending on the "period".
+ ff-spring
+fftease:	Fats fourier transformation objects
+ bthresher~
+ burrow~
+ cavoc27~
+ cavoc~
+ centerring~
+ codepend~
+ crossx~
+ dentist~
+ disarrain~
+ disarray~
+ drown~
+ ether~
+ leaker~
+ mindwarp~
+ morphine~
+ multyq~
+ presidency~
+ pvcompand~
+ pvgrain~
+ pvharm~
+ pvoc~
+ pvtuner~
+ pvwarp~
+ reanimator~
+ resent~
+ residency_buffer~
+ residency~
+ scrape~
+ shapee~
+ swinger~
+ taint~
+ thresher~
+ vacancy~
+ xsyn~
+fftw:	set of alternative fft~-objects, using the fftw-library
+ fftw~
+ ifftw~
+ rfftw~
+ rifftw~
+footils:
+ fluid~	external for PD and Max/MSP useless without the cool fluidsynth from www.fluidsynth.org
+ ezdac~, fiiwu~, flid	related to fluid~?
+ knob	gui external based on the IEMGUI-vslider 
+ clock	?
+ rx7~	DX7 emulator external based on RX/Saturno
+ shabby~	waveshaping PD external
+ shaffy~	shabby~'s little brother
+ SyncGrain	synchronous granular synthesis
+frankenstein:
+ chord_melo	a GA melody generator. it takes a melody as input and evolves it over time
+ chords_memory	it is a directional graph which implements a memory of the played chords sequences, you can train it...
+ harmonizer	a GA external that build choir voicing for 5 voices
+freeverb~	reverb external
+gemp2pdp	GEM to PDP bridge
+ggee-control:
+ cvs.pd
+ inv.pd
+ serial_bird.pd
+ serialctl.pd
+ serialmouse.pd
+ unwonk.pd
+ggee-experimental:
+ fofsynth~.c
+ pvocfreq
+ stk
+ tabwrite4~
+ggee-filters:
+ bandpass	Bandpass coefficients for biquad~
+ equalizer	Parametric Equalizer coefficients for biquad~
+ filtgain	
+ highpass	Highpass coefficients for biquad~
+ highshelf	
+ hlshelf	Bandpass coefficients for biquad~
+ lowpass	Lowpass coefficients for biquad~
+ lowshelf	Lowshelf coefficients for biquad~
+ moog~	A signal controlled "moog" resonant lowpass
+ notch	Notch coefficients for biquad~
+ggee-GUI:
+ button		a bang with a label
+ envgen	Envelope generator
+ fatom	
+ gcanvas	click and drag in the grey [gcanvas] to get pixel values
+ image	Incorporate images. This is instantiated with [image logo100.gif]
+ sliderh	
+ slider	
+ state	
+ ticker	OS-native checkbox
+ toddle	toddle is not a "bang" converter \, but routes messages through
+ggee-other:
+ vbap	A VBAP (Vector Base Amplitude Panning) external
+ggee-signal:
+ atan2~	The atan2 function is used to get the phase from a imaginary value of the fft.
+ mixer~	The beginning of a dynamic mixer matrix object
+ sfwrite~	write wav file?
+ streamin~	streams from a port
+ streamout~	streams to a connected host:port
+ggee-tools:
+ define_loudspeakers
+grh:
+ lms2~	same as lms~ but with additional coefficients
+ lms~	LMS: least mean square adaptation algorithm
+ nlms2~	same as nlms~ but with additional coefficients
+ nlms~	Normalized LMS: normalized least mean square
+gridflow	a multi-dimensional dataflow processing library for PureData and Ruby, specialized in image and video
+grill:
+ absattr	patcher attributes
+ deljoin	join a list with delimiter
+ delsplit	split a delimited list-in-a-symbol
+ dyn~	dynamical object management for PD
+ idelay~	move slider and experience the doppler effect
+ namedobjs	retrieve named objects in a patcher
+ pool	a hierarchical storage object
+ py/pyext - python script objects 
+ VASP modular - vector assembling signal processor Object library
+ vst~	VST plugin external
+ xsample	extended sample objects (xgroove~, xplay~, xrecord~)
+hardware:
+ arduino	Arduino interface
+ lanbox	Lanbox (DMX) interface
+ memPIO	meM-PIO
+ multio	PICkit interface
+hcs:
+ ascii->int convert a stream of ASCII digits to a single int value
+ autoscale	scales a stream of numbers based on an output
+ blocksize_in_ms	Output the current blocksize in ms rather than samples
+ classpath	returns each path in the global classpath one at a time with each bang
+ debounce	
+ file_type	find the file type of a file
+ float->ascii	
+ folder_list	behaves just like "ls -d1A"
+ gid->group_name	convert a UID to a username
+ group	print group_members
+ group_name->gid	convert a group name to a GID.
+ hostname	get the hostname of the machine
+ ifeel	control the pulse in an iFeel mouse
+ import	loads libraries from the patch
+ ISOdate	output the current date in ISO format
+ passwd	fetch passwd data based on UID or username
+ pi	The value of pi as accurate as Pd can manage
+ pwm~	pulse width modulation at audio rate
+ split_my_msgs	used to split a stream of messages
+ split_path	
+ square~	
+ stat
+ uid->username	convert a UID to a username
+ uname	
+ username->uid	
+ version	Get the version of the currently running Pd
+iem:
+ aconnect:: ALSA sequencer connection manager
+ bird	PD external for unix/windows to use the flock of birds
+ comport	a serial port interface
+ hdspmmixer	control hdspm cards
+ n_CLNLMS~	Normalized Least Mean Square (linear adaptive FIR-filter)
+ n_CNLNS~	Normalized Least Mean Square (linear adaptive FIR-filter)
+ NLMSCC~	Normalized Least Mean Square (linear adaptive FIR-filter) with Coefficient Constraint;
+ NLMS~	Normalized Least Mean Square (linear adaptive FIR-filter)
+iem_ambi:
+ ambi_decode3	AMBISONIC DECODING
+ ambi_encode	AMBISONIC ENCODING
+ ambi_rot	AMBISONIC ROTATION
+iem_bin_ambi:
+ ambi_reduced_decode_fft2	AMBISONIC BINAURAL DECODING
+ ambi_reduced_decode_fir2	AMBISONIC BINAURAL DECODING
+iem_delay:
+ block_delay~	delay signal with blocksize samples
+ n_delay1p_line~	delay with 1 inlet and n outlets
+ n_delay2p_line~	delay with 1 inlet and n outlets
+iemmatrix:
+ matrix~	matrix-multiply m IN~signals to n OUT~signals
+ matrix	
+ mtx_abs	absolute value of matrix elements
+ mtx_add	matrix arithmetic: adding
+ mtx_and	matrix logic: logical AND
+ mtx_atan	arc tangent value of matrix elements
+ mtx_binops	matrix binary operations
+ mtx_bitand
+ mtx_bitleft
+ mtx_bitor
+ mtx_bitright
+ mtx_check
+ mtx_cholesky
+ mtx_col
+ mtx_colon
+ mtx_concat
+ mtx_conv
+ mtx_cos
+ mtx_cumsum
+ mtx_dbtopow
+ mtx_dbtorms
+ mtx_diag
+ mtx_diegg
+ mtx_diff
+ mtx_distance2
+ mtx_egg
+ mtx_element
+ mtx_eq
+ mtx_exp
+ mtx_eye
+ mtx_fill
+ mtx_find
+ mtx_gauss
+ mtx_ge
+ mtx_gt
+ mtx_index
+ mtx_int
+ mtx_inverse
+ mtx_le
+ mtx_log
+ mtx_lt
+ mtx_max2
+ mtx_mean
+ mtx_min2
+ mtx_minmax
+ mtx_mul~
+ mtx_mul
+ mtx_neq
+ mtx_not
+ mtx_ones
+ mtx_or
+ mtx_pivot
+ mtx_pow
+ mtx_powtodb
+ mtx_print
+ mtx_prod
+ mtx_rand
+ mtx_repmat
+ mtx_resize
+ mtx_reverse
+ mtx_rmstodb
+ mtx_roll
+ mtx_row
+ mtx_rowrfft
+ mtx_rowrifft
+ mtx_scroll
+ mtx_sin
+ mtx_size
+ mtx_slice
+ mtx_sub
+ mtx_sum
+ mtx_trace
+ mtx_transpose
+ mtx_zeros
+iem+matrix:
+ matrix_bundle_stat~	multiplies a n-dimensional signal-in-vector with a static
+(like sig~) signal-matrix to a n-dimensional signal-out-vector
+ matrix_diag_mul_line8~	multiplies a n-dimensional signal-in-vector with a dynamic
+changeable (like line~) signal-matrix to a n-dimensional signal-out-vector
+ matrix_diag_mul_line~	multiplies a n-dimensional signal-in-vector with a dynamic
+changeable (like line~) signal-matrix to a n-dimensional signal-out-vector
+ matrix_diag_mul_stat~	multiplies a n-dimensional signal-in-vector with a dynamic
+static (like sig~) signal-matrix to a n-dimensional signal-out-vector
+ matrix_mul_line8~	multiplies a nr_columns-dimensional signal-in-vector
+with a dynamic changeable (like line~) signal-matrix to a nr_rows-dimensional
+ matrix_mul_line~	multiplies a nr_columns-dimensional signal-in-vector
+with a dynamic changeable (like line~) signal-matrix to a nr_rows-dimensional
+ matrix_mul_stat~	multiplies a nr_columns-dimensional signal-in-vector
+with a static (like sig~) signal-matrix to a nr_rows-dimensional signal-out-vector
+iem_roomsim:
+ cart2del_damp_2d	
+ cart2del_damp_3d	
+iem_spec2:
+ spec2_1p1z_freq~	spec_analyse_by_1p1z_freq
+ spec2_1p1z_time~	spec_analyse_by_1p1z_time
+ spec2_abs~	take absolute value of a signal spectrum
+ spec2_add~	add 2 signal spectras with (blocksize/2 + 1) bins
+ spec2_add_scalar~	add a value to a signal spectrum with (blocksize/2 + 1) bins
+ spec2_block_delay~	delay spectrum around blocksize samples
+ spec2_clip_max~	iem_spec2 calculates only blocksize/2 + 1 samples of block
+ spec2_clip_min~	iem_spec2 calculates only blocksize/2 + 1 samples of block 
+ spec2_dbtopow~	convert dB to power of a signal spectrum
+ spec2_dbtorms~	convert dB to rms value of a signal spectrum
+ spec2_matrix_bundle_stat~	it calculates matrix only with (blocksize/2 + 1) samples per signalvector
+ spec2_mul~	it calculates matrix only with (blocksize/2 + 1) samples per signalvector
+ spec2_mul_scalar~	multiply a value with a signal spectrum
+ spec2_powtodb~	convert power to db of a signal spectrum
+ spec2_rmstodb~	convert rms value to db of a signal spectrum
+ spec2_shift~	shift a spectrum of (blocksize/2 + 1) to the left or right about n bins (+- blocksize/2)
+ spec2_sqrt~	take square root value of a signal spectrum
+ spec2_stretch~	stretch a spectrum of (blocksize/2 + 1) by a factor
+ spec2_sub~	subtract 2 signal spectras with (blocksize/2 + 1) bins
+ spec2_sum~	accumulate the sum of the spectrum with (blocksize/2 + 1) bins??
+ spec2_tab_conv~	convolute a spectrum of size (blocksize/2 + 1) with a table of size n
+ spec2_tabreceive_enable~	
+ spec2_tabreceive~	
+iemstream: stream
+iem_tab:
+ tab_abs	
+ tab_add	
+ tab_add_scalar	
+ tab_complex_mul	
+ tab_const	
+ tab_copy	
+ tab_counter	
+ tab_cross_corr
+ tab_div
+ tab_eq
+ tab_eq_scalar
+ tab_fft
+ tab_find_peaks
+ tab_ge
+ tab_ge_scalar
+ tab_gt
+ tab_gt_scalar
+ tab_ifft
+ tab_le
+ tab_le_scalar
+ tab_lt
+ tab_lt_scalar
+ tab_max_index
+ tab_min_index
+ tab_min_max
+ tab_mul
+ tab_mul_scalar
+ tab_ne
+ tab_ne_scalar
+ tab_reverse
+ tab_rfft
+ tab_rifft
+ tab_sqrt
+ tab_sub
+ tab_sum
+iemxmlrpc	XMLRPC external
+pdoctave	a pd interface to octave
+syslog	write to syslog
+iem16: it allows for 16bit-constructs where float would eat too much memory
+ iem16	
+ tab16read
+ tab16read4
+ tab16write
+iemlib/iemabs:
+ addl~
+ ap1~
+ ap2~
+ bpq2~
+ bpw2~
+ bsq2~
+ bsw2~
+ dbtofad
+ default
+ divl~
+ dsp~
+ dsp
+ fadtodb
+ fadtorms
+ hp10_bess~
+ hp10_butt~
+ hp10_cheb~
+ hp10_crit~
+ hp1~
+ hp2_bess~
+ hp2_butt~
+ hp2_cheb~
+ hp2_crit~
+ hp2~
+ hp3_bess~
+ hp3_butt~
+ hp3_cheb~
+ hp3_crit~
+ hp4_bess~
+ hp4_butt~
+ hp4_cheb~
+ hp4_crit~
+ hp5_bess~
+ hp5_butt~
+ hp5_cheb~
+ hp5_crit~
+ hp6_bess~
+ hp6_butt~
+ hp6_cheb~
+ hp6_crit~
+ hp7_bess~
+ hp7_butt~
+ hp7_cheb~
+ hp7_crit~
+ hp8_bess~
+ hp8_butt~
+ hp8_cheb~
+ hp8_crit~
+ hp9_bess~
+ hp9_butt~
+ hp9_cheb~
+ hp9_crit~
+ int_fract~
+ lp10_bess~
+ lp10_butt~
+ lp10_cheb~
+ lp10_crit~
+ lp1~
+ lp2_bess~
+ lp2_butt~
+ lp2_cheb~
+ lp2_crit~
+ lp2~
+ lp3_bess~
+ lp3_butt~
+ lp3_cheb~
+ lp3_crit~
+ lp4_bess~
+ lp4_butt~
+ lp4_cheb~
+ lp4_crit~
+ lp5_bess~
+ lp5_butt~
+ lp5_cheb~
+ lp5_crit~
+ lp6_bess~
+ lp6_butt~
+ lp6_cheb~
+ lp6_crit~
+ lp7_bess~
+ lp7_butt~
+ lp7_cheb~
+ lp7_crit~
+ lp8_bess~
+ lp8_butt~
+ lp8_cheb~
+ lp8_crit~
+ lp9_bess~
+ lp9_butt~
+ lp9_cheb~
+ lp9_crit~
+ maverage~
+ merge_any
+ mull~
+ once
+ pink~
+ rbpq2~
+ rbpw2~
+ rmstofad
+ round~
+ split3
+ subl~
+ unsig~
+ vcf_bp2~
+ vcf_bp4~
+ vcf_bp6~
+ vcf_bp8~
+ vcf_hp2~
+ vcf_hp4~
+ vcf_hp6~
+ vcf_hp8~
+ vcf_lp2~
+ vcf_lp4~
+ vcf_lp6~
+ vcf_lp8~
+ vcf_rbp2~
+ vcf_rbp4~
+ vcf_rbp6~
+ vcf_rbp8~
+iemlib/iemlib1:
+ db2v	dB to value converter
+ f2note	converts frequency to notes + cents
+ FIR~	convolve a signal with an array
+ for++	counter with its own interval-timer
+ gate	interrupt or continue a stream of messages
+ hml_shelf~	high-middle-low-shelving-filter
+ lp1_t~	lowpass 1.order with time_constant-inlet
+ para_bp2~	parametric bandpass 2.order
+ peakenv~	
+ prvu~	peak- rms- vu-meter
+ pvu~	peak-vu-meter
+ rvu~	rms- vu-meter
+ sin_phase~	calculate phase-difference between 2 sine-waves \, in samples (signal-out)
+ soundfile_info	show the header-data of a wav-file
+ split	
+ v2db	value to dB converter
+iemlib/iemlib2:
+ add2_comma	add a comma after a message
+ any
+ bpe	break-point-envelope
+ dollarg	receives the parent initial arguments <list>, like a $n
+ exp_inc	linear and/or exponetial increment-counter, bang controlled
+ fade~	a special signal waveshaper
+ float24	concatenate a list of float-fragment-strings to a 23 bit accurate mantissa
+ iem_anything	
+ iem_append	merge the head-message in front of the tail-message
+ iem_blocksize~	output the current blocksize of a window
+ iem_i_route	route only list with prepending floats (integers)
+ iem_pbank_csv	
+ iem_prepend	merge the head-message in front of the tail-message
+ iem_receive	receive-object with changeable receive-label
+ iem_r	receive-object with changeable receive-label
+ iem_route	iem_route quite similar to route, except....
+ iem_samplerate~	output the current samplerate of a window
+ iem_sel_any	control a message-box with multiple content
+ iem_send	send-object with changeable send-label
+ iem_s	send-object with changeable send-label
+ ii	initialize anything by loadbang
+ iiroute	route only list with prepending floats (integers)
+ init	initialize anything by loadbang
+ LFO_noise~	2-point-interpolated time-stretched white noise
+ list2send	convert some kind of lists to a sended message
+ m2f~	convert MIDI pitch to frequency (in signal)
+ mergefilename	merge a list of symbols and floats to a ??
+ modulo_counter	increments counter-number from 0 to max-1 by a bang
+ $n	
+ parent$0
+ parentdollarzero
+ post_netreceive	convert message-lists with a prepended float-index	
+ pp	merge the head-message in front of the tail-message
+ pre_inlet	
+ pre_netsend	receive messages without prepended float-index and convert to message-lists with a prepended float-index
+ prepend_ascii	prepends the list-arguments in front of an incoming message
+ prepend	merge the head-message in front of the tail-message
+ receive2list	convert received message to a list
+ round_zero	round very small numbers between plus and minus first argument to zero
+ speedlim	speedlimit for float-message
+ splitfilename	ASCII_separator
+ stripfilename	strip the first or last
+ toggle_mess	control a message-box with circular different content
+ transf_fader	transforms a slider range
+ unsymbol	converts a symbol to an anything selector;
+ wrap	wraparound between 0 and +1
+iemlib/iem_mp3:	MPEG LAYER III PLAYER
+iemlib/iem_t3_lib:
+ t3_bpe	time-tagged trigger break point envelope
+ t3_delay	time-tagged trigger delay
+ t3_metro	time-tagged trigger variable metronome
+ t3_sig~	time-tagged trigger sig~
+ t3_timer	time-tagged trigger timer
+input_noticer	joystick "SideWinder Dual Strike"
+io/hidio	
+io/hidio~	
+jackx:
+ jack-connect	connect/disconnect/toggle/query connections from named ports
+ jack-ports	find the ports in the jack-graph. 
+jasch_lib:
+ detox
+ underscore
+k_cext:
+ do	used by the k_cext preprocessor to know when to automaticly insert BEGIN and END
+ fibonacci	
+ gdc	Find the greatest common divisor between two numbers
+ k_cext2
+ k_cext	
+ k_cfunc	Demonstrating the use of two functions to add integer numbers
+ markov
+ rangeifwlseifelse
+ send2
+ send
+ sort
+ string
+ value
+k_guile	guile external
+k_jack~	General jack in/out
+k_vst~:
+ k_vst~	object for hosting VST plug-ins
+ plugin~	object for hosting LADSPA/VST plug-ins
+loaders
+mapping:
+ amplitude_n	return the amplitude covered by the last n (n>1) values
+ autoscale	scales a stream of numbers based on an output range set as arguments \, and an input range which is set dynamically
+ breakpoint	This object curves the input range using a double-linear interpolator with two control parameters
+ breakpoint_smooth	This object curves the input range using a double-linear interpolator with two control parameters
+ buttongate	is a simple gate controlled by a HID button.
+ bytemask	generate a bitmask byte from 8 inlets
+ center_point	Convert normal 0-to-1 data like you'd get from a joystick
+ circular	This object curves the input range using a double-circular seat controlled by one parameter
+ circular_seat	This object curves the input range using a double-circular seat controlled by one parameter
+ circular_sigmoid	This object curves the input range using a double-circular seat controlled by one parameter
+ correlation	correlation of 2 diferents streams
+ cubic_seat	This object curves the input range using cubic curves that meet at the specified point \, forming a seat
+ curve_exp	This object maps the input range to a exponential curve
+\, the inverse of a logarithmic curve
+ curve_fade	This object is usefull when natural fade in or fade out is needed
+ curve_graph	This object allows you to draw an arbitrary curve \, which is then applied to the input range
+ curve	This object generates a curve based on a -1 to 1 argument range.
+ curve_log	This object maps the input range to a logarithmic curve.
+ debounce	
+ debytemask	generate a bitmask byte from 8 inlets
+ degrees->mapping	This object converts numbers from the mapping range (0 to 1) to radians (-pi to pi) with the 0's lining up in the same place.
+ delay_n	
+ desegment12	
+ desegment3	
+ desegment4	
+ desegment	
+ diff_n	differentiate of the input  disjoin	split a range into two. The input and output ranges are always 0-to-1
+ distance2d	distance from a point and a stream in 2d
+ distance	Measure the distance from a point and a stream
+ distance_n	distance from a point and a stream in nd
+ downsample	output 1 over n data
+ elliptic	This object curves the input range using two ellipses that meet at the specified point
+ elliptic_seat	This object curves the input range using a double-linear interpolator with two control parameters
+ elliptic_sigmoid	This object curves the input range using a double-linear interpolator with two control parameters
+ env-	negative envelope follower
+ env	envelope follower
+ env+	positive envelope follower
+ exponential_curve	This object curves the input range using a double-exponential seat controlled by one parameter
+ exponential_seat	This object curves the input range using a double-exponential seat controlled by one parameter  exponential_sigmoid	This object curves the input range using a double-exponential seat controlled by one parameter
+ fir	
+ gaussian	generate a gausian curve
+ hysteresis	add hysteresys to input data
+ iir	computes a infinite impulse response low-pass filter.
+ join	
+ keygate	is a simple gate controlled by a keyboard
+ last_n	
+ listto	separate a list into a stream of atoms
+ local_max	give the value of every local maximum whenever there is a change in direction
+ local_min	gives the value of every local minimum whenever there
+is a change in direction
+ logistic_sigmoid	This object curves the input range using a double-exponential seat controlled by one parameter
+ lop	this should be a filter independant to data flow frequency
+ mapping->degrees	This object converts numbers from the mapping range to degrees
+ mapping->radians	This object converts numbers from the mapping range to radians
+ max_n	return the maximum from the last n (n>1) values
+ mean_n	computes a fir low pass mean filter of order n
+ median_3	output the median value of the 3 last samples
+ median_5	output the median value of the 5 last samples
+ median_7	output the median value of the 7 last samples
+ median	Calculates the median of a list of floats
+ median_n	Useful for discarding irrealistic values received from electronic sensors
+ min_n	return the minimum from the last n (n>1) values
+ multi_slider	
+ nl	XY relation of the non-linearity object
+ notescale	scales a stream of numbers to a MIDI note number
+ one->four	Simple one-to-four mapping object
+ one->three	Simple one-to-three mapping object
+ one->two	Simple one-to-two mapping object
+ oscillo	from 0 to 1
+ pmattractor_2d	
+ pmattractor_3d	
+ pmcloud_1d	
+ pmcloud_2d	
+ pmcloud_3d	
+ pmcube_3d	
+ pmfilter_2d	
+ pmfilter_3d	
+ pmfilter	
+ pmmulti_stable_2d	
+ pmopen_string_1d	
+ pmrepulsor_1d	
+ pmrepulsor_2d	
+ pmrepulsor_3d	
+ pmrigid_open_string_2d	
+ pmrigid_string_2d	
+ pmsquare_2d	
+ pmstring_1d	
+ polar	Converts cartesian coordinates to polar coordinates
+ quadratic	This object curves the input range using a quadratic bezier curve
+ quartic	This object curves the input range using the quartic function with two control parameters
+ radians->mapping	This object converts numbers from radians to the mapping range
+ rec_play	
+ resample	
+ reverse	Reverses the direction of a stream of numbers
+ rnd-stat	
+ segment4	
+ segment	
+ sigmoide	
+ simplified_cubic_seat	This object curves the input range using simple cubic curves that meet at the specified point \, forming a seat
+ simplified_quadratic	This object curves the input range using a simplified quadratic bezier curve controlled by one parameter
+ sinusoid	This object maps the input range to a sinusoidal curve
+ speedlimiter-	limit negative variation to \$1 for every samples
+ speedlimiter	limit the variation to \$1 at every sample
+ speedlimiter+	limit the positive variation to \$1 at every samples
+ spiral	Converts cartesian coordinates to spiral in polar coordinates
+ split_n	
+ stepper	
+ stream_check	check for the presence of a data stream
+ test_n	sends a 1 if the last n values are equal to the first argument
+ threshold	output a new value only if the difenrence between the input and last output is superior to \$1
+ timeroll	Display a changing value over time
+ tolist	built a list from a stream of data
+ track_max	Track maximum value
+ track_min	Track minimum value
+ upsample	increase the sampling rate
+ variance	
+ wave	
+ wave_loop	
+markex:
+ abs~	
+ alternate	alternate between two outputs
+ average	average together a series of numbers
+ counter	counts the number of bangs
+ hsv2rgb	hsv to rgb ?
+ invert	
+ multiselect	
+ oneshot	blocks after the initial bang \, until a clear message is received
+ randomF	floating point random number generator
+ reson~	a non-interpolating reson filter
+ rgb2hsv	rgb to hsv ?
+ strcat	prepends its text to any symbol that is sent to it
+ tripleLine	tripleLine is like the line object except that it works with 3 values at once
+ tripleRand	generates three distinct random numbers
+ vector0x2a	vector*
+ vector0x2f	vectorDiv
+ vectorabs	
+ vectorpack	
+ vector-	vectorMinus
+ vector+	vectorPlus
+maxlib
+ allow	lets only 'allowed' floats or symbols through
+ arbran	generates a random variable that conforms to predefined boundaries
+ arraycopy	copy data from one array to another
+ average	calculates the average of the last N items (floats)
+ beat	beat tracker
+ beta	beta distributed random numbers
+ bilex	bilinear exponetionally distributed random numbers
+ borax	analyse incoming midi notes
+ cauchy	Cauchy distributed random numbers
+ chord	tries to detect chords
+ delta	calculate 1st or 2nd order difference
+ deny	blocks 'denied' floats or symbols
+ dist	send data to a list of receive objects
+ divide	like '/' but calculates result
+ divmod	calculate division and modulo
+ edge	detect rising or falling edge in floats
+ expo	exponetionally distributed random numbers
+ fifo	first in first out buffer for floats
+ gauss	Gauss distributed random numbers
+ gestalt	gestalt detection for monophonic melodies
+ history	calculates the average of the items (floats) that came in
+ ignore	input gets delayed by N milliseconds
+ iso	queues up lists of pitches and attack points
+ lifo	last in first out buffer for floats
+ limit	limits input to lie between boundaries
+ linear	linearly distributed random numbers
+ listfifo	first in first out buffer for lists
+ listfunnel	send values out as a list with
+ match	outputs a list when a list of
+ maxlib 1.5	Music Analysis eXtensions LIBrary
+ minus	like '-' but calculates result
+ mlife	a cellular automata object
+ multi	like '*' but calculates result
+ nchange	a 'new'
+ netclient	simple client that connects to netserver
+ netdist	distribute data to several netreceive
+ netclient	simple client that connects to netserver
+ nroute	route if Nth argument is matched
+ pitch	get info about pitch
+ plus	like '+' but calculates result
+ poisson	Poisson distributed random numbers
+ pulse	a better pulse
+ remote	send data to any receive object
+ rewrap	wraps floats back and forth
+ rhythm	detects the beat of rhythmic patterns
+ scale	scale input from a certain input range
+ score	score follower that tries to match incoming MIDI data
+ speedlim	lets information through
+ split	split incoming floats according to value
+ step	output sequence of numbers (similar to 'line')
+ stepsize	step between two numbers
+ subst	self-similar substitution / diminuition of rows
+ sync	extended trigger object based
+ temperature	oputput number of input changes in N ms
+ tilt	meassure 'tilt' of input
+ timebang	send out bangs at given times of day
+ triang	triangularly distributed random numbers
+ unroute	merges all inputs into one output
+ urn	urn selection model
+ velocity	get velocity of digits per second
+ weibull	Weibull distributed random numbers
+ wrap	wrap floats into a range
+miXed/bin:
+ Append	Append clone works on messages
+ Clip~	clone \, unlike the clip~ built into Pd \, accepts signal input in range inlets for sample-accurate control
+ Clip	Clip clone \, unlike the clip built into Pd \, handles lists
+ Line~	Line~ clone \, unlike the line~ built into Pd accepts lists of unlimited size
+ Scope~	Scope~ clone's main purpose is quick
+ Snapshot~	Snapshot~ clone \, unlike the snapshot~ built into Pd optionally replaces external triggering source with an internal clock
+ Table	Table clone's main purpose is sucking data from tables
+miXed/cyclone: Cyclone is a library of Pure Data classes, bringing some level of compatibility between Max/MSP and Pd environments
+ accum	
+ acos	
+ active	
+ all_about_cyclone.pd
+ allpass~	
+ anal	
+ Append	
+ asin	
+ bangbang	
+ bondo	
+ Borax	
+ Bucket	
+ buddy	
+ capture	
+ cartopol	
+ Clip	
+ coll	
+ comb~	
+ comment	
+ cosh	
+ counter	
+ count~	
+ cycle	
+ decide	
+ Decode	
+ delay~	
+ drunk	
+ flush	
+ forward	
+ fromsymbol	
+ funbuff	
+ funnel	
+ gate	
+ grab	
+ Histo	
+ index~	
+ iter	
+ linedrive	
+ lookup~	
+ match	
+ maximum	
+ mean	
+ midiflush	
+ midiformat	
+ midiparse	
+ minimum	
+ mousefilter	
+ MouseState	
+ next	
+ offer	
+ onebang	
+ past	
+ Peak	
+ peek~	
+ play~	
+ poltocar	
+ prepend	
+ prob	
+ pv	
+ rand~	
+ record~	
+ Scope~	
+ sinh	
+ speedlim	
+ spell	
+ split	
+ spray	
+ sprintf	
+ substitute	
+ sustain	
+ switch	
+ tanh	
+ thresh	
+ TogEdge	
+ tosymbol	
+ Trough	
+ universal	
+ urn	
+ Uzi	
+ wave~	
+ xbend	
+ xbendin2	
+ xbendin	
+ xbendout2	
+ xbendout	
+ xnote	
+ xnotein	
+ xnoteout	
+ zl
+miXed/toxy:
+ tot		
+mjlib:
+ about	makes numbers that are + or - a percenage error from a given value
+ metroplus	metroplus is a variation on the metro object
+ monorhythm	designed to allow simple rythms to be generated
+ morse	convert text to Morse Code
+ n2m	converts note names in the form <note name><octave> to a midi number
+ pin~	object can be considered to be similar to the pin in a bagatelle game
+ prob	generate a random event with a given probability at a given interval
+moocow:
+ deque	double-ended message queue
+ flite	a high-level text-to-speech interface for English
+ gfsm	Pd bindings for the GFSM  finite-state machine library
+ pdsting	objects for converting to and from (ASCII)-strings, represented as lists of floats
+ readdir	read the contents of a directory
+ weightmap	maps incoming probability values to integers
+motex
+ getenv	
+ ln~	same as log~ however '-1' argument creates inverse
+ pan~	equal power panning
+ pansig~	
+ polvoc	
+ polygate~	switch between signal inputs
+ rec2pol~	convert rectangular coords to polar coords
+ shuffle	
+ system	send a system message to the console
+mrpeach:
+ midifile	midifile reads and writes MIDI files
+mrpeach/net:
+ tcpclient	opens a tcp socket to send and receive bytes on
+ tcpreceive	receives bytes over a tcp connection
+ tcpsend	sends bytes over a tcp connection
+ tcpserver	manages tcp connections
+ udpreceive	receives bytes over a udp connection
+ udpsend	sends bytes over a udp connection
+mrpeach/osc:
+ packOSC	like sendOSC except that it outputs a list of floats instead of directly connecting to the network
+ routeOSC	accepts lists of floats that are interpreted as OSC packets
+ unpackOSC	unpackOSC is like dumpOSC but outputs two lists: a list of symbols for the path and a list of floats and/or symbols for the data
+mrpeach/sqosc~	sinusoidal oscillator and table lookup
+nusmuk/editor: msd editor
+ countto
+ curve2
+ ds-next
+ ds-vnext
+ expr_scale
+ gem_links
+ gem_masses
+ gem_strings
+ link2masses
+ link-set
+ make_circ
+ make_rect
+ mass-set
+ morelinks
+ msd_append
+ msd-editor
+ mytri
+ obj-render
+ scale-ds2msd
+ scale-msd2ds
+ sixpack
+ structures
+nusmuk/line3	compatible with line \, but the transition is made with a 3d order polynome. coeficiant of this polynome are adjusted to have the continuity of the output variation speed
+nusmuk/msd:	mass - spring - damper model
+ filet	
+nusmuk/msd2D:	Mass spring damper physical modeling in 2D
+nusmuk/msd3D:	Mass spring damper physical modeling in 3D
+nusmuk/msdND:	Mass spring damper physical modeling in ND
+olafmatt:
+ clone	route a list according to first element to one instance of a subpatch \, process data and output 
+ flashserver	simple server that connects to Flash PlugIn
+ hidin	numbers the elements in the order that it finds
+ shoutamp~	an icecast/shoutcast client for PD
+ shoutcast~	send mp3 encoded audio stream them
+OSCx:
+ dumpOSC	listens on specified port
+ OSCroute	works pretty much like route but outputs remainder of routing tag after match
+ sendOSC	send OSC formatted packet to network
+pdogg:
+ oggamp~ 	streaming client
+ oggcast~	streamer (for Icecast2)
+ oggread~	reads files from disk
+ oggwrite~	writes files to disk
+pdp:	a packet processing library for pure data
+ pdp_abs	
+ pdp_add	
+ pdp_and	
+ pdp_bitdepth	
+ pdp_bitmask	
+ pdp_bq	
+ pdp_bqt	
+ pdp_cheby	
+ pdp_chrot	
+ pdp_cog	
+ pdp_constant	
+ pdp_control	
+ pdp_convert	
+ pdp_conv	
+ pdp_del	
+ pdp_description	
+ pdp_flip_lr	
+ pdp_flip_tb	
+ pdp_gain	
+ pdp_glx	
+ pdp_grey2mask	
+ pdp_help_input.pd	
+ pdp_help_output.pd	
+ pdp_histo	
+ pdp_hthresh	
+ pdp_loop	
+ pdp_metro~	
+ pdp_mix2	
+ pdp_mix	
+ pdp_mul	
+ pdp_netsend	
+ pdp_noise	
+ pdp_not	
+ pdp_or	
+ pdp_plasma	
+ pdp_pointcloud	
+ pdp_positive	
+ pdp_qt~	
+ pdp_qt	
+ pdp_randmix	
+ pdp_rawin	
+ pdp_rawout	
+ pdp_reg	
+ pdp_rotate	
+ pdp_route	
+ pdp_scale	
+ pdp_scan~	
+ pdp_scanxy~	
+ pdp_scope~	
+ pdp_sign	
+ pdp_snap	
+ pdp_sthresh	
+ pdp_trigger	
+ pdp_v4l	
+ pdp_xor	
+ pdp_xv	
+ pdp_zoom	
+ pdp_zrot	
+ pdp_zthresh	
+pidip	additional video objects for Pure Data Packet
+ pdp_aa	
+ pdp_affine	
+ pdp_aging	
+ pdp_ascii	
+ pdp_background	
+ pdp_baltan	
+ pdp_binary	
+ pdp_cache	
+ pdp_canvas	
+ pdp_capture	
+ pdp_cmap	
+ pdp_colorgrid	
+ pdp_compose	
+ pdp_cropper	
+ pdp_ctrack	
+ pdp_cycle	
+ pdp_dice	
+ pdp_dilate	
+ pdp_disintegration	
+ pdp_distance	
+ pdp_edge	
+ pdp_erode	
+ pdp_fcqt	
+ pdp_fdiff	
+ pdp_ffmpeg~	
+ pdp_form	
+ pdp_fqt	
+ pdp_hitandmiss	
+ pdp_hue	
+ pdp_icedthe~	
+ pdp_ieee1394	
+ pdp_imgloader	
+ pdp_imgsaver	
+ pdp_intrusion	
+ pdp_juxta	
+ pdp_lens	
+ pdp_live~	
+ pdp_lumafilt	
+ pdp_mapper	
+ pdp_mgrid	
+ pdp_mosaic	
+ pdp_mp4live~	
+ pdp_mp4player~	
+ pdp_nervous	
+ pdp_noquark	
+ pdp_ocanvas	
+ pdp_pen	
+ pdp_puzzle	
+ pdp_qtext	
+ pdp_quark	
+ pdp_radioactiv	
+ pdp_rec~	
+ pdp_rev	
+ pdp_ripple	
+ pdp_segsnd~	
+ pdp_shagadelic	
+ pdp_shape	
+ pdp_simura	
+ pdp_smuck	
+ pdp_spigot	
+ pdp_spiral	
+ pdp_spotlight	
+ pdp_streaming	
+ pdp_text	
+ pdp_theonice~	
+ pdp_theorin~	
+ pdp_theorout~	
+ pdp_transform	
+ pdp_transition	
+ pdp_underwatch	
+ pdp_vertigo	
+ pdp_warhol	
+ pdp_warp	
+ pdp_xcanvas	
+ pdp_yqt	
+ pdp_yvu2rgb	
+ rs_pdp_icedthe~	
+ rs_pdp_live~	
+ rs_pdp_mp4player~	
+ rs_pdp_segsnd~	
+ rs_pdp_theonice~	
+ rs_pdp_theorin~	
+plugin~	LADSPA plug-in hosting for Pd
+pmpd:
+ iAmbient2D	
+ iAmbient3D	
+ iCircle2D	
+ iCircle3D	
+ iCylinder3D	
+ iLine2D	
+ iPlane3D	
+ iSeg2D	
+ iSphere3D	
+ link2D	
+ link3D	
+ link	
+ mass2D	
+ mass3D	
+ mass	
+ pmpd	
+ tCircle2D	
+ tCircle3D	
+ tCube3D	
+ tCylinder3D	
+ tLine2D	
+ tLink2D	
+ tLink3D	
+ tPlane3D	
+ tSeg2D	
+ tSphere3D	
+ tSquare2D	
+postlude/dssi~	a DSSI host for Pure Data
+postlude/flib
+ flib
+ mfcc
+ wdv
+postlude/getpatchname
+postlude/oscbonjour	a PD external for browsing/resolving and registering Bonjour/ZeroConf services
+pureunity	PureData's test framework
+rhytm_estimator:
+ rhythm_estimator	Pd patch implementing the algorithm
+ rhythm_ioi_histogram	Pd externs implementing parts of the algorithm
+ rhythm_quantum	 Pd externs implementing parts of the algorithm
+ rhythm_slave_metro Pd externs implementing parts of the algorithm
+ bang-eater.pd 
+ drumboy~.pd
+ drunk-metro.pd
+ ping~.pd
+signal:
+ bonk~	
+ expr~	
+ fiddle~	pitch estimator and sinusoidal peak finder
+ loop~	phase generator for looping samplers
+ lrshift~	shift signal vector elements left or right
+ pique	takes unwindowed FFT analyses as input and outputs a list of peaks
+sigpack signal object library for pure-data win-32 only
+ sp.chop~
+ sp.decimate~
+ sp.diode~
+ sp.foldback~
+ sp.foldover~
+ sp.freqdiv~
+ sp.freqshift~
+ sp.harmgen~
+ sp.rectify~
+ sp.round~
+ sp.saturate~
+ sp.sieve~
+ sp.split~
+ sp.ustep~
+ sp.vowel~
+smlib:	 Signal processing for Mapping
+ bp	bandpass filter on float stream
+ deltas	generates vector with differences between last input and past inputs
+ hip	highpass filter on float stream
+ hist	histograms
+ itov	intex to value
+ lavg	leaky average
+ lhist	"leaky" histograms
+ lhisti	"leaky" histograms without clipping the input
+ linspace	generates a vector with linear spaced floats
+ lmax	leaky maximum
+ lmin	leaky minimum
+ lrange	leaky maximum minus leaky minimum
+ prevl	generates vector with past input values (float)
+ threshold	monitors its input float stream and outputs bangs when the signal exceeds a specified "trigger" value
+ vabs	
+ vclip	clips each element in a vector
+ vcog	computes the center of gravity of a list of floats
+ vdbtorms	db to rms on a vector
+ vdelta	difference between consecutive vectors
+ vfmod	computes the modulo of each element in a vector
+ vftom	frequency to midi on a vector
+ vlavg	vector leaky average
+ vlmax	vector leaky maximum
+ vlmin	vector leaky minimum
+ vmax	computes maximum of a list of floats
+ vmin	computes minimum of a list of floats
+ vmtof	midi to frequency on a vector
+ vpow	computes y(i)=x(i)^a
+ vrms	computes the root-mean-square of a vector
+ vrmstodb	frequency to midi on a vector
+ vstd	computes the standard deviation of a vector
+ vsum	computes the sum of a list of floats
+ vvconv	convolution of 2 vectors
+ vv-	substracts two lists of floats or a float to a list of floats
+ vv+	adds two lists of floats or a float to a list of floats
+sprinkler	dynamic control-message dissemination
+susloop~
+tb:
+ assert
+ block_delay~	pass through the signal with a delay of 1 block
+ Buzz~	direct port of sndobj's Buzz
+ chaos	
+ detach	the message to the inlet will be sent to the outlet, but all functions called as result of this message run in a helper thread
+ erf~	Error function for pd
+ erfc~	Complementary error function for pd
+ init_keyword	
+ jack_transport	Jack interface
+ join	the message to the inlet will be sent to the outlet during the next idle callback of the scheduler
+ sc4pd	SuperCollider for PureData
+ sndfiler	a threaded soundfiler for PD using libsndfile
+ StringFlt~	direct port of sndobj's StringFlt
+ tbext:
+  bufline~
+  him 
+  reverse
+  shuf
+  sort
+  tbfft1
+  tbfft2
+  tbroute~
+  tbroute
+  tbsig~
+  tbstrg
+ volctl~	fast and smooth volume control external
+ xvalue	extended (settable) value object
+unauthorized
+ audience~	is a moving audience simulation
+ beatify~	an audio amplitude modulator
+ blinkenlights	blinkenlights movies player
+ compressor~	an audio compressor
+ cooled~	a micro sound editor
+ countund	Count up to a limit and then down to zero
+ disto~	distortion with highpass and lowpass filters
+ exciter	controls a list of bang-events scheduled in time
+ filterbank~	outputs the frequency response against a set of band-pass filters
+ formant~	synthesis as described by JP Smets
+ grid	2-dimensional control object
+ mp3amp~	an icecast/shoucast client for PD
+ mp3cast~
+ mp3live~	peer-to-peer mp3 streaming
+ mp3streamin~	peer-to-peer mp3 streaming
+ mp3streamout~	peer-to-peer mp3 streaming
+ mp3write~	
+ pianoroll	controls two parameters for a sequencer
+ playlist	choose a file in 1 click
+ probalizer	output serial of integers according to the probability curve
+ randomblock~	Generates an audio block starting at a random value
+ samplebox~	records and plays back a sound
+ scratcher~	Playing with the block size
+ scrolllist	Scrollist lets you display text items in a patch window
+ sonogram~
+ speex~	speech quality encoder/decoder/streamer
+ spigot~	sends its signal to its right or left outlet
+ stkdrone~	Object to embed stk-based drone synthesis
+ stksitar~	Object to embed stk-based sitar synthesis
+ vocoder~	vocoder effect
+ wahwah~	used in psychedelic music
+vbap:
+ define_loudspeakers	used to list the speaker positions
+ playsample~
+ recent
+ rvbap
+ vbap
+vst
+zexy
+ a2l	convert "anything" to lists
+ absgn~	
+ abs~	absolute value of a signal
+ any2list	convert "anything" to lists
+ cart2pol	convert cartesian coordinates to polar coordinates
+ cart2sph	convert cartesian coordinates to spheric coordinates
+ deg2rad	convert DEGree to RADian
+ <~-help	comparing 2 signals
+ ==~-help	comparing 2 signals
+ >~-help	comparing 2 signals
+ ||~-help	comparing 2 signals
+ &&~-help	comparing 2 signals
+ length	get the length of a list
+ mavg	moving average filter
+ mean	get the mean value of a list of floats
+ minmax	get minimum and maximum of a (list of floats)
+ nop~	will do nothing !!!
+ nop	it just passes through what it gets
+ pol2cart	convert polar coordinates to cartesian coordinates
+ pol2sph	convert polar coordinates to spherical coordinates
+ polyfun	calculate a polynomial function
+ rad2deg	convert RADian and DEGree
+ repack	(re)packs (packages of) floats/symbols/pointers/anythings
+ segregate	segregates the inputs by their type
+ sgn~	signum of a signal
+ sph2cart	convert spherical coordinates to cartesian coordinates
+ sph2pol	convert spherical coordinates to polar coordinates
+ sum	sum the elements of a list
+ uniqsym	remove duplicate symbols from a list or a stream

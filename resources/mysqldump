@@ -1,0 +1,27 @@
++----+------------+---------+-------------------------------------------------+
+| id | datum      | uhrzeit | beschreibung                                    |
++----+------------+---------+-------------------------------------------------+
+|  6 | 2009-10-09 | NULL    | Tag der Ente                                    |
+| 12 | 2010-10-25 | 16:15   | dbs besprechung 1, E 1.1, 2. Stock, seminarraum |
+|  9 | 2010-10-25 | 20:30   | Abflug Tuerkei                                  |
+| 17 | 2010-10-27 | 16:00   | android 2nd meeting                             |
+| 13 | 2010-10-29 | 10:15   | dbs besprechung 2 (wichtig), MPI 0.23           |
+| 10 | 2010-11-01 | 18:30   | Ankunft tuerkei                                 |
+| 11 | 2010-11-06 |         | haengertag                                      |
+| 16 | 2010-11-10 | 16:00   | tutorielle systeme vortrag                      |
+| 15 | 2010-11-30 | 14:00   | cloud computing opponent                        |
+| 14 | 2010-12-07 | 14:00   | cloud computing vortrag                         |
+|  8 | 2011-02-11 | NULL    | exam soft engineering                           |
++----+------------+---------+-------------------------------------------------+
+
+
++----------------------------------------------------+-----------------------+-----------------+------------+------------------------------------------------------------------+
+| name                                               | time                  | room            | registered | website                                                          |
++----------------------------------------------------+-----------------------+-----------------+------------+------------------------------------------------------------------+
+| Software Engineering                               | Di+Do 16-18 ab 26.10. | E1.3, HS2       |          0 | http://www.st.cs.uni-saarland.de/edu/se/2010/                    |
+| Intelligente Tutorielle Systeme                    | Mi 16-18              | E 1.7 001       |          1 | http://www.ags.uni-sb.de/~horacek/int-tutor.html                 |
+| Data Stream Mining                                 | Fr 16:00              | E1.7 001        |          0 | http://qid3.mmci.uni-saarland.de/teaching/ws10/datastreammining/ |
+| Current Research in Databases and Information Syst | 25.10. 16:15          |                 |          1 | http://infosys.cs.uni-saarland.de/crsem1011.php                  |
+| Developing Android Applications to Digitize Your L | Di.. 16-18            | D 3.2, Reuse    |          1 | NULL                                                             |
+| Cloud Computing                                    | Di. 14:00             | E 1.7, Raum 001 |          0 | http://bit.ly/ccseminar                                          |
++----------------------------------------------------+-----------------------+-----------------+------------+------------------------------------------------------------------+

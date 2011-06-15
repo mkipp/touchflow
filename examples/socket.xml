@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<InModulix><modul id="52" type="Mouse2D" graphXPos="179" graphYPos="142" /><modul id="53" type="Socket2D" graphXPos="370" graphYPos="72" Constructor="1234 localhost" OUTModulID="52" OUTPinName="POSITION" /><modul id="54" type="Print2D" graphXPos="373" graphYPos="196" INModulID="52" INPinName="POSITION" /></InModulix>

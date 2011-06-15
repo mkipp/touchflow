@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<InModulix><modul id="22" type="Pitch" graphXPos="77" graphYPos="262" /><modul id="23" type="Shift" graphXPos="267" graphYPos="79" INModulID="27" INPinName="OUT" AMOUNTModulID="26" AMOUNTPinName="CONST" /><modul id="26" type="Const" graphXPos="81" graphYPos="126" Constructor="-218.0" /><modul id="27" type="Amplitude" graphXPos="87" graphYPos="-5" /></InModulix>

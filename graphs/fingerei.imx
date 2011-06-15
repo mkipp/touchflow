@@ -1,0 +1,30 @@
+<modul>
+   id 0
+   type Finger
+   Constructor 0
+   // OUTPIN X
+   // OUTPIN Y
+</modul>
+<modul>
+   id 1
+   type Finger
+   Constructor 1
+   // OUTPIN X
+   // OUTPIN Y
+</modul>
+<modul>
+   id 2
+   type Finger
+   Constructor 2
+   // OUTPIN X
+   // OUTPIN Y
+</modul>
+<modul>
+   id 3
+   type MultiPrintF
+   Constructor Mouse status: F1X:%1 F1Y:%2 F2X:%3 F2Y:%4
+   INPIN DATA1 0 X
+   INPIN DATA2 0 Y
+   INPIN DATA3 1 X
+   INPIN DATA4 1 Y
+</modul>

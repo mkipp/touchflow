@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="gcc -export-dynamic -Xlinker -g -shared">
+      <target file="libpdj.so" lastModified="12b259cab70">
+         <source file="../work/MaxClock.o" lastModified="12b259ca3a0"/>
+         <source file="../work/pdj.o" lastModified="12b259ca3a0"/>
+         <source file="../work/pdj~.o" lastModified="12b259ca3a0"/>
+         <source file="../work/type_handler.o" lastModified="12b259ca788"/>
+         <source file="../work/MSPBuffer.o" lastModified="12b259ca788"/>
+         <source file="../work/pdj-linux.o" lastModified="12b259ca788"/>
+         <source file="../work/MaxObject.o" lastModified="12b259ca788"/>
+         <source file="../work/init.o" lastModified="12b259ca788"/>
+         <source file="../work/MaxSystem.o" lastModified="12b259cab70"/>
+      </target>
+   </processor>
+</history>

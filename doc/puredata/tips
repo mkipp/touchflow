@@ -1,0 +1,8 @@
+pdj compilen: 
+  - SUN-jdk installieren, andere gehen nciht
+  - Umgebungsvariable C_INCLUDE_PATH auf path des include-ordners in der jdk setzen
+
+external in puredata benutzen:
+- Hauptfenster: File->Paths, dort den dist-Unterordner von pdj einfügen
+- objekt einbinden per "pdj <classname des objektes>"
+
