@@ -17,7 +17,7 @@ import de.embots.touchflow.gui.components.optionpane.NumberAttribute;
 import de.embots.touchflow.gui.components.optionpane.OptionPane;
 import de.embots.touchflow.gui.components.optionpane.StringAttribute;
 import de.embots.touchflow.module.core.OutputModule;
-import de.embots.touchflow.module.core.pinName;
+import de.embots.touchflow.module.core.PinName;
 import de.embots.touchflow.module.pin.InputPin;
 import de.embots.touchflow.module.pin.InputPin2D;
 
@@ -29,7 +29,7 @@ public class Socket2D extends OutputModule {
 	
 	public Socket2D(){
 		inputPins=new InputPin[1];
-		inputPins[0]=new InputPin2D(pinName.OUT,this);
+		inputPins[0]=new InputPin2D(PinName.OUT,this);
 		
 		
 	}
@@ -60,8 +60,8 @@ public class Socket2D extends OutputModule {
 			e1.printStackTrace();
 		}
 		
-		data=getInputPin(pinName.OUT).getData();
-		data2=getInputPin2D(pinName.OUT).getData2();
+		data=getInputPin(PinName.OUT).getData();
+		data2=getInputPin2D(PinName.OUT).getData2();
 		String msg=data+";"+data2;
 		
 		//send msg

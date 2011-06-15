@@ -3,7 +3,7 @@ package de.embots.touchflow.module.implementation.modify;
 import java.awt.Point;
 
 import de.embots.touchflow.module.core.ModifyModule;
-import de.embots.touchflow.module.core.pinName;
+import de.embots.touchflow.module.core.PinName;
 import de.embots.touchflow.module.pin.InputPin;
 import de.embots.touchflow.module.pin.InputPin2D;
 import de.embots.touchflow.module.pin.OutputPin;
@@ -46,7 +46,7 @@ public class MapPosSquare2D extends ModifyModule{
 		
 		inputPins=new InputPin[1];
 		
-		inputPins[0]=new InputPin2D(pinName.POSITION, this);
+		inputPins[0]=new InputPin2D(PinName.POSITION, this);
 		
 			
 		
@@ -54,7 +54,7 @@ public class MapPosSquare2D extends ModifyModule{
 		
 
 		for (int i=0; i<outputPins.length;i++){
-			outputPins[i]=new OutputPin(pinName.values()[i+1],this); //+1 damit POS (inputPin) nicht doppelt vergeben wird
+			outputPins[i]=new OutputPin(PinName.values()[i+1],this); //+1 damit POS (inputPin) nicht doppelt vergeben wird
 		}
 		
 	}
@@ -90,7 +90,7 @@ public class MapPosSquare2D extends ModifyModule{
 		
 
 		for (int i=0; i<outputPins.length;i++){
-			outputPins[i]=new OutputPin(pinName.values()[i+1],this); //+1 damit POS (inputPin) nicht doppelt vergeben wird
+			outputPins[i]=new OutputPin(PinName.values()[i+1],this); //+1 damit POS (inputPin) nicht doppelt vergeben wird
 		}
 	}
 
@@ -134,7 +134,7 @@ public class MapPosSquare2D extends ModifyModule{
 	@Override
 	protected void processData() throws ModulException {
 		
-		InputPin2D act=getInputPin2D(pinName.POSITION);
+		InputPin2D act=getInputPin2D(PinName.POSITION);
 		
 		Point p=new Point((int)act.getData(),(int)act.getData2());
 		

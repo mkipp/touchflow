@@ -7,7 +7,7 @@ import java.awt.MouseInfo;
 import java.awt.Point;
 
 import de.embots.touchflow.module.core.InputModule;
-import de.embots.touchflow.module.core.pinName;
+import de.embots.touchflow.module.core.PinName;
 import de.embots.touchflow.module.pin.OutputPin;
 import de.embots.touchflow.module.pin.OutputPin2D;
 
@@ -27,11 +27,11 @@ public class Mouse2D extends InputModule{
 	protected void processData() throws ModulException {
 		Point pos=MouseInfo.getPointerInfo().getLocation();
 		
-		getOutputPin2D(pinName.POSITION).writeData(pos.x);
-		getOutputPin2D(pinName.POSITION).writeData2(pos.y);
+		getOutputPin2D(PinName.POSITION).writeData(pos.x);
+		getOutputPin2D(PinName.POSITION).writeData2(pos.y);
 		
 		if (attachedComponent!= null){
-			getOutputPin(pinName.SCROLL).writeData(attachedComponent.getScrollNumber());
+			getOutputPin(PinName.SCROLL).writeData(attachedComponent.getScrollNumber());
 		}
 	}
 
@@ -39,11 +39,11 @@ public class Mouse2D extends InputModule{
 		super();
 		
 		outputPins=new OutputPin[2];
-		outputPins[0]=new OutputPin2D(pinName.POSITION,this);
-		outputPins[1]=new OutputPin(pinName.SCROLL,this);
+		outputPins[0]=new OutputPin2D(PinName.POSITION,this);
+		outputPins[1]=new OutputPin(PinName.SCROLL,this);
 		
-		addPortMapEntry(4, pinName.POSITION);
-		addPortMapEntry(7, pinName.SCROLL);
+		addPortMapEntry(4, PinName.POSITION);
+		addPortMapEntry(7, PinName.SCROLL);
 
 	}
 

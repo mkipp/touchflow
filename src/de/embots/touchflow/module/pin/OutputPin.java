@@ -1,7 +1,7 @@
 package de.embots.touchflow.module.pin;
 
 import de.embots.touchflow.module.core.Module;
-import de.embots.touchflow.module.core.pinName;
+import de.embots.touchflow.module.core.PinName;
 
 public class OutputPin extends Pin{
 
@@ -20,7 +20,7 @@ public class OutputPin extends Pin{
 		dataLock.unlock();
 	}
 
-	public OutputPin(pinName name, Module parentModul) {
+	public OutputPin(PinName name, Module parentModul) {
 		super(name, parentModul);
 	}
 

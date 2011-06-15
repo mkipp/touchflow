@@ -10,7 +10,7 @@ import de.embots.touchflow.gui.components.optionpane.StringAttribute;
 import java.awt.event.KeyEvent;
 
 import de.embots.touchflow.module.core.InputModule;
-import de.embots.touchflow.module.core.pinName;
+import de.embots.touchflow.module.core.PinName;
 import de.embots.touchflow.module.pin.OutputPin;
 
 import org.jdom.Element;
@@ -79,21 +79,21 @@ public class Keyboard extends InputModule  {
 		super();
 		KeyCode=keyCode;
 		outputPins=new OutputPin[1];
-		outputPins[0]=new OutputPin(pinName.PRESSED,this);
+		outputPins[0]=new OutputPin(PinName.PRESSED,this);
 
 		
 		//PortMap
-		addPortMapEntry(4, pinName.PRESSED);
+		addPortMapEntry(4, PinName.PRESSED);
 	}
 
 	@Override
 	protected void processData() throws ModulException {
 		if (attachedComponent!=null){
 			if (attachedComponent.isKeyDown(KeyCode)){
-				getOutputPin(pinName.PRESSED).writeData(1);
+				getOutputPin(PinName.PRESSED).writeData(1);
 			}
 			else{
-				getOutputPin(pinName.PRESSED).writeData(0);
+				getOutputPin(PinName.PRESSED).writeData(0);
 			}
 		}
 	}

@@ -1,8 +1,5 @@
-package de.embots.touchflow.gui;
+package de.embots.touchflow;
 
-import de.embots.touchflow.gui.ToolBox;
-import de.embots.touchflow.gui.NodeStorage;
-import de.embots.touchflow.gui.IXMarqueeHandler;
 import de.embots.touchflow.exceptions.ModulException;
 import de.embots.touchflow.exceptions.ParserException;
 import de.embots.touchflow.gui.components.GraphModul;
@@ -38,7 +35,6 @@ import javax.swing.JMenuItem;
 import javax.swing.JScrollPane;
 import javax.swing.ToolTipManager;
 import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.event.MouseInputListener;
 
 import de.embots.touchflow.module.Globals;
@@ -48,7 +44,7 @@ import de.embots.touchflow.module.core.ModifyModule;
 import de.embots.touchflow.module.core.Module;
 import de.embots.touchflow.module.core.ModuleGraph;
 import de.embots.touchflow.module.core.OutputModule;
-import de.embots.touchflow.module.core.pinName;
+import de.embots.touchflow.module.core.PinName;
 import de.embots.touchflow.module.implementation.input.stantum.SMTListeningSocket;
 import de.embots.touchflow.module.pin.InputPin;
 import de.embots.touchflow.module.pin.OutputPin;
@@ -66,12 +62,16 @@ import org.jgraph.graph.PortView;
 
 import de.embots.touchflow.util.RAClass;
 import de.embots.touchflow.controller.XMLParser;
+import de.embots.touchflow.gui.IXMarqueeHandler;
+import de.embots.touchflow.gui.NodeStorage;
+import de.embots.touchflow.gui.ToolBox;
 
-
+/**
+ * Main class for the TouchFlow tool. Assigns TouchFlow instance to a 
+ * static field, making it a singleton. Also, the graph (based on JGraph)
+ * is kept in a static field.
+ */
 public class TouchFlow implements MouseInputListener{
-	
-	//private static ArrayList<GraphModul> nodes=new ArrayList<GraphModul>();
-	//private static ArrayList<DefaultEdge> edges=new ArrayList<DefaultEdge>();
 	
 	private static PortView firstPort=null;
 	private static MyJGraph graph;
@@ -157,33 +157,7 @@ public class TouchFlow implements MouseInputListener{
 		graph.setScale(ScaleRate);
 		graph.setSize((int)(graph.getWidth() * percentscale) ,(int) (graph.getHeight()*percentscale));
 	}
-	public static void main(String[] args) throws InterruptedException  {
-		
-		
-		if (alreadyRunning()){
-			RAClass.msgbox("TouchFlow is already running. Please close the older instance.", "Touchflow", "Error");
-			return;
-		}
-
-		
-		graphTool=new TouchFlow();
-		if (args.length==1){
-			try {
-				synchronized(Thread.currentThread()){
-					Thread.currentThread().wait(500);
-				}
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			graphTool.loadGraph(args[0]);
-		}
-		if (args.length >1){
-			RAClass.msgbox("Obsolete parameter: only one (<path>) is allowed", "Touchflow", "Warning");
-		}
-		
-		
-	}
+	
 
 
 	private static boolean alreadyRunning() {
@@ -239,7 +213,7 @@ public class TouchFlow implements MouseInputListener{
 		    createFrame();
 		    
 		}
-		private PinPort attachPin(GraphModul knoten, pinName pinname) throws ModulException {
+		private PinPort attachPin(GraphModul knoten, PinName pinname) throws ModulException {
 			
 			   Pin p=knoten.getPin(pinname);
 			   PinPort port = new PinPort(p);
@@ -533,6 +507,12 @@ public class TouchFlow implements MouseInputListener{
 //			System.err.println("Port Index not found!");
 //			return -1;
 		}
+                
+                /**
+                 * Loads graph from given file, removing the old one.
+                 * 
+                 * @param lastFile Path as string
+                 */
 		public void loadGraph(String lastFile) {
 			ModuleGraph mgraph;
 			
@@ -707,4 +687,32 @@ public class TouchFlow implements MouseInputListener{
 		    ToolTipManager.sharedInstance().registerComponent(graph);
 
 		}
+                
+                public static void main(String[] args) throws InterruptedException  {
+		
+		
+                    if (alreadyRunning()){
+                            RAClass.msgbox("TouchFlow is already running. Please close the older instance.", "Touchflow", "Error");
+                            return;
+                    }
+
+
+                    graphTool=new TouchFlow();
+                    if (args.length==1){
+                            try {
+                                    synchronized(Thread.currentThread()){
+                                            Thread.currentThread().wait(500);
+                                    }
+                            } catch (InterruptedException e) {
+                                    // TODO Auto-generated catch block
+                                    e.printStackTrace();
+                            }
+                            graphTool.loadGraph(args[0]);
+                    }
+                    if (args.length >1){
+                            RAClass.msgbox("Obsolete parameter: only one (<path>) is allowed", "Touchflow", "Warning");
+                    }
+
+
+	}
 }

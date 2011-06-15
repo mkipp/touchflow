@@ -1,7 +1,7 @@
 package de.embots.touchflow.module.implementation.modify;
 
 import de.embots.touchflow.module.core.ModifyModule;
-import de.embots.touchflow.module.core.pinName;
+import de.embots.touchflow.module.core.PinName;
 import de.embots.touchflow.module.pin.InputPin;
 import de.embots.touchflow.module.pin.InputPin2D;
 import de.embots.touchflow.module.pin.OutputPin;
@@ -16,12 +16,12 @@ public class Multiply2D extends ModifyModule {
 
 	public Multiply2D() {
 		inputPins=new InputPin[2];
-		inputPins[0]=new InputPin2D(pinName.IN,this);
-		inputPins[1]=new InputPin(pinName.SCALE,this);
+		inputPins[0]=new InputPin2D(PinName.IN,this);
+		inputPins[1]=new InputPin(PinName.SCALE,this);
 		inputPins[1].setDefaultData(1); //default scale: 1
 		
 		outputPins=new OutputPin[1];
-		outputPins[0]=new OutputPin2D(pinName.OUT,this);
+		outputPins[0]=new OutputPin2D(PinName.OUT,this);
 
 	}
 
@@ -36,13 +36,13 @@ public class Multiply2D extends ModifyModule {
 	}
 	@Override
 	protected void processData() throws ModulException {
-		InputPin2D in=getInputPin2D(pinName.IN);
-		OutputPin2D out=getOutputPin2D(pinName.OUT);
+		InputPin2D in=getInputPin2D(PinName.IN);
+		OutputPin2D out=getOutputPin2D(PinName.OUT);
 		
 		double inData=in.getData();
 		double inData2=in.getData2();
 		
-		double scaler=getInputPin(pinName.SCALE).getData();
+		double scaler=getInputPin(PinName.SCALE).getData();
 		inData *=scaler;
 		inData2 *=scaler;
 

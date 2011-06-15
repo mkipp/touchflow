@@ -6,7 +6,7 @@ import de.embots.touchflow.gui.components.optionpane.Attribute;
 import de.embots.touchflow.gui.components.optionpane.NumberAttribute;
 import de.embots.touchflow.gui.components.optionpane.OptionPane;
 import de.embots.touchflow.module.core.ModifyModule;
-import de.embots.touchflow.module.core.pinName;
+import de.embots.touchflow.module.core.PinName;
 import de.embots.touchflow.module.pin.InputPin;
 import de.embots.touchflow.module.pin.InputPin2D;
 import de.embots.touchflow.module.pin.OutputPin;
@@ -68,10 +68,10 @@ public class StabilityFilter2D extends ModifyModule {
 		threshold=Threshold;
 		this.maxDist=maxDist;
 		inputPins=new InputPin[1];
-		inputPins[0]=new InputPin2D(pinName.IN, this);
+		inputPins[0]=new InputPin2D(PinName.IN, this);
 		
 		outputPins=new OutputPin[1];
-		outputPins[0]=new OutputPin2D(pinName.OUT, this);
+		outputPins[0]=new OutputPin2D(PinName.OUT, this);
 
 	}
 	
@@ -90,16 +90,16 @@ public class StabilityFilter2D extends ModifyModule {
 		
 		//init
 		if (oldX==-1){
-			oldX=getInputPin2D(pinName.IN).getData();
-			oldY=getInputPin2D(pinName.IN).getData2();
+			oldX=getInputPin2D(PinName.IN).getData();
+			oldY=getInputPin2D(PinName.IN).getData2();
 			
-			getOutputPin2D(pinName.OUT).writeData(oldX);
-			getOutputPin2D(pinName.OUT).writeData2(oldY);
+			getOutputPin2D(PinName.OUT).writeData(oldX);
+			getOutputPin2D(PinName.OUT).writeData2(oldY);
 			return;
 		}
 		
-		double curX=getInputPin2D(pinName.IN).getData();
-		double curY=getInputPin2D(pinName.IN).getData2();
+		double curX=getInputPin2D(PinName.IN).getData();
+		double curY=getInputPin2D(PinName.IN).getData2();
 		
 		double dist=Math.sqrt((curX-oldX)*(curX-oldX) + (curY-oldY)*(curY-oldY));
 		
@@ -124,8 +124,8 @@ public class StabilityFilter2D extends ModifyModule {
 			}
 		}
 		
-		getOutputPin2D(pinName.OUT).writeData(oldX);
-		getOutputPin2D(pinName.OUT).writeData2(oldY);
+		getOutputPin2D(PinName.OUT).writeData(oldX);
+		getOutputPin2D(PinName.OUT).writeData2(oldY);
 
 	}
 

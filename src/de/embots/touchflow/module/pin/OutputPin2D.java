@@ -1,7 +1,7 @@
 package de.embots.touchflow.module.pin;
 
 import de.embots.touchflow.module.core.Module;
-import de.embots.touchflow.module.core.pinName;
+import de.embots.touchflow.module.core.PinName;
 
 public class OutputPin2D extends OutputPin {
 	@Override
@@ -13,7 +13,7 @@ public class OutputPin2D extends OutputPin {
 	public double data2;
 	private double lastDrawData2;
 	
-	public OutputPin2D(pinName name, Module parentModul) {
+	public OutputPin2D(PinName name, Module parentModul) {
 		super(name, parentModul);
 		// TODO Auto-generated constructor stub
 	}

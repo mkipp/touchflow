@@ -5,7 +5,7 @@ import de.embots.touchflow.gui.components.optionpane.Attribute;
 import de.embots.touchflow.gui.components.optionpane.OptionPane;
 import de.embots.touchflow.gui.components.optionpane.StringAttribute;
 import de.embots.touchflow.module.core.OutputModule;
-import de.embots.touchflow.module.core.pinName;
+import de.embots.touchflow.module.core.PinName;
 import de.embots.touchflow.module.pin.InputPin;
 
 import org.jdom.Element;
@@ -38,10 +38,10 @@ public class FormattedOut extends OutputModule {
 		this.formatString=formatString;
 		
 		inputPins=new InputPin[4];
-		inputPins[0]=new InputPin(pinName.DATA1,this);
-		inputPins[1]=new InputPin(pinName.DATA2,this);
-		inputPins[2]=new InputPin(pinName.DATA3,this);
-		inputPins[3]=new InputPin(pinName.DATA4,this);
+		inputPins[0]=new InputPin(PinName.DATA1,this);
+		inputPins[1]=new InputPin(PinName.DATA2,this);
+		inputPins[2]=new InputPin(PinName.DATA3,this);
+		inputPins[3]=new InputPin(PinName.DATA4,this);
 		oldVals=new double[4];
 
 	}
@@ -54,10 +54,10 @@ public class FormattedOut extends OutputModule {
 	protected void processData() throws ModulException {
 		String tmp=formatString;
 		
-		tmp=tmp.replaceAll("%1", getInputPin(pinName.DATA1).getData()+"");
-		tmp=tmp.replaceAll("%2", getInputPin(pinName.DATA2).getData()+"");
-		tmp=tmp.replaceAll("%3", getInputPin(pinName.DATA3).getData()+"");
-		tmp=tmp.replaceAll("%4", getInputPin(pinName.DATA4).getData()+"");
+		tmp=tmp.replaceAll("%1", getInputPin(PinName.DATA1).getData()+"");
+		tmp=tmp.replaceAll("%2", getInputPin(PinName.DATA2).getData()+"");
+		tmp=tmp.replaceAll("%3", getInputPin(PinName.DATA3).getData()+"");
+		tmp=tmp.replaceAll("%4", getInputPin(PinName.DATA4).getData()+"");
 		
 		boolean changed=false;
 		

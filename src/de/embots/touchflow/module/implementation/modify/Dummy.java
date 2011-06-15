@@ -1,7 +1,7 @@
 package de.embots.touchflow.module.implementation.modify;
 
 import de.embots.touchflow.module.core.ModifyModule;
-import de.embots.touchflow.module.core.pinName;
+import de.embots.touchflow.module.core.PinName;
 import de.embots.touchflow.module.pin.InputPin;
 import de.embots.touchflow.module.pin.OutputPin;
 
@@ -14,15 +14,15 @@ public class Dummy extends ModifyModule {
 
 	@Override
 	protected void processData() throws ModulException {
-		getOutputPin(pinName.OUT).writeData(getInputPin(pinName.IN).getData());
+		getOutputPin(PinName.OUT).writeData(getInputPin(PinName.IN).getData());
 
 	}
 	
 	public Dummy(){
 		inputPins=new InputPin[1];
-		inputPins[0]=new InputPin(pinName.IN,this);
+		inputPins[0]=new InputPin(PinName.IN,this);
 		outputPins=new OutputPin[1];
-		outputPins[0]=new OutputPin(pinName.OUT,this);
+		outputPins[0]=new OutputPin(PinName.OUT,this);
 		
 
 	}

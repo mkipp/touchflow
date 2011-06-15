@@ -6,7 +6,7 @@ import de.embots.touchflow.gui.components.optionpane.Attribute;
 import de.embots.touchflow.gui.components.optionpane.NumberAttribute;
 import de.embots.touchflow.gui.components.optionpane.OptionPane;
 import de.embots.touchflow.module.core.InputModule;
-import de.embots.touchflow.module.core.pinName;
+import de.embots.touchflow.module.core.PinName;
 import de.embots.touchflow.module.pin.OutputPin;
 import de.embots.touchflow.module.pin.OutputPin2D;
 
@@ -57,8 +57,8 @@ public class Const2D extends InputModule {
 	@Override
 	protected void processData() throws ModulException {
 		//einfach den Wert auf den Output schreiben
-		getOutputPin(pinName.CONST).writeData(Konstante);
-		getOutputPin2D(pinName.CONST).writeData2(Konstante2);
+		getOutputPin(PinName.CONST).writeData(Konstante);
+		getOutputPin2D(PinName.CONST).writeData2(Konstante2);
 	}
 	
 	public Const2D() throws ModulException{
@@ -68,9 +68,9 @@ public class Const2D extends InputModule {
 		this.Konstante=Konstante;
 		this.Konstante2=Konstante2;
 		outputPins=new OutputPin[1];
-		outputPins[0]=new OutputPin2D(pinName.CONST,this);
+		outputPins[0]=new OutputPin2D(PinName.CONST,this);
 
-		addPortMapEntry(4, pinName.CONST);
+		addPortMapEntry(4, PinName.CONST);
 	}
 	
 	

@@ -1,7 +1,7 @@
 package de.embots.touchflow.gui.components;
 
 import de.embots.touchflow.gui.inspector.StringOP;
-import de.embots.touchflow.gui.TouchFlow;
+import de.embots.touchflow.TouchFlow;
 
 import java.awt.Color;
 import java.awt.Font;

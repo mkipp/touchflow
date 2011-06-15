@@ -1,7 +1,7 @@
 package de.embots.touchflow.module.implementation.modify;
 
 import de.embots.touchflow.module.core.ModifyModule;
-import de.embots.touchflow.module.core.pinName;
+import de.embots.touchflow.module.core.PinName;
 import de.embots.touchflow.module.pin.InputPin;
 import de.embots.touchflow.module.pin.OutputPin;
 
@@ -14,12 +14,12 @@ public class Multiply extends ModifyModule {
 
 	public Multiply() {
 		inputPins=new InputPin[2];
-		inputPins[0]=new InputPin(pinName.IN,this);
-		inputPins[1]=new InputPin(pinName.SCALE,this);
+		inputPins[0]=new InputPin(PinName.IN,this);
+		inputPins[1]=new InputPin(PinName.SCALE,this);
 		inputPins[1].setDefaultData(1); //default scale: 1
 		
 		outputPins=new OutputPin[1];
-		outputPins[0]=new OutputPin(pinName.OUT,this);
+		outputPins[0]=new OutputPin(PinName.OUT,this);
 
 	}
 
@@ -36,11 +36,11 @@ public class Multiply extends ModifyModule {
 	
 	@Override
 	protected void processData() throws ModulException {
-		double inData=getInputPin(pinName.IN).getData();
-		double scaler=getInputPin(pinName.SCALE).getData();
+		double inData=getInputPin(PinName.IN).getData();
+		double scaler=getInputPin(PinName.SCALE).getData();
 		inData *=scaler;
 
-		getOutputPin(pinName.OUT).writeData(inData);
+		getOutputPin(PinName.OUT).writeData(inData);
 	}
 
 	@Override

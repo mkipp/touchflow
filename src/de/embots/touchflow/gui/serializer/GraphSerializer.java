@@ -1,7 +1,7 @@
 package de.embots.touchflow.gui.serializer;
 
 import de.embots.touchflow.exceptions.ModulException;
-import de.embots.touchflow.gui.TouchFlow;
+import de.embots.touchflow.TouchFlow;
 import de.embots.touchflow.gui.components.GraphModul;
 import de.embots.touchflow.gui.components.PinPort;
 
@@ -12,7 +12,7 @@ import java.util.HashMap;
 import de.embots.touchflow.module.Globals;
 import de.embots.touchflow.module.core.Module;
 import de.embots.touchflow.module.core.ModuleGraph;
-import de.embots.touchflow.module.core.pinName;
+import de.embots.touchflow.module.core.PinName;
 import de.embots.touchflow.module.pin.InputPin;
 import de.embots.touchflow.module.pin.OutputPin;
 
@@ -40,7 +40,7 @@ public class GraphSerializer {
 				if (m.getInputPins()[i].getConnectedPin()!=null){
 					//establish connection
 					Module src=m.getInputPins()[i].getConnectedPin().getParentModul();
-					pinName srcName=m.getInputPins()[i].getConnectedPin().getName();
+					PinName srcName=m.getInputPins()[i].getConnectedPin().getName();
 					
 					jgraph.createEdge(tmp.get(src), tmp.get(src).getPinID(src, srcName), tmp.get(m), i);
 				}
@@ -75,8 +75,8 @@ public class GraphSerializer {
 		
 		PinPort srcPort=(PinPort) edge.getSource();
 		PinPort tarPort=(PinPort) edge.getTarget();
-		pinName quelle=srcPort.getPin().getName();
-		pinName ziel=tarPort.getPin().getName();
+		PinName quelle=srcPort.getPin().getName();
+		PinName ziel=tarPort.getPin().getName();
 		
 		GraphModul srcMod=(GraphModul) srcPort.getParent();
 		GraphModul destMod=(GraphModul) tarPort.getParent();

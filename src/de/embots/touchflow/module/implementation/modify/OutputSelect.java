@@ -1,7 +1,7 @@
 package de.embots.touchflow.module.implementation.modify;
 
 import de.embots.touchflow.module.core.ModifyModule;
-import de.embots.touchflow.module.core.pinName;
+import de.embots.touchflow.module.core.PinName;
 import de.embots.touchflow.module.pin.InputPin;
 import de.embots.touchflow.module.pin.OutputPin;
 
@@ -14,18 +14,18 @@ public class OutputSelect extends ModifyModule {
 
 	public OutputSelect() throws ModulException {
 		inputPins=new InputPin[2];
-		inputPins[0]=new InputPin(pinName.DATA,this);
-		inputPins[1]=new InputPin(pinName.SELECT,this);
+		inputPins[0]=new InputPin(PinName.DATA,this);
+		inputPins[1]=new InputPin(PinName.SELECT,this);
 		
 		outputPins=new OutputPin[2];
 		
-		outputPins[0]=new OutputPin (pinName.OUT1,this);
-		outputPins[1]=new OutputPin (pinName.OUT2,this);
+		outputPins[0]=new OutputPin (PinName.OUT1,this);
+		outputPins[1]=new OutputPin (PinName.OUT2,this);
 
-		addPortMapEntry(0, pinName.DATA);
-		addPortMapEntry(3, pinName.SELECT);
-		addPortMapEntry(4, pinName.OUT1);
-		addPortMapEntry(7, pinName.OUT2);
+		addPortMapEntry(0, PinName.DATA);
+		addPortMapEntry(3, PinName.SELECT);
+		addPortMapEntry(4, PinName.OUT1);
+		addPortMapEntry(7, PinName.OUT2);
 	}
 
 	@Override
@@ -39,14 +39,14 @@ public class OutputSelect extends ModifyModule {
 	}
 	@Override
 	protected void processData() throws ModulException {
-		double selData= getInputPin(pinName.SELECT).getData();
-		double inData=getInputPin(pinName.DATA).getData();
+		double selData= getInputPin(PinName.SELECT).getData();
+		double inData=getInputPin(PinName.DATA).getData();
 
 		if (selData==0){
-			getOutputPin(pinName.OUT1).writeData(inData);
+			getOutputPin(PinName.OUT1).writeData(inData);
 		}
 		else{
-			getOutputPin(pinName.OUT2).writeData(inData);
+			getOutputPin(PinName.OUT2).writeData(inData);
 			if (selData!=1){
 				System.err.println("WARNING: Demux: Sel Pin has no boolean data! Was:" + selData + " - Module ID:" + this.getId());
 			}

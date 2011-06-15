@@ -4,7 +4,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 import de.embots.touchflow.module.core.Module;
-import de.embots.touchflow.module.core.pinName;
+import de.embots.touchflow.module.core.PinName;
 
 
 public abstract class Pin {
@@ -18,7 +18,7 @@ public abstract class Pin {
 	protected double lastData; //Daten des letzten Zyklus
 	
 	//Name des Pins
-	protected pinName name;
+	protected PinName name;
 	
 	//defaultwert
 	protected double defaultData;
@@ -65,11 +65,11 @@ public abstract class Pin {
 		dataLock.unlock();
 	}
 
-	public pinName getName() {
+	public PinName getName() {
 		return name;
 	}
 
-	public Pin(pinName name, Module parentModul) {
+	public Pin(PinName name, Module parentModul) {
 		super();
 		this.name = name;
 		this.parentModul=parentModul;

@@ -6,7 +6,7 @@ import de.embots.touchflow.gui.components.optionpane.Attribute;
 import de.embots.touchflow.gui.components.optionpane.OptionPane;
 import de.embots.touchflow.gui.components.optionpane.SliderAttribute;
 import de.embots.touchflow.module.core.InputModule;
-import de.embots.touchflow.module.core.pinName;
+import de.embots.touchflow.module.core.PinName;
 import de.embots.touchflow.module.pin.OutputPin;
 
 import org.jdom.Element;
@@ -34,7 +34,7 @@ public class Const extends InputModule {
 	@Override
 	protected void processData() throws ModulException {
 		//einfach den Wert auf den Output schreiben
-		getOutputPin(pinName.CONST).writeData(Konstante);
+		getOutputPin(PinName.CONST).writeData(Konstante);
 
 	}
 	@Override
@@ -53,8 +53,8 @@ public class Const extends InputModule {
 	public Const(double Konstante) throws ModulException{
 		this.Konstante=Konstante;
 		outputPins=new OutputPin[1];
-		outputPins[0]=new OutputPin(pinName.CONST,this);
-		addPortMapEntry(4, pinName.CONST);
+		outputPins[0]=new OutputPin(PinName.CONST,this);
+		addPortMapEntry(4, PinName.CONST);
 	}
 	
 	

@@ -1,7 +1,7 @@
 package de.embots.touchflow.gui.components;
 
 import de.embots.touchflow.gui.inspector.InspectorView;
-import de.embots.touchflow.gui.TouchFlow;
+import de.embots.touchflow.TouchFlow;
 import de.embots.touchflow.gui.serializer.GraphSerializer;
 
 import java.awt.BorderLayout;

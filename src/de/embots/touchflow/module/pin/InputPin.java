@@ -1,7 +1,7 @@
 package de.embots.touchflow.module.pin;
 
 import de.embots.touchflow.module.core.Module;
-import de.embots.touchflow.module.core.pinName;
+import de.embots.touchflow.module.core.PinName;
 
 import org.jdom.Element;
 
@@ -12,7 +12,7 @@ public class InputPin extends Pin {
 	
 	protected double lastData; //Daten des letzten Zyklus
 	
-	public InputPin(pinName name, Module parentModul) {
+	public InputPin(PinName name, Module parentModul) {
 		super(name, parentModul);
 	}
 

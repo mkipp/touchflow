@@ -6,7 +6,7 @@ import de.embots.touchflow.module.Globals;
 import de.embots.touchflow.module.core.Module;
 import de.embots.touchflow.module.core.ModuleGraph;
 import de.embots.touchflow.module.core.OutputModule;
-import de.embots.touchflow.module.core.pinName;
+import de.embots.touchflow.module.core.PinName;
 import de.embots.touchflow.module.factory.LibraryManager;
 import de.embots.touchflow.module.pin.InputPin;
 import de.embots.touchflow.module.pin.OutputPin;
@@ -259,7 +259,7 @@ for (Object o:rooti.getContent()){
 //			if (specs.length!= 3) throw new ParserException("Pin-Spezifikation hat zu viele Argumente: " + specs.length + " bei " + pinLine);
 //			
 //			//einzelne parameter aus dem array auslesen, evtl. casten
-//			String pinName=specs[0];
+//			String PinName=specs[0];
 //			int id;
 //			
 //			try{
@@ -278,7 +278,7 @@ for (Object o:rooti.getContent()){
 //			if (!(anderes instanceof OutputPin)) throw new ParserException("Zielpin ist kein Output-Pin!");
 //			
 //			//pins verbinden
-//			graph.findModul(modid).getInputPin(strToName(pinName)).connectTo((OutputPin)anderes);
+//			graph.findModul(modid).getInputPin(strToName(PinName)).connectTo((OutputPin)anderes);
 //		}
 //	
 //	}
@@ -291,13 +291,13 @@ for (Object o:rooti.getContent()){
 
 
 /**
- * Wandelt String in pinName um
+ * Wandelt String in PinName um
  * @param typ
  * @return
  * @throws ParserException
  */
-private pinName strToName(String typ) throws ParserException{
-	for (pinName m:pinName.values()){
+private PinName strToName(String typ) throws ParserException{
+	for (PinName m:PinName.values()){
 		if (m.toString().equals(typ)) return m;
 	}
 	throw new ParserException("Pinname " + typ + " existiert nicht");

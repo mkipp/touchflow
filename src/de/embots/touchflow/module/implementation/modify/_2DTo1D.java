@@ -1,7 +1,7 @@
 package de.embots.touchflow.module.implementation.modify;
 
 import de.embots.touchflow.module.core.ModifyModule;
-import de.embots.touchflow.module.core.pinName;
+import de.embots.touchflow.module.core.PinName;
 import de.embots.touchflow.module.pin.InputPin;
 import de.embots.touchflow.module.pin.InputPin2D;
 import de.embots.touchflow.module.pin.OutputPin;
@@ -15,11 +15,11 @@ public class _2DTo1D extends ModifyModule {
 
 	public _2DTo1D() {
 		inputPins=new InputPin[1];
-		inputPins[0]=new InputPin2D(pinName.IN, this);
+		inputPins[0]=new InputPin2D(PinName.IN, this);
 		
 		outputPins=new OutputPin[2];
-		outputPins[0]=new OutputPin(pinName.X, this);
-		outputPins[1]=new OutputPin(pinName.Y, this);
+		outputPins[0]=new OutputPin(PinName.X, this);
+		outputPins[1]=new OutputPin(PinName.Y, this);
 		
 
 		
@@ -33,8 +33,8 @@ public class _2DTo1D extends ModifyModule {
 
 	@Override
 	protected void processData() throws ModulException {
-		getOutputPin(pinName.X).writeData(getInputPin2D(pinName.IN).getData());
-		getOutputPin(pinName.Y).writeData(getInputPin2D(pinName.IN).getData2());
+		getOutputPin(PinName.X).writeData(getInputPin2D(PinName.IN).getData());
+		getOutputPin(PinName.Y).writeData(getInputPin2D(PinName.IN).getData2());
 
 	}
 	@Override

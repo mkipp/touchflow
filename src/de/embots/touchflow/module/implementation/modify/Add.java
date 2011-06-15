@@ -1,7 +1,7 @@
 package de.embots.touchflow.module.implementation.modify;
 
 import de.embots.touchflow.module.core.ModifyModule;
-import de.embots.touchflow.module.core.pinName;
+import de.embots.touchflow.module.core.PinName;
 import de.embots.touchflow.module.pin.InputPin;
 import de.embots.touchflow.module.pin.OutputPin;
 
@@ -13,11 +13,11 @@ public class Add extends ModifyModule {
 
 	public Add(){
 		inputPins=new InputPin[2];
-		inputPins[0]=new InputPin(pinName.IN, this);
-		inputPins[1]=new InputPin(pinName.AMOUNT, this);
+		inputPins[0]=new InputPin(PinName.IN, this);
+		inputPins[1]=new InputPin(PinName.AMOUNT, this);
 		
 		outputPins=new OutputPin[1];
-		outputPins[0]=new OutputPin(pinName.OUT,this);
+		outputPins[0]=new OutputPin(PinName.OUT,this);
 
 		
 	}
@@ -32,10 +32,10 @@ public class Add extends ModifyModule {
 	protected void processData() throws ModulException {
 		double in,sh;
 		
-		in=getInputPin(pinName.IN).getData();
-		sh=getInputPin(pinName.AMOUNT).getData();
+		in=getInputPin(PinName.IN).getData();
+		sh=getInputPin(PinName.AMOUNT).getData();
 
-		getOutputPin(pinName.OUT).writeData(in + sh);
+		getOutputPin(PinName.OUT).writeData(in + sh);
 		
 	}
 	

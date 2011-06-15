@@ -8,6 +8,7 @@ package de.embots.touchflow.gui;
 
 
 
+import de.embots.touchflow.TouchFlow;
 import de.embots.touchflow.gui.components.Descriptor;
 import de.embots.touchflow.gui.components.GraphModul;
 import de.embots.touchflow.gui.components.MyJGraph;

@@ -2,7 +2,7 @@ package de.embots.touchflow.module.implementation.input;
 
 import de.embots.touchflow.module.Globals;
 import de.embots.touchflow.module.core.InputModule;
-import de.embots.touchflow.module.core.pinName;
+import de.embots.touchflow.module.core.PinName;
 import de.embots.touchflow.module.pin.OutputPin;
 
 import org.jdom.Element;
@@ -13,7 +13,7 @@ public class Amplitude extends InputModule {
 
 	public Amplitude(){
 		outputPins=new OutputPin[1];
-		outputPins[0]=new OutputPin(pinName.OUT, this);
+		outputPins[0]=new OutputPin(PinName.OUT, this);
 		PDCommunicator.init( this, Globals.PDAmplitudePort);
 	}
 	@Override
@@ -22,7 +22,7 @@ public class Amplitude extends InputModule {
 	}
 	@Override
 	protected void processData() throws ModulException {
-		getOutputPin(pinName.OUT).writeData(PDCommunicator.getLastNum(Globals.PDAmplitudePort));
+		getOutputPin(PinName.OUT).writeData(PDCommunicator.getLastNum(Globals.PDAmplitudePort));
 	}
 
 	@Override

@@ -1,7 +1,7 @@
 package de.embots.touchflow.module.implementation.modify;
 
 import de.embots.touchflow.module.core.ModifyModule;
-import de.embots.touchflow.module.core.pinName;
+import de.embots.touchflow.module.core.PinName;
 import de.embots.touchflow.module.pin.InputPin;
 import de.embots.touchflow.module.pin.InputPin2D;
 import de.embots.touchflow.module.pin.OutputPin;
@@ -16,15 +16,15 @@ public class Distance2D extends ModifyModule {
 	@Override
 	protected void processData() throws ModulException {
 		
-		double x1= getInputPin2D(pinName.P1).getData();
-		double x2=getInputPin2D(pinName.P2).getData();
-		double y1=getInputPin2D(pinName.P1).getData2();
-		double y2=getInputPin2D(pinName.P2).getData2();
+		double x1= getInputPin2D(PinName.P1).getData();
+		double x2=getInputPin2D(PinName.P2).getData();
+		double y1=getInputPin2D(PinName.P1).getData2();
+		double y2=getInputPin2D(PinName.P2).getData2();
 		
 		//euklidischer Abstand
 		double dist= Math.sqrt(Math.pow((x1-x2),2)+Math.pow((y1-y2),2));
 		
-		getOutputPin(pinName.DISTANCE).writeData(dist);
+		getOutputPin(PinName.DISTANCE).writeData(dist);
 
 	}
 	@Override
@@ -34,18 +34,18 @@ public class Distance2D extends ModifyModule {
 	public Distance2D() throws ModulException{
 		inputPins=new InputPin[2];
 		
-		inputPins[0]=new InputPin2D(pinName.P1,this);
-		inputPins[1]=new InputPin2D(pinName.P2,this);
+		inputPins[0]=new InputPin2D(PinName.P1,this);
+		inputPins[1]=new InputPin2D(PinName.P2,this);
 		
 		outputPins=new OutputPin[1];
 		
-		outputPins[0]=new OutputPin(pinName.DISTANCE,this);
+		outputPins[0]=new OutputPin(PinName.DISTANCE,this);
 		
 
 		
-		addPortMapEntry(0, pinName.P1);
-		addPortMapEntry(3,pinName.P2);
-		addPortMapEntry(7, pinName.DISTANCE);
+		addPortMapEntry(0, PinName.P1);
+		addPortMapEntry(3,PinName.P2);
+		addPortMapEntry(7, PinName.DISTANCE);
 	}
 
 

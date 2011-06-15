@@ -3,7 +3,7 @@ package de.embots.touchflow.unittests;
 import java.awt.Point;
 
 import de.embots.touchflow.module.Globals;
-import de.embots.touchflow.module.core.pinName;
+import de.embots.touchflow.module.core.PinName;
 import de.embots.touchflow.module.implementation.input.Const2D;
 import de.embots.touchflow.module.implementation.modify.MapPosCircle2D;
 
@@ -96,7 +96,7 @@ MathVector center;
 	MathVector center=new MathVector(0, 0);
 	MapPosCircle2D mappos=new MapPosCircle2D(center, 100, 4, true);
 	
-	mappos.getInputPin2D(pinName.POSITION).connectTo(act.getOutputPin2D(pinName.CONST));
+	mappos.getInputPin2D(PinName.POSITION).connectTo(act.getOutputPin2D(PinName.CONST));
 	
 	//execute one cycle
 	Globals.onlyCalculateIfNewData=false;
@@ -120,7 +120,7 @@ MathVector center;
 	MathVector center=new MathVector(100, 10);
 	MapPosCircle2D mappos=new MapPosCircle2D(center, 100, 8, true);
 	
-	mappos.getInputPin2D(pinName.POSITION).connectTo(act.getOutputPin2D(pinName.CONST));
+	mappos.getInputPin2D(PinName.POSITION).connectTo(act.getOutputPin2D(PinName.CONST));
 	
 	//execute one cycle
 	Globals.onlyCalculateIfNewData=false;
@@ -164,7 +164,7 @@ MathVector center;
 	MathVector center=new MathVector(0, 0);
 	MapPosCircle mappos=new MapPosSquare(center, 200, 8, true);
 	
-	mappos.getInputPin2D(pinName.POSITION).connectTo(act.getOutputPin2D(pinName.CONST));
+	mappos.getInputPin2D(PinName.POSITION).connectTo(act.getOutputPin2D(PinName.CONST));
 	
 	//execute one cycle
 	Globals.onlyCalculateIfNewData=false;

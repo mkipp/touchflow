@@ -4,7 +4,7 @@ import java.awt.Point;
 
 import de.embots.touchflow.module.Globals;
 import de.embots.touchflow.module.core.ModifyModule;
-import de.embots.touchflow.module.core.pinName;
+import de.embots.touchflow.module.core.PinName;
 import de.embots.touchflow.module.pin.InputPin;
 import de.embots.touchflow.module.pin.InputPin2D;
 import de.embots.touchflow.module.pin.OutputPin;
@@ -33,22 +33,22 @@ public class Angle2D extends ModifyModule {
 	protected void processData() throws ModulException {
 		
 		//angle is zero when not two fingers used
-		/*if (getInputPin2D(pinName.P2).isZero()||getInputPin2D(pinName.P1).isZero()) {
-			getOutputPin(pinName.ANGLE).writeData(0);
+		/*if (getInputPin2D(PinName.P2).isZero()||getInputPin2D(PinName.P1).isZero()) {
+			getOutputPin(PinName.ANGLE).writeData(0);
 			return;
 		}*/
 		
 		//auessere Punkte
-		int p2x=(int) getInputPin2D(pinName.P2).getData();
-		int rp2x=(int) getInputPin2D(pinName.REF_P2).getData();
-		int p2y=(int) getInputPin2D(pinName.P2).getData2();
-		int rp2y=(int) getInputPin2D(pinName.REF_P2).getData2();
+		int p2x=(int) getInputPin2D(PinName.P2).getData();
+		int rp2x=(int) getInputPin2D(PinName.REF_P2).getData();
+		int p2y=(int) getInputPin2D(PinName.P2).getData2();
+		int rp2y=(int) getInputPin2D(PinName.REF_P2).getData2();
 		
 		//innere Punkte, die gemerget werden
-		int p1x=(int) getInputPin2D(pinName.P1).getData();
-		int rp1x=(int) getInputPin2D(pinName.REF_P1).getData();
-		int p1y=(int) getInputPin2D(pinName.P1).getData2();
-		int rp1y=(int) getInputPin2D(pinName.REF_P1).getData2();
+		int p1x=(int) getInputPin2D(PinName.P1).getData();
+		int rp1x=(int) getInputPin2D(PinName.REF_P1).getData();
+		int p1y=(int) getInputPin2D(PinName.P1).getData2();
+		int rp1y=(int) getInputPin2D(PinName.REF_P1).getData2();
 		
 		
 			
@@ -97,7 +97,7 @@ public class Angle2D extends ModifyModule {
 		}
 		
 		
-		getOutputPin(pinName.ANGLE).writeData(winkel);
+		getOutputPin(PinName.ANGLE).writeData(winkel);
 
 		
 	}
@@ -105,10 +105,10 @@ public class Angle2D extends ModifyModule {
 	
 	public Angle2D() throws ModulException {
 		inputPins=new InputPin[4];
-		inputPins[0]=new InputPin2D(pinName.REF_P1,this);
-		inputPins[1]=new InputPin2D(pinName.REF_P2,this);
-		inputPins[2]=new InputPin2D(pinName.P1,this);
-		inputPins[3]=new InputPin2D(pinName.P2,this);
+		inputPins[0]=new InputPin2D(PinName.REF_P1,this);
+		inputPins[1]=new InputPin2D(PinName.REF_P2,this);
+		inputPins[2]=new InputPin2D(PinName.P1,this);
+		inputPins[3]=new InputPin2D(PinName.P2,this);
 
 		//Default-Referenzkoordinaten: Bildschirmmitte - Vektor nach oben		
 		
@@ -118,17 +118,17 @@ public class Angle2D extends ModifyModule {
 		
 		outputPins=new OutputPin[1];
 		
-		outputPins[0]=new OutputPin(pinName.ANGLE,this);
+		outputPins[0]=new OutputPin(PinName.ANGLE,this);
 
 		
 		
 		//Portmap
 		
-		addPortMapEntry(0, pinName.REF_P1);
-		addPortMapEntry(1, pinName.REF_P2);
-		addPortMapEntry(2, pinName.P1);
-		addPortMapEntry(3, pinName.P2);
-		addPortMapEntry(4, pinName.ANGLE);
+		addPortMapEntry(0, PinName.REF_P1);
+		addPortMapEntry(1, PinName.REF_P2);
+		addPortMapEntry(2, PinName.P1);
+		addPortMapEntry(3, PinName.P2);
+		addPortMapEntry(4, PinName.ANGLE);
 	}
 	
 	private boolean isLeftOf(Point G1, Point G2, Point check){

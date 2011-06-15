@@ -2,7 +2,7 @@ package de.embots.touchflow.gui.components;
 
 import de.embots.touchflow.module.core.Module;
 import de.embots.touchflow.module.core.OutputModule;
-import de.embots.touchflow.module.core.pinName;
+import de.embots.touchflow.module.core.PinName;
 import de.embots.touchflow.module.factory.LibraryManager;
 import de.embots.touchflow.module.pin.Pin;
 
@@ -13,7 +13,7 @@ import de.embots.touchflow.exceptions.ModulException;
 
 
 public class GraphModul extends DefaultGraphCell {
-	public int getPinID(Module parent,pinName name){
+	public int getPinID(Module parent,PinName name){
 		
 		int inPinLength=parent.getInputPins().length;
 		for (int i=0; i< inPinLength;i++){
@@ -29,7 +29,7 @@ public class GraphModul extends DefaultGraphCell {
 		return 0;
 		
 	}
-	public pinName getPortMapEntry(int portNum) {
+	public PinName getPortMapEntry(int portNum) {
 		return correspondingModule.getPortMapEntry(portNum);
 	}
 	Module correspondingModule;
@@ -42,7 +42,7 @@ public class GraphModul extends DefaultGraphCell {
 
 			correspondingModule=modul;
 	}
-	public Pin getPin(pinName name) throws ModulException {
+	public Pin getPin(PinName name) throws ModulException {
 		return correspondingModule.getPin(name);
 	}
 	public boolean isPortExisting(int portNum){

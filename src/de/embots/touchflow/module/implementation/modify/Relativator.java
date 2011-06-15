@@ -1,7 +1,7 @@
 package de.embots.touchflow.module.implementation.modify;
 
 import de.embots.touchflow.module.core.ModifyModule;
-import de.embots.touchflow.module.core.pinName;
+import de.embots.touchflow.module.core.PinName;
 import de.embots.touchflow.module.pin.InputPin;
 import de.embots.touchflow.module.pin.OutputPin;
 
@@ -15,12 +15,12 @@ public class Relativator extends ModifyModule {
 
 	public Relativator() throws ModulException {
 		inputPins=new InputPin[1];
-		inputPins[0]=new InputPin(pinName.IN, this);
+		inputPins[0]=new InputPin(PinName.IN, this);
 		outputPins=new OutputPin[1];
-		outputPins[0]=new OutputPin(pinName.OUT, this);
+		outputPins[0]=new OutputPin(PinName.OUT, this);
 
-		addPortMapEntry(0, pinName.IN);
-		addPortMapEntry(4, pinName.OUT);
+		addPortMapEntry(0, PinName.IN);
+		addPortMapEntry(4, PinName.OUT);
 	}
 
 	@Override
@@ -31,8 +31,8 @@ public class Relativator extends ModifyModule {
 
 	@Override
 	protected void processData() throws ModulException {
-		double actual=getInputPin(pinName.IN).getData();
-		getOutputPin(pinName.OUT).writeData(lastData-actual);
+		double actual=getInputPin(PinName.IN).getData();
+		getOutputPin(PinName.OUT).writeData(lastData-actual);
 		lastData=actual;
 	}
 

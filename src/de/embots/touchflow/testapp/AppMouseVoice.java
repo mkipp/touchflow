@@ -9,7 +9,7 @@ import java.util.Observer;
 import javax.swing.JFrame;
 
 import de.embots.touchflow.module.Globals;
-import de.embots.touchflow.module.core.pinName;
+import de.embots.touchflow.module.core.PinName;
 import de.embots.touchflow.module.pin.OutputPin;
 import de.embots.touchflow.module.pin.OutputPin2D;
 import de.embots.touchflow.controller.ModulesController;
@@ -58,11 +58,11 @@ public class AppMouseVoice implements Observer{
 			controller.attachObserver(obs, 27);
 			controller.attachObserver(obs, 37);
 			controller.attachObserver(obs, 45);
-			mousePos=controller.findModul(26).getOutputPin2D(pinName.OUT);
-			distanz=controller.findModul(27).getOutputPin(pinName.OUT);
-			distanzvoice=controller.findModul(45).getOutputPin(pinName.OUT);
-			//distIn=controller.findModul(21).getInputPin2D(pinName.P1);
-			winkel=controller.findModul(37).getOutputPin(pinName.OUT);
+			mousePos=controller.findModul(26).getOutputPin2D(PinName.OUT);
+			distanz=controller.findModul(27).getOutputPin(PinName.OUT);
+			distanzvoice=controller.findModul(45).getOutputPin(PinName.OUT);
+			//distIn=controller.findModul(21).getInputPin2D(PinName.P1);
+			winkel=controller.findModul(37).getOutputPin(PinName.OUT);
 		} catch (ModulException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

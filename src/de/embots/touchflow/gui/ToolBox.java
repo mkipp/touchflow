@@ -1,5 +1,6 @@
 package de.embots.touchflow.gui;
 
+import de.embots.touchflow.TouchFlow;
 import de.embots.touchflow.gui.ButtonType;
 import de.embots.touchflow.exceptions.ModulException;
 import de.embots.touchflow.exceptions.ModulFactoryException;

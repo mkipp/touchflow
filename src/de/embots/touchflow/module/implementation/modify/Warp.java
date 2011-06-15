@@ -9,7 +9,7 @@ import de.embots.touchflow.gui.components.optionpane.ChooseAttribute;
 import de.embots.touchflow.gui.components.optionpane.NumberAttribute;
 import de.embots.touchflow.gui.components.optionpane.OptionPane;
 import de.embots.touchflow.module.core.ModifyModule;
-import de.embots.touchflow.module.core.pinName;
+import de.embots.touchflow.module.core.PinName;
 import de.embots.touchflow.module.implementation.helpers.warp.BeginEndWarp;
 import de.embots.touchflow.module.implementation.helpers.warp.BeginWarp;
 import de.embots.touchflow.module.implementation.helpers.warp.EndWarp;
@@ -49,12 +49,12 @@ public class Warp extends BandFilter {
 		// TODO Auto-generated method stub
 		super.processData();
 		
-		double preWarp=getOutputPin(pinName.OUT).getData();
+		double preWarp=getOutputPin(PinName.OUT).getData();
 		
 		double normiert=translateInterval(preWarp, this.lowerBound, this.upperBound, 0, 1);
 		normiert=function.applyFunction(normiert);
 		normiert=translateInterval(normiert, 0,1,this.lowerBound, this.upperBound);
-		getOutputPin(pinName.OUT).writeData(normiert);
+		getOutputPin(PinName.OUT).writeData(normiert);
 	}
 	
 	private void setFunction(WarpFunction function) throws WarpException{

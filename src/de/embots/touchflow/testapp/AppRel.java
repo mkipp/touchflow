@@ -9,7 +9,7 @@ import java.util.Observer;
 import javax.swing.JFrame;
 
 import de.embots.touchflow.module.Globals;
-import de.embots.touchflow.module.core.pinName;
+import de.embots.touchflow.module.core.PinName;
 import de.embots.touchflow.module.pin.InputPin2D;
 import de.embots.touchflow.module.pin.OutputPin;
 import de.embots.touchflow.module.pin.OutputPin2D;
@@ -62,11 +62,11 @@ public class AppRel implements Observer{
 			controller.attachObserver(obs, 19);
 			controller.attachObserver(obs, 20);
 			controller.attachObserver(obs, 23);
-			finger1out=controller.findModul(20).getOutputPin2D(pinName.OUT);
-			finger0out=controller.findModul(19).getOutputPin2D(pinName.OUT);
-			distanz=controller.findModul(21).getOutputPin(pinName.DISTANCE);
-			distIn=controller.findModul(21).getInputPin2D(pinName.P1);
-			winkel=controller.findModul(23).getOutputPin(pinName.OUT);
+			finger1out=controller.findModul(20).getOutputPin2D(PinName.OUT);
+			finger0out=controller.findModul(19).getOutputPin2D(PinName.OUT);
+			distanz=controller.findModul(21).getOutputPin(PinName.DISTANCE);
+			distIn=controller.findModul(21).getInputPin2D(PinName.P1);
+			winkel=controller.findModul(23).getOutputPin(PinName.OUT);
 		} catch (ModulException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -1,7 +1,7 @@
 package de.embots.touchflow.gui.components.optionpane;
 
 import de.embots.touchflow.gui.inspector.InspectorView;
-import de.embots.touchflow.gui.TouchFlow;
+import de.embots.touchflow.TouchFlow;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;

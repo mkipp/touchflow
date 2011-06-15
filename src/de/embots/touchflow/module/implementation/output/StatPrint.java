@@ -1,7 +1,7 @@
 package de.embots.touchflow.module.implementation.output;
 
 import de.embots.touchflow.module.core.OutputModule;
-import de.embots.touchflow.module.core.pinName;
+import de.embots.touchflow.module.core.PinName;
 import de.embots.touchflow.module.pin.InputPin;
 
 import org.jdom.Element;
@@ -19,7 +19,7 @@ public class StatPrint extends OutputModule {
 	private long lastMove;
 	@Override
 	protected void processData() throws ModulException {
-		double newVal=getPin(pinName.IN).getData();
+		double newVal=getPin(PinName.IN).getData();
 		
 		if (lastMove==0) {
 			lastMove=System.currentTimeMillis();
@@ -41,7 +41,7 @@ public class StatPrint extends OutputModule {
 	
 	public StatPrint(){
 		inputPins=new InputPin[1];
-		inputPins[0]=new InputPin(pinName.IN,this);
+		inputPins[0]=new InputPin(PinName.IN,this);
 
 	}
 

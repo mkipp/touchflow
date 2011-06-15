@@ -4,7 +4,7 @@ import java.net.SocketException;
 
 import de.embots.touchflow.module.Globals;
 import de.embots.touchflow.module.core.InputModule;
-import de.embots.touchflow.module.core.pinName;
+import de.embots.touchflow.module.core.PinName;
 import de.embots.touchflow.module.implementation.input.stantum.MTPoint;
 import de.embots.touchflow.module.implementation.input.stantum.SMTListeningSocket;
 import de.embots.touchflow.module.implementation.input.stantum.StantumBuffer;
@@ -65,7 +65,7 @@ public static Thread socketThread;
 		this.fingerId = fingerId;
 		outputPins=new OutputPin[1];
 		
-		outputPins[0]=new OutputPin2D(pinName.POSITION,this);
+		outputPins[0]=new OutputPin2D(PinName.POSITION,this);
 		
 
 	}
@@ -114,12 +114,12 @@ public static Thread socketThread;
 			
 			//Cursor existiert nicht -> pins auf 0 setzen
 			if (cursor==null){
-				getOutputPin2D(pinName.POSITION).writeData(0);
-				getOutputPin2D(pinName.POSITION).writeData2(0);
+				getOutputPin2D(PinName.POSITION).writeData(0);
+				getOutputPin2D(PinName.POSITION).writeData2(0);
 			}
 			else{
-				getOutputPin(pinName.POSITION).writeData((int)(cursor.x));
-				getOutputPin2D(pinName.POSITION).writeData2((int)(cursor.y));
+				getOutputPin(PinName.POSITION).writeData((int)(cursor.x));
+				getOutputPin2D(PinName.POSITION).writeData2((int)(cursor.y));
 			}
 		}
 		
@@ -129,12 +129,12 @@ public static Thread socketThread;
 			
 			//Cursor existiert nicht -> pins auf 0 setzen
 			if (cursor==null){
-				getOutputPin2D(pinName.POSITION).writeData(0);
-				getOutputPin2D(pinName.POSITION).writeData2(0);
+				getOutputPin2D(PinName.POSITION).writeData(0);
+				getOutputPin2D(PinName.POSITION).writeData2(0);
 			}
 			else{
-				getOutputPin(pinName.POSITION).writeData((int)(cursor.getX()*Globals.ScreenWidth));
-				getOutputPin2D(pinName.POSITION).writeData2((int)(cursor.getY()*Globals.ScreenHeight));
+				getOutputPin(PinName.POSITION).writeData((int)(cursor.getX()*Globals.ScreenWidth));
+				getOutputPin2D(PinName.POSITION).writeData2((int)(cursor.getY()*Globals.ScreenHeight));
 			}
 		}
 		
