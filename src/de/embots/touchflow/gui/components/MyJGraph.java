@@ -13,8 +13,10 @@ import de.embots.touchflow.module.Globals;
 import de.embots.touchflow.module.implementation.modify.MapPosCircle2D;
 import de.embots.touchflow.module.implementation.modify.MapPosSquare2D;
 import de.embots.touchflow.module.pin.InputPin2D;
+import de.embots.touchflow.module.pin.InputPin3D;
 import de.embots.touchflow.module.pin.OutputPin;
 import de.embots.touchflow.module.pin.OutputPin2D;
+import de.embots.touchflow.module.pin.OutputPin3D;
 import de.embots.touchflow.module.pin.Pin;
 
 import org.jgraph.JGraph;
@@ -93,13 +95,17 @@ public class MyJGraph extends JGraph{
 			arg0.setFont(new Font("Arial", 1, Globals.PinBeschriftungLetterSize));
 			String text=pin.getName().toString();
 			
-			if (pin instanceof InputPin2D||pin instanceof OutputPin2D){
-				text=text+" : Double2D";
+			if (pin instanceof InputPin3D||pin instanceof OutputPin3D){
+				text=text+" : Double3D";
 			}
 			else{
-				text=text+" : Double";
+				if (pin instanceof InputPin2D||pin instanceof OutputPin2D){
+					text=text+" : Double2D";
+				}
+				else{
+					text=text+" : Double";
+				}
 			}
-			
 			//spezialfall morphmap: name aendern
 			if (pin instanceof OutputPin){
 				if (pin.getParentModul() instanceof MapPosCircle2D || pin.getParentModul() instanceof MapPosSquare2D){
@@ -117,7 +123,12 @@ public class MyJGraph extends JGraph{
 			arg0.setColor(new Color(0,0,0));
 			arg0.fill3DRect((int)xcor,(int) ycor-2, width, (int)StringOP.getStringHeight(text, arg0) +2, true);
 			if (pin.is2DPin()){
-				arg0.setColor(new Color(255,50,50));
+				if (pin.is3DPin()){
+					arg0.setColor(new Color(50,255,50));
+				}
+				else{
+					arg0.setColor(new Color(255,50,50));
+				}
 			}
 			else{
 				arg0.setColor(new Color(150,150,255));

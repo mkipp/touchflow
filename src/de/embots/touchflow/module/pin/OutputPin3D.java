@@ -3,37 +3,38 @@ package de.embots.touchflow.module.pin;
 import de.embots.touchflow.module.core.Module;
 import de.embots.touchflow.module.core.PinName;
 
-public class OutputPin2D extends OutputPin {
+public class OutputPin3D extends OutputPin2D {
 	@Override
 	public boolean isZero() {
 		// TODO Auto-generated method stub
-		return super.isZero() && (data2==0);
+		return super.isZero() && (data3==0);
 	}
 
-	public double data2;
-	protected double lastDrawData2;
+	public double data3;
+	private double lastDrawData3;
 	
-	public OutputPin2D(PinName name, Module parentModul) {
+	public OutputPin3D(PinName name, Module parentModul) {
 		super(name, parentModul);
 		// TODO Auto-generated constructor stub
 	}
 
-	public void writeData2(double wert){
+	public void writeData3(double wert){
 		
 		dataLock.lock();
 		dataReceived=false;
-		data2=wert;
+		data3=wert;
 		dataLock.unlock();
 	}
 
-	public double getData2() {
-		return data2;
+	public double getData3() {
+		return data3;
 	}
 	
 	public boolean isNewDrawData() {
-		if (data==lastDrawData && data2==lastDrawData2) return false;
+		if (data==lastDrawData && data2==lastDrawData2 && data3==lastDrawData3) return false;
 		lastDrawData=data;
 		lastDrawData2=data2;
+		lastDrawData3=data3;
 		return true;
 	}
 }

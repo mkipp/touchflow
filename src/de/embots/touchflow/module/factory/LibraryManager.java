@@ -50,6 +50,7 @@ public class LibraryManager
                 manager.registerModule(new Amplitude());
                 manager.registerModule(new Const());
                 manager.registerModule(new Const2D());
+                manager.registerModule(new Const3D());
                 manager.registerModule(new Keyboard());
                 manager.registerModule(new Pitch());
                 manager.registerModule(new TUIOFinger2D());
@@ -70,6 +71,8 @@ public class LibraryManager
                 manager.registerModule(new Warp());
                 manager.registerModule(new FormattedOut());
                 manager.registerModule(new Print2D());
+                manager.registerModule(new Print());
+                manager.registerModule(new Socket());
                 manager.registerModule(new Socket2D());
                 manager.registerModule(new StatPrint());
             } catch (ModulException e) {
