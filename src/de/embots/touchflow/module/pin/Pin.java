@@ -83,4 +83,8 @@ public abstract class Pin {
 	public boolean is2DPin(){
 		return (this instanceof InputPin2D || this instanceof OutputPin2D);
 	}
+	
+	public boolean is3DPin(){
+		return (this instanceof InputPin3D || this instanceof OutputPin3D);
+	}
 }

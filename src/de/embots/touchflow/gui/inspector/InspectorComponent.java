@@ -26,8 +26,10 @@ import de.embots.touchflow.module.implementation.modify.MapPosCircle2D;
 import de.embots.touchflow.module.implementation.modify.MapPosSquare2D;
 import de.embots.touchflow.module.pin.InputPin;
 import de.embots.touchflow.module.pin.InputPin2D;
+import de.embots.touchflow.module.pin.InputPin3D;
 import de.embots.touchflow.module.pin.OutputPin;
 import de.embots.touchflow.module.pin.OutputPin2D;
+import de.embots.touchflow.module.pin.OutputPin3D;
 import de.embots.touchflow.module.pin.Pin;
 
 
@@ -162,6 +164,11 @@ public class InspectorComponent extends JComponent implements MouseWheelListener
 			text=text + " " + df.format(pin2D.getData2());
 		}
 		
+		if (pin instanceof OutputPin3D){
+			OutputPin3D pin3D=(OutputPin3D) pin;
+			text=text + " " + df.format(pin3D.getData3());
+		}
+		
 		int xcor=(int) (this.getWidth() - Globals.rightBorder - StringOP.getStringWidth(text, g));
 		int oneheight=(this.getHeight() - Globals.topBorder - Globals.bottomBorder)/NumOfPins;
 		int ycor=(int) (Globals.topBorder + (Index+0.5)*oneheight-StringOP.getStringHeight(text, g)/2);
@@ -178,6 +185,12 @@ public class InspectorComponent extends JComponent implements MouseWheelListener
 			InputPin2D pin2D=(InputPin2D) pin;
 			text=text + " " + df.format(pin2D.getData2());
 		}
+		
+		if (pin instanceof InputPin3D){
+			InputPin3D pin3D=(InputPin3D) pin;
+			text=text + " " + df.format(pin3D.getData3());
+		}
+		
 		text=text + " " + pin.getName();
 		
 		int xcor=(int) (Globals.leftBorder);
