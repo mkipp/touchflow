@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="gcc noversion nomachine-c -g -fPIC -DDEBUG -DPROFILER -DPD -I../../../asb2m10/opt/jdk1.6.0_13/include -I../../../asb2m10/opt/jdk1.6.0_13/include/linux -I../../../../usr/src -Iwork">
+      <target file="MaxSystem.o" lastModified="12b259cab70">
+         <source file="../src/MaxSystem.c" lastModified="1233d9cd338"/>
+      </target>
+      <target file="type_handler.o" lastModified="12b259ca788">
+         <source file="../src/type_handler.c" lastModified="1233d999b00"/>
+      </target>
+      <target file="MSPBuffer.o" lastModified="12b259ca788">
+         <source file="../src/MSPBuffer.c" lastModified="11617673cb0"/>
+      </target>
+      <target file="MaxClock.o" lastModified="12b259ca3a0">
+         <source file="../src/MaxClock.c" lastModified="115e4379d58"/>
+      </target>
+      <target file="pdj.o" lastModified="12b259ca3a0">
+         <source file="../src/pdj.c" lastModified="1233b4ec870"/>
+      </target>
+      <target file="pdj-linux.o" lastModified="12b259ca788">
+         <source file="../src/pdj-linux.c" lastModified="11895e7bfe0"/>
+      </target>
+      <target file="pdj~.o" lastModified="12b259ca3a0">
+         <source file="../src/pdj~.c" lastModified="11699300b78"/>
+      </target>
+      <target file="init.o" lastModified="12b259ca788">
+         <source file="../src/init.c" lastModified="12339e76488"/>
+      </target>
+      <target file="MaxObject.o" lastModified="12b259ca788">
+         <source file="../src/MaxObject.c" lastModified="1233d9d0218"/>
+      </target>
+   </processor>
+</history>

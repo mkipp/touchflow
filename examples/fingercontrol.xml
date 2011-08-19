@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<InModulix><modul id="54" type="Distance2D" graphXPos="259" graphYPos="65" P1ModulID="56" P1PinName="POSITION" P2ModulID="57" P2PinName="POSITION" /><modul id="55" type="Angle2D" graphXPos="265" graphYPos="172" P1ModulID="56" P1PinName="POSITION" P2ModulID="57" P2PinName="POSITION" /><modul id="56" type="TUIOFinger2D" graphXPos="66" graphYPos="64" Constructor="1" /><modul id="57" type="TUIOFinger2D" graphXPos="59" graphYPos="201" Constructor="2" /></InModulix>

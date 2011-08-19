@@ -1,0 +1,10 @@
+Neues Modul erstellen:
+
+- Klasse erstellen, von einem der 3 Modultypen erben lassen. Construktor mitgenerieren lassen.
+- Im Konstruktor das/die Pin-Arrays initialisieren, Pins erstellen und einfügen. Typ festlegen
+- falls Spezial-Konstruktor mit argumenten: in additionalSavestring eintragen, sonst null zurückgeben
+- in processData berechnungen ausführen.
+- Modul in ModulFactory eintragen, evtl. Konstruktorparameter casten
+
+
+

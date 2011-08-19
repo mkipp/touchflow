@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<InModulix><modul id="0" type="Mouse" /><modul id="1" type="ConstPoint" Constructor="512 384" /><modul id="2" type="Angle" P1ModulID="1" P1PinName="CONST" P2ModulID="0" P2PinName="POS" /></InModulix>

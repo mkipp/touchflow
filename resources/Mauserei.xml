@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<InModulix><modul id="0" type="Mouse" Constructor="0" /><modul id="1" type="ConstPoint" Constructor="10 10" /><modul id="2" type="Angle" P1ModulID="0" P1PinName="POS" P2ModulID="1" P2PinName="CONST" /><modul id="3" type="Distance" A1ModulID="0" A1PinName="POS" A2ModulID="1" A2PinName="CONST" /><modul id="4" type="Demux" DATAModulID="3" DATAPinName="DIST" SELModulID="5" SELPinName="PRESSED" /><modul id="5" type="Keyboard"  Constructor="65" /></InModulix>
