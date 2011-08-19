@@ -5,29 +5,29 @@ import de.embots.touchflow.module.core.PinName;
 import de.embots.touchflow.exceptions.PinException;
 
 
-public class InputPin2D extends InputPin{
+public class InputPin3D extends InputPin2D{
 	
 	@Override
 	public boolean isZero() {
 		// TODO Auto-generated method stub
-		return super.isZero() && (data2==0);
+		return super.isZero() && (data3==0);
 	}
-	protected double data2;
-	protected double lastData2;
-	protected double lastDrawData2;
+	private double data3;
+	private double lastData3;
+	private double lastDrawData3;
 	
-	public void setDefaultData2(double defaultData2) {
-		this.defaultData2 = defaultData2;
+	public void setDefaultData3(double defaultData3) {
+		this.defaultData3 = defaultData3;
 	}
-	private double defaultData2;
+	private double defaultData3;
 	
-	public double getData2() {
-		return data2;
+	public double getData3() {
+		return data3;
 	}
 
 
 	
-	public InputPin2D(PinName name, Module parentModul) {
+	public InputPin3D(PinName name, Module parentModul) {
 		super(name, parentModul);
 		// TODO Auto-generated constructor stub
 	}
@@ -40,31 +40,32 @@ public class InputPin2D extends InputPin{
 		//bei nicht verbundenem Pin nichts machen
 		
 		if (connectedPin==null) {
-			data2=defaultData2;
-			lastData2=data2;
+			data3=defaultData3;
+			lastData3=data3;
 			return;
 		}
 		
-		lastData2=data2;
-		if (!(connectedPin instanceof OutputPin2D))throw new PinException("2D Pin connected to 1D-Pin (" + name + "(2D) to " + connectedPin.name + "(1D)");
+		lastData3=data3;
+		if (!(connectedPin instanceof OutputPin3D))throw new PinException("3D Pin connected to non-3D-Pin (" + name + "(3D) to " + connectedPin.name);
 		
 		//sperren, schreiben,entsperren um mnebenläufiges lesen/schreiben zu verhindern
 		connectedPin.dataLock.lock();
 		
-		OutputPin2D cpin=(OutputPin2D) connectedPin;
-		data2=cpin.data2;
+		OutputPin3D cpin=(OutputPin3D) connectedPin;
+		data3=cpin.data3;
 		connectedPin.dataLock.unlock();
 		
 	}
 	public boolean isNewData(){
-		if (data2==lastData2 && data==lastData) return false;
+		if (data3==lastData3 && data2==lastData2 && data==lastData) return false;
 		return true;
 	}
 	
 	public boolean isNewDrawData() {
-		if (data==lastDrawData && data2==lastDrawData2) return false;
+		if (data==lastDrawData && data2==lastDrawData2 && data3==lastDrawData3) return false;
 		lastDrawData=data;
 		lastDrawData2=data2;
+		lastDrawData3=data3;
 		return true;
 	}
 }

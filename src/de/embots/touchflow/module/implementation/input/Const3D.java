@@ -9,16 +9,20 @@ import de.embots.touchflow.module.core.InputModule;
 import de.embots.touchflow.module.core.PinName;
 import de.embots.touchflow.module.pin.OutputPin;
 import de.embots.touchflow.module.pin.OutputPin2D;
+import de.embots.touchflow.module.pin.OutputPin3D;
 
 import org.jdom.Element;
 
 
-public class Const2D extends InputModule {
+public class Const3D extends InputModule {
 
 	private double Konstante;
 	private double Konstante2;
+	private double Konstante3;
 	
-
+	public double getKonstante() {
+		return Konstante;
+	}
 	
 	@Override
 	public void openOptions() {
@@ -27,25 +31,29 @@ public class Const2D extends InputModule {
 		NumberAttribute kyarg=new NumberAttribute("Konstante Y");
 		kyarg.setContent(Konstante2);
 		
+		NumberAttribute kzarg=new NumberAttribute("Konstante Z");
+		kzarg.setContent(Konstante3);
 		
-		OptionPane.showOptionPane(new Attribute[]{kxarg,kyarg},this);
+		OptionPane.showOptionPane(new Attribute[]{kxarg,kyarg,kzarg},this);
 	}
 
 	@Override
 	public void reinit(Attribute[] args) {
 		Konstante=(Double) args[0].getContent();
 		Konstante2=(Double) args[1].getContent();
+		Konstante3=(Double) args[2].getContent();
 	}
 
 	@Override
 	public void init(String params) throws ModulException {
 		String[] paramsa;
 		paramsa=params.split(" ");
-		if (paramsa.length!=2) throw new ModulFactoryException("ConstPoint: split ergab mehr oder weniger als 2 Konstruktorargumente");
+		if (paramsa.length!=3) throw new ModulFactoryException("ConstPoint3D: split ergab mehr oder weniger als 3 Konstruktorargumente");
 		
 		try{
 			Konstante=Double.parseDouble(paramsa[0]);
 			Konstante2=Double.parseDouble(paramsa[1]);
+			Konstante3=Double.parseDouble(paramsa[2]);
 		}
 		catch(Exception nf){
 			throw new ModulFactoryException("ConstPoint: Konstruktorparam fehlt oder einer der Konstruktorparams kein int");
@@ -57,16 +65,19 @@ public class Const2D extends InputModule {
 		//einfach den Wert auf den Output schreiben
 		getOutputPin(PinName.CONST).writeData(Konstante);
 		getOutputPin2D(PinName.CONST).writeData2(Konstante2);
+		getOutputPin3D(PinName.CONST).writeData3(Konstante3);
 	}
 	
-	public Const2D() throws ModulException{
-		this(100,100);
+	public Const3D() throws ModulException{
+		this(100,200,300);
 	}
-	public Const2D(double Konstante, double Konstante2) throws ModulException{
+	public Const3D(double Konstante, double Konstante2, double Konstante3) throws ModulException{
 		this.Konstante=Konstante;
 		this.Konstante2=Konstante2;
+		this.Konstante3=Konstante3;
+		
 		outputPins=new OutputPin[1];
-		outputPins[0]=new OutputPin2D(PinName.CONST,this);
+		outputPins[0]=new OutputPin3D(PinName.CONST,this);
 
 		addPortMapEntry(4, PinName.CONST);
 	}
@@ -85,7 +96,7 @@ public class Const2D extends InputModule {
 	@Override
 	public String getModuleName() {
 		
-		return "Const2D";
+		return "Const3D";
 	}
 
 }

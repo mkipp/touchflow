@@ -18,6 +18,7 @@ public class Const extends InputModule {
 	public void reinit(Attribute[] args) {
 		Konstante=(Double) args[0].getContent();
 	}
+	
 	@Override
 	public void openOptions() {
 		SliderAttribute karg=new SliderAttribute("Konstante",1,100);
@@ -26,11 +27,7 @@ public class Const extends InputModule {
 		OptionPane.showOptionPane(new Attribute[]{karg},this);
 	}
 	private double Konstante;
-	
-	
-	public double getKonstante() {
-		return Konstante;
-	}
+
 	@Override
 	protected void processData() throws ModulException {
 		//einfach den Wert auf den Output schreiben

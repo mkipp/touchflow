@@ -20,6 +20,7 @@ public Pin getPin() {
 }
 public boolean isCompatibleWith(PinPort p2){
 	Pin anderer=p2.getPin();
+	if (pin.is3DPin() != anderer.is3DPin() ) return false;
 	
 	if (pin.is2DPin()!= anderer.is2DPin() ) return false;
 	if (pin instanceof InputPin && anderer instanceof InputPin) return false;

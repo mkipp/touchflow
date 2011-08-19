@@ -6,8 +6,10 @@ import java.util.Observable;
 import de.embots.touchflow.module.Globals;
 import de.embots.touchflow.module.pin.InputPin;
 import de.embots.touchflow.module.pin.InputPin2D;
+import de.embots.touchflow.module.pin.InputPin3D;
 import de.embots.touchflow.module.pin.OutputPin;
 import de.embots.touchflow.module.pin.OutputPin2D;
+import de.embots.touchflow.module.pin.OutputPin3D;
 import de.embots.touchflow.module.pin.Pin;
 
 import org.jdom.Element;
@@ -246,6 +248,22 @@ public abstract class Module extends Observable implements Runnable
         }
         return (OutputPin2D) ret;
     }
+    
+    /**
+     * sucht einen --> 2D OutputPin Anhand des Namens
+     * @param name
+     * @return
+     * @throws ModulException
+     */
+    public OutputPin3D getOutputPin3D(PinName name) throws ModulException
+    {
+        OutputPin ret = getOutputPin(name);
+        if (!(ret instanceof OutputPin3D)) {
+            throw new ModulException("getInputPin3D: pin ist kein 3D-Pin " + "at Modul Type " + Typ + ",ID " + getId());
+        }
+        return (OutputPin3D) ret;
+    }
+
 
     /**
      * sucht einen --> 2D InputPin Anhand des Namens
@@ -260,6 +278,21 @@ public abstract class Module extends Observable implements Runnable
             throw new ModulException("getInputPin2D: pin ist kein 2D-Pin at Modul Type " + Typ + ",ID " + getId());
         }
         return (InputPin2D) ret;
+    }
+    
+    /**
+     * sucht einen --> 3D InputPin Anhand des Namens
+     * @param name
+     * @return
+     * @throws ModulException
+     */
+    public InputPin3D getInputPin3D(PinName name) throws ModulException
+    {
+        InputPin ret = getInputPin(name);
+        if (!(ret instanceof InputPin3D)) {
+            throw new ModulException("getInputPin3D: pin ist kein 3D-Pin at Modul Type " + Typ + ",ID " + getId());
+        }
+        return (InputPin3D) ret;
     }
 
     /**
