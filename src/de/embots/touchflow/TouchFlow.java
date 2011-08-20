@@ -1,13 +1,5 @@
 package de.embots.touchflow;
 
-import de.embots.touchflow.exceptions.ModulException;
-import de.embots.touchflow.exceptions.ParserException;
-import de.embots.touchflow.gui.components.GraphModul;
-import de.embots.touchflow.gui.components.MyJGraph;
-import de.embots.touchflow.gui.components.PinPort;
-import de.embots.touchflow.gui.components.Toolbar;
-import de.embots.touchflow.gui.serializer.GraphSerializer;
-
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -37,6 +29,27 @@ import javax.swing.ToolTipManager;
 import javax.swing.UIManager;
 import javax.swing.event.MouseInputListener;
 
+import org.jgraph.graph.AttributeMap;
+import org.jgraph.graph.DefaultCellViewFactory;
+import org.jgraph.graph.DefaultEdge;
+import org.jgraph.graph.DefaultGraphCell;
+import org.jgraph.graph.DefaultGraphModel;
+import org.jgraph.graph.GraphConstants;
+import org.jgraph.graph.GraphLayoutCache;
+import org.jgraph.graph.GraphModel;
+import org.jgraph.graph.PortView;
+
+import de.embots.touchflow.controller.XMLParser;
+import de.embots.touchflow.exceptions.ModulException;
+import de.embots.touchflow.exceptions.ParserException;
+import de.embots.touchflow.gui.IXMarqueeHandler;
+import de.embots.touchflow.gui.NodeStorage;
+import de.embots.touchflow.gui.ToolBox;
+import de.embots.touchflow.gui.components.GraphModul;
+import de.embots.touchflow.gui.components.MyJGraph;
+import de.embots.touchflow.gui.components.PinPort;
+import de.embots.touchflow.gui.components.Toolbar;
+import de.embots.touchflow.gui.serializer.GraphSerializer;
 import de.embots.touchflow.module.Globals;
 import de.embots.touchflow.module.Settings;
 import de.embots.touchflow.module.core.InputModule;
@@ -49,22 +62,7 @@ import de.embots.touchflow.module.implementation.input.stantum.SMTListeningSocke
 import de.embots.touchflow.module.pin.InputPin;
 import de.embots.touchflow.module.pin.OutputPin;
 import de.embots.touchflow.module.pin.Pin;
-
-import org.jgraph.graph.AttributeMap;
-import org.jgraph.graph.DefaultCellViewFactory;
-import org.jgraph.graph.DefaultEdge;
-import org.jgraph.graph.DefaultGraphCell;
-import org.jgraph.graph.DefaultGraphModel;
-import org.jgraph.graph.GraphConstants;
-import org.jgraph.graph.GraphLayoutCache;
-import org.jgraph.graph.GraphModel;
-import org.jgraph.graph.PortView;
-
 import de.embots.touchflow.util.RAClass;
-import de.embots.touchflow.controller.XMLParser;
-import de.embots.touchflow.gui.IXMarqueeHandler;
-import de.embots.touchflow.gui.NodeStorage;
-import de.embots.touchflow.gui.ToolBox;
 
 /**
  * Main class for the TouchFlow tool. Assigns TouchFlow instance to a 
