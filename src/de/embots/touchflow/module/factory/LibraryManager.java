@@ -75,6 +75,8 @@ public class LibraryManager
                 manager.registerModule(new Socket());
                 manager.registerModule(new Socket2D());
                 manager.registerModule(new StatPrint());
+                manager.registerModule(new KinectInput());
+                
             } catch (ModulException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();

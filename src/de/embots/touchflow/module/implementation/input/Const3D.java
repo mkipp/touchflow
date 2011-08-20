@@ -85,7 +85,7 @@ public class Const3D extends InputModule {
 	
 	@Override
 	protected void additionalSaveAttribute(Element e) {
-		e.setAttribute("Constructor",Konstante + " " + Konstante2);
+		e.setAttribute("Constructor",Konstante + " " + Konstante2+ " " + Konstante3);
 		
 	}
 	@Override
