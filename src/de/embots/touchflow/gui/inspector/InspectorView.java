@@ -17,6 +17,7 @@ import javax.swing.JTextField;
 
 import de.embots.touchflow.module.core.Module;
 import de.embots.touchflow.module.implementation.input.Keyboard;
+import de.embots.touchflow.module.implementation.input.KinectSimulator3D;
 import de.embots.touchflow.module.implementation.input.Mouse2D;
 
 
@@ -84,6 +85,9 @@ public class InspectorView {
 		components.put(m, ins);
 		if (m instanceof Mouse2D){
 			((Mouse2D) m).attachComponent(ins);
+		}
+		if (m instanceof KinectSimulator3D){
+			((KinectSimulator3D) m).attachComponent(ins);
 		}
 		
 		if (m instanceof Keyboard){

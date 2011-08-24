@@ -90,7 +90,7 @@ public class Const3D extends InputModule {
 	}
 	@Override
 	public String getDescription() {
-		return "Outputs 2 fixed constants (Double2D) as a pair";
+		return "Outputs 2 fixed constants (Double3D) as a pair";
 	}
 
 	@Override
