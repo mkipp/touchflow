@@ -75,7 +75,10 @@ public class LibraryManager
                 manager.registerModule(new Socket());
                 manager.registerModule(new Socket2D());
                 manager.registerModule(new StatPrint());
-                manager.registerModule(new KinectInput());
+                manager.registerModule(new KinectInput3D());
+                manager.registerModule(new KinectSimulator3D());
+                manager.registerModule(new Distance3D());
+                manager.registerModule(new Relativator3D());
                 
             } catch (ModulException e) {
                 // TODO Auto-generated catch block
