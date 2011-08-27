@@ -53,7 +53,7 @@ public class LibraryManager
                 manager.registerModule(new Const3D());
                 manager.registerModule(new Keyboard());
                 manager.registerModule(new Pitch());
-                manager.registerModule(new TUIOFinger2D());
+                //manager.registerModule(new TUIOFinger2D());
                 manager.registerModule(new Angle2D());
                 manager.registerModule(new BandFilter());
                 manager.registerModule(new OutputSelect());
