@@ -79,6 +79,8 @@ public class LibraryManager
                 manager.registerModule(new KinectSimulator3D());
                 manager.registerModule(new Distance3D());
                 manager.registerModule(new Relativator3D());
+                manager.registerModule(new NeffSocket());
+                manager.registerModule(new LinearMap());
                 
             } catch (ModulException e) {
                 // TODO Auto-generated catch block
