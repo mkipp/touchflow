@@ -32,6 +32,11 @@ public class KinectServer implements Runnable{
 	static KinectPoint leftHandPos=new KinectPoint();
 	static KinectPoint rightHandPos=new KinectPoint();
 	
+	private static KinectServer thisServer=new KinectServer();
+	static{
+		thisServer.init(1234);
+	}
+	
 	private boolean running;
 	private Thread thisThread;
 	private ArrayList<Module> listeners=new ArrayList<Module>();
@@ -134,13 +139,22 @@ public class KinectServer implements Runnable{
 		} 
 
 		rooti = doci.getRootElement();
-
-		rooti=rooti.getChild("Kinect_Data");
+		System.err.println(rooti.getName() + ":" + rooti.getContentSize());
+		
 		// Phase 1: Module an sich aufbauen, ohne Verbindungen
 
 		for (Object o:rooti.getContent()){
 			//Modul in factory herstellen und in den Graph einhängen
+			if (! (o instanceof Element)){
+				System.err.println("invalid xml structure. got" + o.getClass());
+				System.err.println(o);
+				return;
+			}
+			
+			
+			
 			Element e=(Element) o;
+
 			
 			parsePos(e, rightHandPos, "Right_hand");
 			parsePos(e, leftHandPos, "Left_hand");	
@@ -150,6 +164,7 @@ public class KinectServer implements Runnable{
 	}
 
 	private void parsePos(Element e, KinectPoint destination, String identString) throws ModulException {
+		
 		if (e.getName().equals(identString)){
 			double x,y,z;
 			try{
