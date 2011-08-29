@@ -1,6 +1,5 @@
 package de.embots.touchflow.module.implementation.output;
 
-import java.awt.event.KeyEvent;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
@@ -8,7 +7,6 @@ import java.net.UnknownHostException;
 
 import org.jdom.Element;
 
-import de.embots.touchflow.util.RAClass;
 
 import de.embots.touchflow.exceptions.ModulException;
 import de.embots.touchflow.exceptions.ModulFactoryException;
@@ -19,15 +17,24 @@ import de.embots.touchflow.gui.components.optionpane.StringAttribute;
 import de.embots.touchflow.module.core.OutputModule;
 import de.embots.touchflow.module.core.PinName;
 import de.embots.touchflow.module.pin.InputPin;
-import de.embots.touchflow.module.pin.InputPin2D;
 
-public class NeffSocket extends OutputModule {
+/**
+ * Writes attribute-value pairs as string on UDP socket - for Michael Neff's
+ * correlation-map based character animation software.
+ * 
+ * The module should only write those parameters that have their input pin
+ * wired up.
+ * 
+ * In the current implementation, the server has to be running under port 1234.
+ */
+
+public class CharAnimOut extends OutputModule {
 	int port=1234;
 	String host="localhost";
 	java.net.Socket server;
 	BufferedWriter out;
 	
-	public NeffSocket(){
+	public CharAnimOut(){
 		inputPins=new InputPin[16];
 		inputPins[0]=new InputPin(PinName.rightwristx,this);
 		inputPins[1]=new InputPin(PinName.rightwristy,this);
@@ -193,7 +200,7 @@ public class NeffSocket extends OutputModule {
 	@Override
 	public String getModuleName() {
 		
-		return "NeffSocket";
+		return "CharAnimOut";
 	}
 
 }
