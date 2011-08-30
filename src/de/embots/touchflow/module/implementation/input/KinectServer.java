@@ -5,8 +5,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.StringReader;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.SocketException;
+import java.net.SocketTimeoutException;
 import java.util.ArrayList;
 
 import org.jdom.Document;
@@ -28,13 +32,15 @@ public class KinectServer implements Runnable{
 	 * Lauscht auf einen bestimmten Port umKinect-Bewegungen abzufangen
 	 */
 	
-	private ServerSocket server;
+	private DatagramSocket server;
 	static KinectPoint leftHandPos=new KinectPoint();
 	static KinectPoint rightHandPos=new KinectPoint();
+	public static final int PACKET_SIZE = 4048;
+	private DatagramPacket packet;
 	
 	private static KinectServer thisServer=new KinectServer();
 	static{
-		thisServer.init(1234);
+		thisServer.init(2020);
 	}
 	
 	private boolean running;
@@ -58,11 +64,23 @@ public class KinectServer implements Runnable{
 		running=true;
 		
 		try {
-			server=new ServerSocket(port);
+			server=new DatagramSocket(port);
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
 		
+		byte data[] = new byte[PACKET_SIZE];
+		packet = new DatagramPacket(data,PACKET_SIZE);
+
+		// set time to wait after an unsuccessful receive attempt
+		try {
+			server.setSoTimeout(300);
+		} catch (SocketException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		System.out.println("KinectServer online");
 		thisThread=new Thread(this);
 		thisThread.start();
 	}
@@ -83,28 +101,37 @@ public class KinectServer implements Runnable{
 	@Override
 	public void run() {
 		while(running){
+			int packetsize;
+			byte[] packetdata;
 			
-			Socket client = null;
-			try {
-				client = server.accept();
+			try{
+			server.receive(packet);
+			packetsize = packet.getLength();
+			packetdata = packet.getData();
+			
+		} catch (SocketTimeoutException e) {
+			// suppress error output if no data available at incomingSocket
+			// wait 300ms as defined in SoTimeout and try again
+			continue;
+		} catch(NullPointerException e){
+			// suppress error output if no data available at incomingSocket
+			continue;
+		} catch (Exception e) {
+			System.err.println("UDPThread_run(): " + e.toString());
+			continue;
+		}
+
+		// transform incoming data to string of variable length
+		String datastring = new String(packetdata, 0, packetsize);
 		
-			BufferedReader cliIn;
-	
-			cliIn = new BufferedReader(new InputStreamReader(client.getInputStream()));
-			
-			String msg=cliIn.readLine();
-			
-			System.out.println("got kinect xml:" + msg);
-			parseXML(msg);
-			
-			//System.out.println("recv:" + zahl + " by " + server.getLocalPort());
-			cliIn.close();
-			client.close();
-				
-			}
-			catch (Exception e){
-				//e.printStackTrace();
-			}
+		System.err.println("RECEIVED KINECT MSG:" + datastring);
+		
+		try {
+			parseXML(datastring);
+		} catch (ModulException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		}
 		
 	}
