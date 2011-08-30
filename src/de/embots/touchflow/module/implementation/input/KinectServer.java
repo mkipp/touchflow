@@ -124,8 +124,6 @@ public class KinectServer implements Runnable{
 		// transform incoming data to string of variable length
 		String datastring = new String(packetdata, 0, packetsize);
 		
-		System.err.println("RECEIVED KINECT MSG:" + datastring);
-		
 		try {
 			parseXML(datastring);
 		} catch (ModulException e) {
@@ -148,9 +146,16 @@ public class KinectServer implements Runnable{
 			<Left_hand X="0.4" Y="-0.3" Z="0.6" Confidence="1" />
 		</Kinect_Data>
 	 */
-	private void parseXML(String msg) throws ModulException {
+	public void parseXML(String msg) throws ModulException {
 			
+		
+		int begin=msg.indexOf("<Kinect_Data>");
+		if (begin>1)msg=msg.substring(begin);
+		
+		
 		SAXBuilder sxbuild  = new SAXBuilder();
+		sxbuild.setIgnoringBoundaryWhitespace(true);
+		sxbuild.setIgnoringElementContentWhitespace(true);
 		InputSource is = new InputSource(new StringReader(msg));
 
 		Document doci;
@@ -161,12 +166,12 @@ public class KinectServer implements Runnable{
 		try {
 			doci = sxbuild.build(is);
 		} catch (Exception e) {
-			if (Globals.isDebug) e.printStackTrace();
-			throw new ModulException("KinectServer: Exception parsing XML block:" + e.getMessage());
+			/*if (Globals.isDebug) e.printStackTrace();
+			throw new ModulException("KinectServer: Exception parsing XML block:" + e.getMessage());*/
+			return;
 		} 
 
 		rooti = doci.getRootElement();
-		System.err.println(rooti.getName() + ":" + rooti.getContentSize());
 		
 		// Phase 1: Module an sich aufbauen, ohne Verbindungen
 
@@ -183,8 +188,8 @@ public class KinectServer implements Runnable{
 			Element e=(Element) o;
 
 			
-			parsePos(e, rightHandPos, "Right_hand");
-			parsePos(e, leftHandPos, "Left_hand");	
+			parsePos(e, rightHandPos, "Right_hand_pos");
+			parsePos(e, leftHandPos, "Left_hand_pos");	
 				
 		}
 		
@@ -193,18 +198,22 @@ public class KinectServer implements Runnable{
 	private void parsePos(Element e, KinectPoint destination, String identString) throws ModulException {
 		
 		if (e.getName().equals(identString)){
-			double x,y,z;
-			try{
-				x=Double.parseDouble(e.getAttributeValue("X"));
-				y=Double.parseDouble(e.getAttributeValue("Y"));
-				z=Double.parseDouble(e.getAttributeValue("Z"));
+			
+			if (e.getAttributeValue("Confidence").equals("1")){
+			
+				double x,y,z;
+				try{
+					x=Double.parseDouble(e.getAttributeValue("X"));
+					y=Double.parseDouble(e.getAttributeValue("Y"));
+					z=Double.parseDouble(e.getAttributeValue("Z"));
+				}
+				catch(NumberFormatException nf){
+					throw new ModulException("KinectServer Could not parse position");
+				}
+				destination.x=x;
+				destination.y=y;
+				destination.z=z;
 			}
-			catch(NumberFormatException nf){
-				throw new ModulException("KinectServer Could not parse position");
-			}
-			destination.x=x;
-			destination.y=y;
-			destination.z=z;
 		}
 	}
 
