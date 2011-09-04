@@ -81,6 +81,8 @@ public class LibraryManager
                 manager.registerModule(new Relativator3D());
                 manager.registerModule(new CharAnimOut());
                 manager.registerModule(new LinearMap());
+                manager.registerModule(new IntervalMap());
+                manager.registerModule(new IsStable());
                 
             } catch (ModulException e) {
                 // TODO Auto-generated catch block

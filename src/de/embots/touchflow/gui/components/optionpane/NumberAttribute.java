@@ -43,7 +43,6 @@ public class NumberAttribute extends Attribute{
 			@Override
 			public void keyReleased(KeyEvent arg0) {
 				updateContent();
-				System.err.println("updatekont");
 			}
 
 			@Override
