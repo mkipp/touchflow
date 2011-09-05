@@ -1,5 +1,7 @@
 package de.embots.touchflow.module.pin;
 
+import javax.vecmath.Vector3d;
+
 import de.embots.touchflow.module.core.Module;
 import de.embots.touchflow.module.core.PinName;
 
@@ -26,8 +28,29 @@ public class OutputPin3D extends OutputPin2D {
 		dataLock.unlock();
 	}
 
+	public void writeDataVector(Vector3d wert){
+		
+		dataLock.lock();
+		dataReceived=false;
+		data=wert.x;
+		data2=wert.y;
+		data3=wert.z;
+		dataLock.unlock();
+	}
+	
 	public double getData3() {
 		return data3;
+	}
+	
+	public Vector3d getVector(){
+		Vector3d ret=new Vector3d();
+		
+		ret.x=getData();
+		ret.y=getData2();
+		ret.z=getData3();
+		
+		return ret;
+		
 	}
 	
 	public boolean isNewDrawData() {
