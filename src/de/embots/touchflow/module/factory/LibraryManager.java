@@ -11,20 +11,52 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import org.jdom.Element;
+
+import de.embots.touchflow.exceptions.ModulException;
+import de.embots.touchflow.exceptions.ModulFactoryException;
 import de.embots.touchflow.module.Globals;
 import de.embots.touchflow.module.core.InputModule;
 import de.embots.touchflow.module.core.ModifyModule;
 import de.embots.touchflow.module.core.Module;
 import de.embots.touchflow.module.core.OutputModule;
-import de.embots.touchflow.module.implementation.input.*;
-import de.embots.touchflow.module.implementation.output.*;
-import de.embots.touchflow.module.implementation.modify.*;
-
-import org.jdom.Element;
-
+import de.embots.touchflow.module.implementation.input.Amplitude;
+import de.embots.touchflow.module.implementation.input.Const;
+import de.embots.touchflow.module.implementation.input.Const2D;
+import de.embots.touchflow.module.implementation.input.Const3D;
+import de.embots.touchflow.module.implementation.input.Keyboard;
+import de.embots.touchflow.module.implementation.input.KinectInput3D;
+import de.embots.touchflow.module.implementation.input.KinectSimulator3D;
+import de.embots.touchflow.module.implementation.input.Mouse2D;
+import de.embots.touchflow.module.implementation.input.Pitch;
+import de.embots.touchflow.module.implementation.modify.Add;
+import de.embots.touchflow.module.implementation.modify.Angle2D;
+import de.embots.touchflow.module.implementation.modify.BandFilter;
+import de.embots.touchflow.module.implementation.modify.Distance2D;
+import de.embots.touchflow.module.implementation.modify.Distance3D;
+import de.embots.touchflow.module.implementation.modify.InputSelect;
+import de.embots.touchflow.module.implementation.modify.InputSelect2D;
+import de.embots.touchflow.module.implementation.modify.IntervalMap;
+import de.embots.touchflow.module.implementation.modify.IsStable;
+import de.embots.touchflow.module.implementation.modify.LinearMap;
+import de.embots.touchflow.module.implementation.modify.MapPosCircle2D;
+import de.embots.touchflow.module.implementation.modify.MapPosSquare2D;
+import de.embots.touchflow.module.implementation.modify.Multiply;
+import de.embots.touchflow.module.implementation.modify.Multiply2D;
+import de.embots.touchflow.module.implementation.modify.OutputSelect;
+import de.embots.touchflow.module.implementation.modify.Relativator;
+import de.embots.touchflow.module.implementation.modify.Relativator3D;
+import de.embots.touchflow.module.implementation.modify.StabilityFilter2D;
+import de.embots.touchflow.module.implementation.modify.Warp;
+import de.embots.touchflow.module.implementation.modify._2DTo1D;
+import de.embots.touchflow.module.implementation.output.CharAnimOut;
+import de.embots.touchflow.module.implementation.output.FormattedOut;
+import de.embots.touchflow.module.implementation.output.Print;
+import de.embots.touchflow.module.implementation.output.Print2D;
+import de.embots.touchflow.module.implementation.output.Socket;
+import de.embots.touchflow.module.implementation.output.Socket2D;
+import de.embots.touchflow.module.implementation.output.StatPrint;
 import de.embots.touchflow.util.RAClass;
-import de.embots.touchflow.exceptions.ModulException;
-import de.embots.touchflow.exceptions.ModulFactoryException;
 
 public class LibraryManager
 {
