@@ -38,7 +38,7 @@ import de.embots.touchflow.module.implementation.modify.InputSelect;
 import de.embots.touchflow.module.implementation.modify.InputSelect2D;
 import de.embots.touchflow.module.implementation.modify.IntervalMap;
 import de.embots.touchflow.module.implementation.modify.IsStable;
-import de.embots.touchflow.module.implementation.modify.LinearMap;
+import de.embots.touchflow.module.implementation.modify.AffineMap;
 import de.embots.touchflow.module.implementation.modify.MapPosCircle2D;
 import de.embots.touchflow.module.implementation.modify.MapPosSquare2D;
 import de.embots.touchflow.module.implementation.modify.Multiply;
@@ -112,7 +112,7 @@ public class LibraryManager
                 manager.registerModule(new Distance3D());
                 manager.registerModule(new Relativator3D());
                 manager.registerModule(new CharAnimOut());
-                manager.registerModule(new LinearMap());
+                manager.registerModule(new AffineMap());
                 manager.registerModule(new IntervalMap());
                 manager.registerModule(new IsStable());
                 
