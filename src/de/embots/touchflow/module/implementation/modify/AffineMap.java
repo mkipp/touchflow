@@ -12,12 +12,12 @@ import de.embots.touchflow.module.core.PinName;
 import de.embots.touchflow.module.pin.InputPin;
 import de.embots.touchflow.module.pin.OutputPin;
 
-public class LinearMap extends ModifyModule {
+public class AffineMap extends ModifyModule {
 
-	double gain=1,offset;
+	double slope=1,intercept;
 	
 	
-	public LinearMap(){
+	public AffineMap(){
 		inputPins=new InputPin[2];
 		inputPins[0]=new InputPin(PinName.IN, this);
 		inputPins[1]=new InputPin(PinName.OVERALL_GAIN, this);
@@ -31,14 +31,14 @@ public class LinearMap extends ModifyModule {
 	@Override
 	public String getModuleName() {
 		// TODO Auto-generated method stub
-		return "LinearMap";
+		return "AffineMap";
 	}
 
 	@Override
 	protected void processData() throws ModulException {
 		double overallGain=getInputPin(PinName.OVERALL_GAIN).getData();
 		
-		double out=(getInputPin(PinName.IN).getData() * gain + offset)*overallGain;
+		double out=(getInputPin(PinName.IN).getData() * slope + intercept)*overallGain;
 		
 		getOutputPin(PinName.OUT).writeData(out);
 
@@ -46,19 +46,19 @@ public class LinearMap extends ModifyModule {
 
 	@Override
 	protected void additionalSaveAttribute(Element e) {
-		e.setAttribute("Constructor",gain+" " + offset);
+		e.setAttribute("Constructor",slope+" " + intercept);
 
 	}
 
 	@Override
 	public void init(String params) throws ModulException {
-		String[] paramslinearmap;
-		paramslinearmap=params.split(" ");
-		if (paramslinearmap.length!=2) throw new ModulFactoryException("LinearMap: split ergab mehr oder weniger als 2 Konstruktorargumente");
+		String[] paramsAffineMap;
+		paramsAffineMap=params.split(" ");
+		if (paramsAffineMap.length!=2) throw new ModulFactoryException("AffineMap: split ergab mehr oder weniger als 2 Konstruktorargumente");
 		
 		try{
-			gain=Double.parseDouble(paramslinearmap[0]);
-			offset=Double.parseDouble(paramslinearmap[1]);
+			slope=Double.parseDouble(paramsAffineMap[0]);
+			intercept=Double.parseDouble(paramsAffineMap[1]);
 		}
 		catch(Exception nf){
 			throw new ModulFactoryException("BandFilter: Konstruktorparam fehlt oder einer der Konstruktorparams kein int");
@@ -68,17 +68,17 @@ public class LinearMap extends ModifyModule {
 	@Override
 	public void reinit(Attribute[] args) {
 		double d=(Double) args[0].getContent();
-		gain= d;
+		slope= d;
 		d=(Double) args[1].getContent();
-		offset= d;
+		intercept= d;
 	}
 
 	@Override
 	public void openOptions() {
-		NumberAttribute gainarg=new NumberAttribute("Gain");
-		gainarg.setContent(gain);
-		NumberAttribute offsetarg=new NumberAttribute("Offset");
-		offsetarg.setContent(offset);
+		NumberAttribute gainarg=new NumberAttribute("Slope");
+		gainarg.setContent(slope);
+		NumberAttribute offsetarg=new NumberAttribute("Intercept");
+		offsetarg.setContent(intercept);
 		
 		
 		OptionPane.showOptionPane(new Attribute[]{gainarg,offsetarg},this);
