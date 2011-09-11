@@ -62,7 +62,7 @@ import de.embots.touchflow.module.implementation.input.stantum.SMTListeningSocke
 import de.embots.touchflow.module.pin.InputPin;
 import de.embots.touchflow.module.pin.OutputPin;
 import de.embots.touchflow.module.pin.Pin;
-import de.embots.touchflow.test.SocketClient;
+import de.embots.touchflow.test.SocketTest;
 import de.embots.touchflow.util.RAClass;
 
 /**
@@ -692,7 +692,7 @@ public class TouchFlow implements MouseInputListener{
                     // MK: this is for testing the socket connection
                     if (false) {
                         System.out.println("## starting test server...");
-                        SocketClient c = new SocketClient();
+                        SocketTest c = new SocketTest();
                         c.start();
                     }
                     

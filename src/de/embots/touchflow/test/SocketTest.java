@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package de.embots.touchflow.test;
 
 import java.io.BufferedReader;
@@ -15,10 +11,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * Tests the output from the CharAnimOut module by creating a TCP
+ * server socket which accepts output from this module...
+ * 
  * @author Michael Kipp
  */
-public class SocketClient extends Thread
+public class SocketTest extends Thread
 {
 
     private static final String HOST = "localhost";
@@ -26,13 +24,13 @@ public class SocketClient extends Thread
     private ServerSocket _socket;
     private Socket _client;
 
-    public SocketClient()
+    public SocketTest()
     {
         try {
             _socket = new ServerSocket(PORT);
             //        _address = new InetSocketAddress(HOST, PORT);
         } catch (IOException ex) {
-            Logger.getLogger(SocketClient.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SocketTest.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -55,4 +53,11 @@ public class SocketClient extends Thread
             }
         }
     }
+    
+    public static void main(String[] a) {
+        System.out.println("## run socket test");
+        SocketTest s = new SocketTest();
+        s.start();
+    }
+
 }
