@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<InModulix><modul id="72" type="CharAnimOut" graphXPos="314" graphYPos="223" Constructor="1234 localhost" rightwristxModulID="74" rightwristxPinName="X" /><modul id="73" type="Mouse2D" graphXPos="17" graphYPos="143" /><modul id="74" type="_2DTo1D" graphXPos="141" graphYPos="236" INModulID="73" INPinName="POSITION" /></InModulix>
