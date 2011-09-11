@@ -62,6 +62,7 @@ import de.embots.touchflow.module.implementation.input.stantum.SMTListeningSocke
 import de.embots.touchflow.module.pin.InputPin;
 import de.embots.touchflow.module.pin.OutputPin;
 import de.embots.touchflow.module.pin.Pin;
+import de.embots.touchflow.test.SocketClient;
 import de.embots.touchflow.util.RAClass;
 
 /**
@@ -688,7 +689,14 @@ public class TouchFlow implements MouseInputListener{
                 
                 public static void main(String[] args) throws InterruptedException  {
 		
-		
+                    // MK: this is for testing the socket connection
+                    if (false) {
+                        System.out.println("## starting test server...");
+                        SocketClient c = new SocketClient();
+                        c.start();
+                    }
+                    
+                    
                     if (alreadyRunning()){
                             RAClass.msgbox("TouchFlow is already running. Please close the older instance.", "Touchflow", "Error");
                             return;
