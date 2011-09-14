@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.net.UnknownHostException;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.jdom.Element;
 
 
@@ -27,16 +29,14 @@ import de.embots.touchflow.module.pin.InputPin;
  * 
  * In the current implementation, the server has to be running under port 1234.
  */
-public class CharAnimOut extends OutputModule
-{
+public class CharAnimOut extends OutputModule {
 
     int port = 1234;
     String host = "localhost";
     java.net.Socket server;
     BufferedWriter out;
 
-    public CharAnimOut()
-    {
+    public CharAnimOut() {
         inputPins = new InputPin[16];
         inputPins[0] = new InputPin(PinName.rightwristx, this);
         inputPins[1] = new InputPin(PinName.rightwristy, this);
@@ -58,8 +58,7 @@ public class CharAnimOut extends OutputModule
 
     }
 
-    private boolean initSocket()
-    {
+    private boolean initSocket() {
 
         /*Out-vals:
          * 
@@ -100,71 +99,136 @@ public class CharAnimOut extends OutputModule
         }
     }
 
-    @Override
-    protected void processData() throws ModulException
-    {
-
+    //@Override
+    protected void processData() throws ModulException {
         if (initSocket()) {
-            double data;
 
+            // open stream
+            try {
+                out = new BufferedWriter(new OutputStreamWriter(server.getOutputStream()));
+            } catch (IOException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            }
+
+            StringBuilder sb = new StringBuilder();
+
+            // collect pin data to send out
             for (int i = 0; i < inputPins.length; i++) {
 
                 InputPin actualPin = inputPins[i];
 
                 if (actualPin.getConnectedPin() != null) {
-                    //init socket if not already done
-//                    initSocket();
+//                    try {
+//                        String msg = 
 
-                    try {
-                        out = new BufferedWriter(new OutputStreamWriter(server.getOutputStream()));
-                    } catch (IOException e1) {
-                        // TODO Auto-generated catch block
-                        e1.printStackTrace();
+                    if (sb.length() > 0) {
+                        sb.append("#");
                     }
+                    sb.append(actualPin.getName().toString() + " " + actualPin.getData());
 
-                    String msg = actualPin.getName().toString() + " " + actualPin.getData() + "\n";
 
-                    //send msg
-
-                    try {
-                        //System.err.println("written:" + msg);
-
-                        out.write(msg);
-                        out.flush();
-                        out.close();
-                    } catch (IOException e) {
-                        // TODO Auto-generated catch block
-                        System.err.println("Socket: Error writing data:" + e.getMessage());
-                    }
-
+//                        out.write(msg);
+//                        out.newLine();
+//                        out.flush();
+//                        System.out.println("Written:" + msg);
+//                        out.close();
+//                        server.close();
+//                    } catch (IOException e) {
+//                        // TODO Auto-generated catch block
+//                        System.err.println("Socket: Error writing data:" + e.getMessage());
+//                    }
                 }
-                try {
-                    server.close();
 
-                } catch (IOException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
+            }
+            try {
+                String msg = sb.toString();
+                out.write(msg);
+                System.out.println("Wrote: " + msg);
+                out.close();
+                server.close();
+
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+//                e.printStackTrace();
+                System.out.println("ERROR trying to write: " + e.getMessage());
             }
         }
     }
 
+//    protected void processData() throws ModulException {
+//
+//        if (initSocket()) {
+////            double data;
+//
+//            /*
+//            try {
+//            out = new BufferedWriter(new OutputStreamWriter(server.getOutputStream()));
+//            } catch (IOException e1) {
+//            // TODO Auto-generated catch block
+//            e1.printStackTrace();
+//            }
+//             */
+//
+//            for (int i = 0; i < inputPins.length; i++) {
+//                InputPin actualPin = inputPins[i];
+//                if (actualPin.getConnectedPin() != null) {
+//
+//                    try {
+//                        out = new BufferedWriter(new OutputStreamWriter(server.getOutputStream()));
+//                    } catch (IOException e1) {
+//                        // TODO Auto-generated catch block
+//                        e1.printStackTrace();
+//                    }
+//
+//
+//                    //init socket if not already done
+////                    initSocket();
+//                    String msg = actualPin.getName().toString() + " " + actualPin.getData() + "\n";
+//
+//                    //send msg
+//                    try {
+//                        System.out.println("Written:" + msg);
+//
+//                        out.write(msg);
+//                        out.close();
+//                        //out.flush();
+//                        //out.newLine();
+//                    } catch (IOException e) {
+//                        // TODO Auto-generated catch block
+//                    }
+//                }
+////                try {
+////                    server.close();
+////
+////                } catch (IOException e) {
+////                    // TODO Auto-generated catch block
+////                    e.printStackTrace();
+////                }
+//            }
+//            try {
+//                //out.close();
+//                server.close();
+//            } catch (IOException e) {
+//                // TODO Auto-generated catch block
+//                System.err.println("Socket: Error closing:" + e.getMessage());
+//            }
+//        }
+//    }
+
     @Override
-    public String getDescription()
-    {
+    public String getDescription() {
         return "<html>Sends <b>IN</b> over a Socket</html>";
     }
 
     @Override
-    protected void additionalSaveAttribute(Element e)
-    {
+    protected void additionalSaveAttribute(Element e) {
         e.setAttribute("Constructor", port + " " + host);
 
     }
 
     @Override
-    public void init(String params) throws ModulException
-    {
+    public void init(String params) throws ModulException {
         String[] par = params.split(" ");
 
         if (par.length != 2) {
@@ -180,8 +244,7 @@ public class CharAnimOut extends OutputModule
     }
 
     @Override
-    public void openOptions()
-    {
+    public void openOptions() {
         StringAttribute host = new StringAttribute("host");
         host.setContent(this.host);
 
@@ -193,16 +256,14 @@ public class CharAnimOut extends OutputModule
     }
 
     @Override
-    public void reinit(Attribute[] args)
-    {
+    public void reinit(Attribute[] args) {
         host = (String) args[0].getContent();
         double d = (Double) args[1].getContent();
         port = (int) d;
     }
 
     @Override
-    public String getModuleName()
-    {
+    public String getModuleName() {
         return "CharAnimOut";
     }
 }
