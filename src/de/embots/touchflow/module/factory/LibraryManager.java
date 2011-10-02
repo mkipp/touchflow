@@ -30,6 +30,7 @@ import de.embots.touchflow.module.implementation.input.KinectSimulator3D;
 import de.embots.touchflow.module.implementation.input.Mouse2D;
 import de.embots.touchflow.module.implementation.input.Pitch;
 import de.embots.touchflow.module.implementation.modify.Add;
+import de.embots.touchflow.module.implementation.modify.And;
 import de.embots.touchflow.module.implementation.modify.Angle2D;
 import de.embots.touchflow.module.implementation.modify.BandFilter;
 import de.embots.touchflow.module.implementation.modify.Distance2D;
@@ -115,7 +116,8 @@ public class LibraryManager
                 manager.registerModule(new AffineMap());
                 manager.registerModule(new IntervalMap());
                 manager.registerModule(new IsStable());
-                
+                manager.registerModule(new And());
+                //"Fehler beim laden"
             } catch (ModulException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
