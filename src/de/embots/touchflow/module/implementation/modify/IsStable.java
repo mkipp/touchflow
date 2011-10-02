@@ -101,8 +101,7 @@ public class IsStable extends ModifyModule {
 
 	@Override
 	protected void additionalSaveAttribute(Element e) {
-		// TODO Auto-generated method stub
-
+		e.setAttribute("Constructor",maximumDifference+" " + numberOfFrames);
 	}
 	
 	public IsStable(){

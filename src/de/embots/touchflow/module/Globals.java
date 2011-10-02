@@ -7,7 +7,7 @@ import org.jgraph.graph.GraphConstants;
 
 public class Globals {
 	
-	public static boolean isDebug=false;
+	public static boolean isDebug=true;
 	public static boolean isJar=true;
 	public static String settingsFile="settings.cnf";
 	
