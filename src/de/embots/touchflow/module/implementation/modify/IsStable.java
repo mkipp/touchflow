@@ -17,11 +17,11 @@ import de.embots.touchflow.module.pin.OutputPin;
 
 public class IsStable extends ModifyModule {
 
-	double numberOfFrames=30;
+	double stableTime=30;
 	double maximumDifference=50;
 	
 	Vector3d lastStablePoint=new Vector3d(0,0,0);
-	int numOfStableFrames=0;
+	long lastStableTime=0;
 	
 	@Override
 	public String getModuleName() {
@@ -31,6 +31,9 @@ public class IsStable extends ModifyModule {
 
 	@Override
 	protected void processData() throws ModulException {
+		if (lastStableTime==0){
+			lastStableTime=System.currentTimeMillis();
+		}
 		Vector3d currentPoint=new Vector3d();
 		
 		InputPin3D curPos=getInputPin3D(PinName.IN);
@@ -44,14 +47,14 @@ public class IsStable extends ModifyModule {
 		
 		if (temp.length()>=maximumDifference){
 			lastStablePoint=currentPoint;
-			numOfStableFrames=0;
+			lastStableTime=System.currentTimeMillis();
 			
 		}
 		else{
-			numOfStableFrames++;
+			
 		}
 		
-		if (numOfStableFrames>=numberOfFrames){
+		if (System.currentTimeMillis()-lastStableTime>=stableTime){
 			getOutputPin(PinName.OUT).writeData(1);
 		}
 		else{
@@ -73,7 +76,7 @@ public class IsStable extends ModifyModule {
 		
 		try{
 			maximumDifference=Double.parseDouble(paramsbandfilt[0]);
-			numberOfFrames=Double.parseDouble(paramsbandfilt[1]);
+			stableTime=Double.parseDouble(paramsbandfilt[1]);
 		}
 		catch(Exception nf){
 			throw new ModulFactoryException("BandFilter: Konstruktorparam fehlt oder einer der Konstruktorparams kein int");
@@ -85,15 +88,15 @@ public class IsStable extends ModifyModule {
 		double d=(Double) args[0].getContent();
 		maximumDifference= d;
 		d=(Double) args[1].getContent();
-		numberOfFrames= d;
+		stableTime= d;
 	}
 
 	@Override
 	public void openOptions() {
 		NumberAttribute distarg=new NumberAttribute("max. Difference");
 		distarg.setContent(maximumDifference);
-		NumberAttribute uparg=new NumberAttribute("Frames");
-		uparg.setContent(numberOfFrames);
+		NumberAttribute uparg=new NumberAttribute("time (ms)");
+		uparg.setContent(stableTime);
 		
 		
 		OptionPane.showOptionPane(new Attribute[]{distarg,uparg},this);
@@ -101,7 +104,7 @@ public class IsStable extends ModifyModule {
 
 	@Override
 	protected void additionalSaveAttribute(Element e) {
-		e.setAttribute("Constructor",maximumDifference+" " + numberOfFrames);
+		e.setAttribute("Constructor",maximumDifference+" " + stableTime);
 	}
 	
 	public IsStable(){
