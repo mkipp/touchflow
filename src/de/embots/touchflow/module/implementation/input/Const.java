@@ -3,6 +3,7 @@ package de.embots.touchflow.module.implementation.input;
 import de.embots.touchflow.exceptions.ModulException;
 import de.embots.touchflow.exceptions.ModulFactoryException;
 import de.embots.touchflow.gui.components.optionpane.Attribute;
+import de.embots.touchflow.gui.components.optionpane.NumberAttribute;
 import de.embots.touchflow.gui.components.optionpane.OptionPane;
 import de.embots.touchflow.gui.components.optionpane.SliderAttribute;
 import de.embots.touchflow.module.core.InputModule;
@@ -21,7 +22,7 @@ public class Const extends InputModule {
 	
 	@Override
 	public void openOptions() {
-		SliderAttribute karg=new SliderAttribute("Konstante",1,100);
+		NumberAttribute karg=new NumberAttribute("Konstante");
 		karg.setContent(Konstante);
 		
 		OptionPane.showOptionPane(new Attribute[]{karg},this);
