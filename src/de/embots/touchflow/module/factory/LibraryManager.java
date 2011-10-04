@@ -44,6 +44,7 @@ import de.embots.touchflow.module.implementation.modify.MapPosCircle2D;
 import de.embots.touchflow.module.implementation.modify.MapPosSquare2D;
 import de.embots.touchflow.module.implementation.modify.Multiply;
 import de.embots.touchflow.module.implementation.modify.Multiply2D;
+import de.embots.touchflow.module.implementation.modify.Multiply3D;
 import de.embots.touchflow.module.implementation.modify.OutputSelect;
 import de.embots.touchflow.module.implementation.modify.Relativator;
 import de.embots.touchflow.module.implementation.modify.Relativator3D;
@@ -117,6 +118,7 @@ public class LibraryManager
                 manager.registerModule(new IntervalMap());
                 manager.registerModule(new IsStable());
                 manager.registerModule(new And());
+                manager.registerModule(new Multiply3D());
                 //"Fehler beim laden"
             } catch (ModulException e) {
                 // TODO Auto-generated catch block
