@@ -57,6 +57,7 @@ public class StringAttribute extends Attribute{
 	}
 	
 	public void setContent(Object in) {
+		super.updateContent();
 		content=in;
 		textFeld.setText(in.toString());
 		updateContent();
@@ -67,8 +68,8 @@ public class StringAttribute extends Attribute{
 			content=textFeld.getText();
 			textFeld.repaint();
 			if (mainFrame!=null){
-				mainFrame.pack();
-				mainFrame.repaint();
+				mainFrame.mainFrame.pack();
+				mainFrame.mainFrame.repaint();
 			}
 			
 	}

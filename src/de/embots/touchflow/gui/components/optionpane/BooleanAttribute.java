@@ -74,7 +74,7 @@ public class BooleanAttribute extends Attribute{
 	}
 	
 	protected void updateContent(){
-		
+		super.updateContent();
 		content=trueButton.isSelected();
 		/*try{
 			Double d=Double.parseDouble(textFeld.getText());

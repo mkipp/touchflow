@@ -3,6 +3,7 @@ package de.embots.touchflow.gui.components.optionpane;
 import de.embots.touchflow.gui.inspector.InspectorView;
 import de.embots.touchflow.TouchFlow;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -24,6 +25,7 @@ Module sender;
 Attribute[] options;
 JFrame mainFrame;
 JCheckBox showInInspector;
+private JButton applyButton;
 private static HashMap<Module,OptionPane> openPanes=new HashMap<Module, OptionPane>();
 
 
@@ -79,8 +81,7 @@ public OptionPane( Attribute[] options,Module sender) {
 	hBox.add(showInInspector);
 	
 	for (Attribute a:options){
-		a.setMainFrame(mainFrame);
-
+		a.setMainFrame(this);
 		hBox.add(a);
 	}
 	
@@ -95,7 +96,7 @@ public OptionPane( Attribute[] options,Module sender) {
 	};
 	
 	JPanel buttonPanel=new JPanel();
-	JButton applyButton=new JButton("Apply");
+	applyButton=new JButton("Apply");
 	buttonPanel.add(applyButton);
 	applyButton.addActionListener(buttonListener);
 	hBox.add(buttonPanel);
@@ -106,6 +107,13 @@ public OptionPane( Attribute[] options,Module sender) {
 	mainFrame.setVisible(true);
 }
 
+/**
+ * called from attributes when data to apply is there
+ */
+public void newData(){
+	applyButton.setForeground(Color.RED);
+	applyButton.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 14));
+}
 
 private void applyClicked() {
 	sender.setShowInInspector(showInInspector.isSelected());

@@ -131,6 +131,7 @@ public class SliderAttribute extends Attribute{
 	}
 	
 	protected void updateContent(){
+		super.updateContent();
 		try{
 			double d=Double.parseDouble(textFeld.getText());
 			setSliderVal(d);
@@ -138,8 +139,8 @@ public class SliderAttribute extends Attribute{
 			content=d;
 			textFeld.repaint();
 			if (mainFrame!=null){
-				mainFrame.pack();
-				mainFrame.repaint();
+				mainFrame.mainFrame.pack();
+				mainFrame.mainFrame.repaint();
 			}
 			
 		}

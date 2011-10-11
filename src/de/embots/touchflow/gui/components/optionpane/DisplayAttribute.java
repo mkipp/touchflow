@@ -33,7 +33,7 @@ public class DisplayAttribute extends Attribute{
 	}
 	
 	protected void updateContent(){
-		
+		super.updateContent();
 	}
 
 	
