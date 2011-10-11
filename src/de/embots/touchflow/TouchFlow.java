@@ -79,6 +79,7 @@ public class TouchFlow implements MouseInputListener{
 	private static String lastFile=null;
 	private static double ScaleRate=1.0;
 	private static NodeStorage storage;
+	private static Toolbar toolBar;
 	
 	public static void clearGraph(){ 
 		for (GraphModul m:getNodes()){
@@ -318,7 +319,8 @@ public class TouchFlow implements MouseInputListener{
 	        fileMenu.add(saveAction);
 	        fileMenu.add(exitAction);
 	        
-	        thisFrame.getContentPane().add(new Toolbar(), BorderLayout.PAGE_START);
+	        toolBar=new Toolbar();
+	        thisFrame.getContentPane().add(toolBar, BorderLayout.PAGE_START);
 	        
 			JScrollPane pane=new JScrollPane(graph);
 			thisFrame.setTitle("TouchFlow - GraphDesigner");
@@ -705,7 +707,9 @@ public class TouchFlow implements MouseInputListener{
 
                     graphTool=new TouchFlow();
                     if (args.length==1){
-                            try {
+                            
+                    		System.err.println("WARNING! Loading graph via command-line arguments is deprecated and might lead to bugs while loading!\n -> use static method Touchflow.startGraph instead!");
+                    		try {
                                     synchronized(Thread.currentThread()){
                                             Thread.currentThread().wait(500);
                                     }
@@ -721,5 +725,8 @@ public class TouchFlow implements MouseInputListener{
 
 
 	}
-                
+    public static void startGraph(String graph){
+    	graphTool.loadGraph(graph);
+    	toolBar.startGraph();
+    }
 }

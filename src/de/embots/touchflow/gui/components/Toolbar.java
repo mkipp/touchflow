@@ -120,7 +120,7 @@ public static void setStoppedText() {
 }
 
 
-private void startGraph() {
+public void startGraph() {
 
 	
 	Module[] module=GraphSerializer.getModules(TouchFlow.getNodes(), TouchFlow.getEdges());

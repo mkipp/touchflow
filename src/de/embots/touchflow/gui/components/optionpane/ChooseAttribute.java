@@ -77,6 +77,7 @@ public class ChooseAttribute extends Attribute {
 
 	@Override
 	protected void updateContent() {
+		super.updateContent();
 		for (int i=0; i< options.length;i++){
 			if (options[i].isSelected()) {
 				content=i;

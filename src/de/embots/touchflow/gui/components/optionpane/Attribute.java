@@ -7,10 +7,11 @@ public abstract class Attribute extends JPanel{
 	
 	Object content;
 	String Caption="";
+	boolean newContent=false;
 	
-	JFrame mainFrame=null; //needed for pack() -> update sizes & layout
+	OptionPane mainFrame=null; //needed for pack() -> update sizes & layout
 	
-	public void setMainFrame(JFrame mainFrame) {
+	public void setMainFrame(OptionPane mainFrame) {
 		this.mainFrame = mainFrame;
 	}
 	
@@ -21,5 +22,12 @@ public abstract class Attribute extends JPanel{
 		return content;
 	}
 	
-	protected abstract void updateContent();
+	public boolean isNewContent() {
+		return newContent;
+	}
+
+	protected void updateContent(){
+		newContent=true;
+		if (mainFrame!=null) mainFrame.newData();
+	}
 }

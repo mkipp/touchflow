@@ -73,14 +73,15 @@ public class NumberAttribute extends Attribute{
 	}
 	
 	protected void updateContent(){
+		super.updateContent();
 		try{
 			Double d=Double.parseDouble(textFeld.getText());
 			content=d;
 			
 			textFeld.repaint();
 			if (mainFrame!=null){
-				mainFrame.pack();
-				mainFrame.repaint();
+				mainFrame.mainFrame.pack();
+				mainFrame.mainFrame.repaint();
 			}
 			
 		}
