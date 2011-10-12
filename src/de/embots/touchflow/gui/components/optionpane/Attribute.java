@@ -26,6 +26,10 @@ public abstract class Attribute extends JPanel{
 		return newContent;
 	}
 
+	public void setNewContent(boolean newContent) {
+		this.newContent = newContent;
+	}
+
 	protected void updateContent(){
 		newContent=true;
 		if (mainFrame!=null) mainFrame.newData();
