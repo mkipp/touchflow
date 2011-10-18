@@ -33,7 +33,7 @@ public class InputSelect2D extends ModifyModule {
 	}
 	@Override
 	public String getDescription() {
-		return "<html>Multiplexes <b>DATA1 and DATA2</b> to the output channel <br><b>OUT</b> using <b>SELECT</b> as a selector</html>";
+		return "<html>Multiplexes <b>DATA1 and DATA2</b> to the output channel <br><b>OUT</b> using <b>SELECT</b> as a selector.\n2D-Version.</html>";
 	}
 	@Override
 	protected void processData() throws ModulException {

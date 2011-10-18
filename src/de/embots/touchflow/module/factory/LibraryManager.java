@@ -33,10 +33,12 @@ import de.embots.touchflow.module.implementation.modify.Add;
 import de.embots.touchflow.module.implementation.modify.And;
 import de.embots.touchflow.module.implementation.modify.Angle2D;
 import de.embots.touchflow.module.implementation.modify.BandFilter;
+import de.embots.touchflow.module.implementation.modify.CircleProjection;
 import de.embots.touchflow.module.implementation.modify.Distance2D;
 import de.embots.touchflow.module.implementation.modify.Distance3D;
 import de.embots.touchflow.module.implementation.modify.InputSelect;
 import de.embots.touchflow.module.implementation.modify.InputSelect2D;
+import de.embots.touchflow.module.implementation.modify.InputSelect3D;
 import de.embots.touchflow.module.implementation.modify.IntervalMap;
 import de.embots.touchflow.module.implementation.modify.IsStable;
 import de.embots.touchflow.module.implementation.modify.AffineMap;
@@ -91,15 +93,17 @@ public class LibraryManager
                 //manager.registerModule(new TUIOFinger2D());
                 manager.registerModule(new Angle2D());
                 manager.registerModule(new BandFilter());
-                manager.registerModule(new OutputSelect());
+                
                 manager.registerModule(new Distance2D());
                 manager.registerModule(new StabilityFilter2D());
                 manager.registerModule(new MapPosCircle2D());
                 manager.registerModule(new MapPosSquare2D());
                 manager.registerModule(new Multiply());
                 manager.registerModule(new Multiply2D());
-                manager.registerModule(new InputSelect2D());
                 manager.registerModule(new InputSelect());
+                manager.registerModule(new InputSelect2D());
+                manager.registerModule(new InputSelect3D());
+                manager.registerModule(new OutputSelect());
                 manager.registerModule(new Relativator());
                 manager.registerModule(new Add());
                 manager.registerModule(new _2DTo1D());
@@ -121,6 +125,7 @@ public class LibraryManager
                 manager.registerModule(new And());
                 manager.registerModule(new Multiply3D());
                 manager.registerModule(new MultiAffineMap());
+                manager.registerModule(new CircleProjection());
                 
                 //"Fehler beim laden"
             } catch (ModulException e) {
