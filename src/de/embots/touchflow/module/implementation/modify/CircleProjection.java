@@ -38,7 +38,7 @@ public class CircleProjection extends ModifyModule {
 			refMiddle=p1;
 
 		}
-		else{
+		//else{
 
 			//calculate actual radius vector
 			p2.sub(p1);
@@ -51,7 +51,6 @@ public class CircleProjection extends ModifyModule {
 			
 			p2.scale(scalefactor);
 			
-			System.err.println("scalef:" + scalefactor);
 			
 			Vector3d outP1, outP2;
 			
@@ -67,7 +66,7 @@ public class CircleProjection extends ModifyModule {
 			
 			getOutputPin3D(PinName.OUT1).writeDataVector(outP1);
 			getOutputPin3D(PinName.OUT2).writeDataVector(outP2);
-		}
+		//}
 		
 	}
 
@@ -81,7 +80,7 @@ public class CircleProjection extends ModifyModule {
 		inputPins=new InputPin[3];
 		inputPins[0]=new InputPin3D(PinName.P1,this);
 		inputPins[1]=new InputPin3D(PinName.P2,this);
-		inputPins[2]=new InputPin3D(PinName.RESET,this);
+		inputPins[2]=new InputPin(PinName.RESET,this);
 		
 		outputPins=new OutputPin[2];
 		
