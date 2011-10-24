@@ -30,6 +30,7 @@ import de.embots.touchflow.module.implementation.input.KinectSimulator3D;
 import de.embots.touchflow.module.implementation.input.Mouse2D;
 import de.embots.touchflow.module.implementation.input.Pitch;
 import de.embots.touchflow.module.implementation.modify.Add;
+import de.embots.touchflow.module.implementation.modify.AffineMap;
 import de.embots.touchflow.module.implementation.modify.And;
 import de.embots.touchflow.module.implementation.modify.Angle2D;
 import de.embots.touchflow.module.implementation.modify.BandFilter;
@@ -41,7 +42,7 @@ import de.embots.touchflow.module.implementation.modify.InputSelect2D;
 import de.embots.touchflow.module.implementation.modify.InputSelect3D;
 import de.embots.touchflow.module.implementation.modify.IntervalMap;
 import de.embots.touchflow.module.implementation.modify.IsStable;
-import de.embots.touchflow.module.implementation.modify.AffineMap;
+import de.embots.touchflow.module.implementation.modify.IsZero;
 import de.embots.touchflow.module.implementation.modify.MapPosCircle2D;
 import de.embots.touchflow.module.implementation.modify.MapPosSquare2D;
 import de.embots.touchflow.module.implementation.modify.MultiAffineMap;
@@ -126,6 +127,7 @@ public class LibraryManager
                 manager.registerModule(new Multiply3D());
                 manager.registerModule(new MultiAffineMap());
                 manager.registerModule(new CircleProjection());
+                manager.registerModule(new IsZero());
                 
                 //"Fehler beim laden"
             } catch (ModulException e) {
