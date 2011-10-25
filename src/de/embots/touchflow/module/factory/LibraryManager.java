@@ -43,6 +43,7 @@ import de.embots.touchflow.module.implementation.modify.InputSelect3D;
 import de.embots.touchflow.module.implementation.modify.IntervalMap;
 import de.embots.touchflow.module.implementation.modify.IsStable;
 import de.embots.touchflow.module.implementation.modify.IsZero;
+import de.embots.touchflow.module.implementation.modify.LastTap;
 import de.embots.touchflow.module.implementation.modify.MapPosCircle2D;
 import de.embots.touchflow.module.implementation.modify.MapPosSquare2D;
 import de.embots.touchflow.module.implementation.modify.MultiAffineMap;
@@ -128,6 +129,7 @@ public class LibraryManager
                 manager.registerModule(new MultiAffineMap());
                 manager.registerModule(new CircleProjection());
                 manager.registerModule(new IsZero());
+                manager.registerModule(new LastTap());
                 
                 //"Fehler beim laden"
             } catch (ModulException e) {
