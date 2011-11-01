@@ -36,10 +36,12 @@ public class CircleProjection extends ModifyModule {
 			refRadius=p2;
 			p1.add(refRadius);
 			refMiddle=p1;
-
+			System.out.println("calP1:" + getInputPin3D(PinName.P1).getVector() + " - calP2:" + getInputPin3D(PinName.P2).getVector() + " - redmid:" + refMiddle + " - refrad:" + refRadius);
 		}
 		//else{
-
+			
+			p2=getInputPin3D(PinName.P2).getVector();
+			p1=getInputPin3D(PinName.P1).getVector();
 			//calculate actual radius vector
 			p2.sub(p1);
 			p2.scale(0.5);
@@ -50,7 +52,6 @@ public class CircleProjection extends ModifyModule {
 			scalefactor=refRadius.length()/p2.length();
 			
 			p2.scale(scalefactor);
-			
 			
 			Vector3d outP1, outP2;
 			
@@ -64,6 +65,7 @@ public class CircleProjection extends ModifyModule {
 			outP1=new Vector3d(refMiddle);
 			outP1.add(p2);
 			
+			System.out.println("out1:" + outP1 + " - out2:" + outP2);
 			getOutputPin3D(PinName.OUT1).writeDataVector(outP1);
 			getOutputPin3D(PinName.OUT2).writeDataVector(outP2);
 		//}
