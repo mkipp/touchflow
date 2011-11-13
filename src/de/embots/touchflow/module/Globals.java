@@ -11,7 +11,7 @@ public class Globals {
 	public static boolean isJar=true;
 	public static String settingsFile="settings.cnf";
 	
-	public static boolean useStantum=true; //stantum oder TUIO-protokoll f�r Finger nutzen?
+	public static boolean useStantum=false; //stantum oder TUIO-protokoll f�r Finger nutzen?
 	public static boolean sleepAfterWork=true; //sollen Module kurz schlafen nachdem sie die Daten verarbeitet haben, damit andere Module drankommen?
 	public static int moduleDelay=5; //delay die ein Modul nach erfolgreicher Berechnung schläft in ms
 	public static boolean onlyCalculateIfNewData=true; //sollen Module nur rechnen wenn auch wirklich neue Daten da sind?

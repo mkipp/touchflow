@@ -59,7 +59,7 @@ public class TUIOBuffer implements TuioListener {
 	 */
 	public static TuioCursor getCursorFromId(int id){
 		for (TuioCursor c:cursors){
-			if (c.getCursorID()==id) return c;
+			if (c.getCursorID()==id-1) return c;
 		}
 		return null;
 	}
