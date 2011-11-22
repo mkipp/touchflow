@@ -49,7 +49,11 @@ public class MouseState implements Runnable{
 			try {
 				if (source!=null){
 					msg = source.readLine();
-					if (msg!=null) parseMSG(msg);
+					if (msg==null) {
+						running=false; //stream closed->terminate
+						break;
+					}
+					parseMSG(msg);
 				}
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -72,7 +76,7 @@ public class MouseState implements Runnable{
 	private void parseMSG(String msg) {
 		msg.trim();
 		String[] parts=msg.split(" ");
-		if (parts.length!=3){
+		if (parts.length<3){
 			System.err.println("WARNING: MultiMouse:could not parse/split msg:" + msg);
 			return;
 		}
@@ -96,22 +100,31 @@ public class MouseState implements Runnable{
 			return;
 		}
 		
+		int partslength=parts.length-1;
+		
 		if (parts[0].equals("button")){
 			if (parts[1].equals("press")){
-				if (parts[2].equals("1")){
+				if (parts[partslength].equals("1")){
 					this.isLMouseDown=true;
 				}
-				else if(parts[2].equals("2")){
+				else if(parts[partslength].equals("2")){
 					this.isRMouseDown=true;
+				}
+				else if(parts[partslength].equals("4")){
+					scrollForward();
+				}
+				else if(parts[partslength].equals("5")){
+					scrollBackward();
 				}
 			}
 			else{
-				if (parts[2].equals("1")){
+				if (parts[partslength].equals("1")){
 					this.isLMouseDown=false;
 				}
-				else if(parts[2].equals("2")){
+				else if(parts[partslength].equals("2")){
 					this.isRMouseDown=false;
 				}
+				
 			}
 			return;
 		}
