@@ -28,6 +28,7 @@ import de.embots.touchflow.module.implementation.input.Keyboard;
 import de.embots.touchflow.module.implementation.input.KinectInput3D;
 import de.embots.touchflow.module.implementation.input.KinectSimulator3D;
 import de.embots.touchflow.module.implementation.input.Mouse2D;
+import de.embots.touchflow.module.implementation.input.MultiMouse;
 import de.embots.touchflow.module.implementation.input.Pitch;
 import de.embots.touchflow.module.implementation.input.TUIOFinger2D;
 import de.embots.touchflow.module.implementation.modify.Add;
@@ -44,14 +45,12 @@ import de.embots.touchflow.module.implementation.modify.InputSelect3D;
 import de.embots.touchflow.module.implementation.modify.IntervalMap;
 import de.embots.touchflow.module.implementation.modify.IsStable;
 import de.embots.touchflow.module.implementation.modify.IsZero;
-import de.embots.touchflow.module.implementation.modify.LastTap;
 import de.embots.touchflow.module.implementation.modify.MapPosCircle2D;
 import de.embots.touchflow.module.implementation.modify.MapPosSquare2D;
 import de.embots.touchflow.module.implementation.modify.MultiAffineMap;
 import de.embots.touchflow.module.implementation.modify.Multiply;
 import de.embots.touchflow.module.implementation.modify.Multiply2D;
 import de.embots.touchflow.module.implementation.modify.Multiply3D;
-import de.embots.touchflow.module.implementation.modify.Not;
 import de.embots.touchflow.module.implementation.modify.OutputSelect;
 import de.embots.touchflow.module.implementation.modify.Relativator;
 import de.embots.touchflow.module.implementation.modify.Relativator3D;
@@ -60,7 +59,6 @@ import de.embots.touchflow.module.implementation.modify.Warp;
 import de.embots.touchflow.module.implementation.modify._2DTo1D;
 import de.embots.touchflow.module.implementation.output.CharAnimOut;
 import de.embots.touchflow.module.implementation.output.FormattedOut;
-import de.embots.touchflow.module.implementation.output.MouseRobot;
 import de.embots.touchflow.module.implementation.output.Print;
 import de.embots.touchflow.module.implementation.output.Print2D;
 import de.embots.touchflow.module.implementation.output.Socket;
@@ -129,12 +127,13 @@ public class LibraryManager
                 manager.registerModule(new IsStable());
                 manager.registerModule(new IsZero());
                 manager.registerModule(new And());
-                manager.registerModule(new Not());
+                //manager.registerModule(new Not());
                 manager.registerModule(new Multiply3D());
                 manager.registerModule(new MultiAffineMap());
                 manager.registerModule(new CircleProjection());
-                manager.registerModule(new LastTap());
-                manager.registerModule(new MouseRobot());
+                //manager.registerModule(new LastTap());
+                //manager.registerModule(new MouseRobot());
+                manager.registerModule(new MultiMouse());
                 
                 //"Fehler beim laden"
             } catch (ModulException e) {
