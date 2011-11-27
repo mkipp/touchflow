@@ -47,7 +47,7 @@ public class MultiMouse  extends InputModule{
 	@Override
 	protected void additionalSaveAttribute(Element e) {
 		
-
+		e.setAttribute("Constructor",id+"");
 	}
 	
 	public MultiMouse(){

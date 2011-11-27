@@ -59,6 +59,7 @@ import de.embots.touchflow.module.implementation.modify.Relativator3D;
 import de.embots.touchflow.module.implementation.modify.StabilityFilter2D;
 import de.embots.touchflow.module.implementation.modify.Warp;
 import de.embots.touchflow.module.implementation.modify._2DTo1D;
+import de.embots.touchflow.module.implementation.modify._3merge;
 import de.embots.touchflow.module.implementation.output.CharAnimOut;
 import de.embots.touchflow.module.implementation.output.FormattedOut;
 import de.embots.touchflow.module.implementation.output.MouseRobot;
@@ -113,6 +114,7 @@ public class LibraryManager
                 manager.registerModule(new Relativator());
                 manager.registerModule(new Add());
                 manager.registerModule(new _2DTo1D());
+                manager.registerModule(new _3merge());
                 manager.registerModule(new Warp());
                 manager.registerModule(new FormattedOut());
                 manager.registerModule(new Print2D());
