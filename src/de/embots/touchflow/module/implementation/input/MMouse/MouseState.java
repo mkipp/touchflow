@@ -73,6 +73,9 @@ public class MouseState implements Runnable{
 		
 	}
 
+	public boolean isRunning() {
+		return running;
+	}
 	private void parseMSG(String msg) {
 		msg.trim();
 		String[] parts=msg.split(" ");

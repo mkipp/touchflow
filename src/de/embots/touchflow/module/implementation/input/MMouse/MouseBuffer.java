@@ -52,8 +52,19 @@ public class MouseBuffer implements Runnable{
 	}
 
 	public static MouseState getMouseState(int id){
+		clearDeadMouses();
 		if (id<0||id>=mouses.size()) return null;
 		return mouses.get(id);
+	}
+	
+	private static void clearDeadMouses(){
+		ArrayList<MouseState> deads=new ArrayList<MouseState>();
+		for (MouseState m:mouses){
+			if (m.isRunning()==false){
+				deads.add(m);
+			}
+		}
+		mouses.removeAll(deads);
 	}
 
 }
