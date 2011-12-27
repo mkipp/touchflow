@@ -13,6 +13,8 @@ import java.net.SocketException;
 import java.net.SocketTimeoutException;
 import java.util.ArrayList;
 
+import javax.vecmath.Vector3d;
+
 import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.input.SAXBuilder;
@@ -33,8 +35,10 @@ public class KinectServer implements Runnable{
 	 */
 	
 	private DatagramSocket server;
-	static KinectPoint leftHandPos=new KinectPoint();
-	static KinectPoint rightHandPos=new KinectPoint();
+
+	
+	static Vector3d[] positions=new Vector3d[19];
+	
 	public static final int PACKET_SIZE = 4048;
 	private DatagramPacket packet;
 	
@@ -87,12 +91,12 @@ public class KinectServer implements Runnable{
 	
 	
 	
-	public static KinectPoint getLeftHandPos() {
-		return leftHandPos;
+	public static Vector3d getLeftHandPos() {
+		return positions[7];
 	}
 
-	public static KinectPoint getRightHandPos() {
-		return rightHandPos;
+	public static  Vector3d getRightHandPos() {
+		return positions[11];
 	}
 
 	public void addListener(Module listener){
@@ -125,7 +129,13 @@ public class KinectServer implements Runnable{
 		String datastring = new String(packetdata, 0, packetsize);
 		
 		try {
-			parseXML(datastring);
+			if (Globals.useMSFramework){
+				parseMSProt(datastring);
+			}
+			else{
+				parseXML(datastring);
+			}
+			
 		} catch (ModulException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -134,6 +144,45 @@ public class KinectServer implements Runnable{
 		
 	}
 
+	/**
+	 * parse UDP message from MS client
+	 * MSG Format: <JOINT_NAME:String>;<player num:int>;<xpos:float>;<ypos:float>;<zpos:float>
+	 */
+	public void parseMSProt(String msg){
+		String[] parts=msg.split(";");
+		
+	
+		if (parts.length!=5){
+			System.err.println("KinectServer-parse:invalid number of tokens:" + parts.length);
+			return;
+		}
+		double x = 0,y = 0,z = 0;
+		int player = 0;
+		int jointNum=0;
+		
+		try{
+			x=Double.parseDouble(parts[2]);
+			y=Double.parseDouble(parts[3]);
+			z=Double.parseDouble(parts[4]);
+			player=Integer.parseInt(parts[1]);
+			jointNum=Integer.parseInt(parts[0]);
+		}
+		catch(NumberFormatException nf){
+			System.err.println("KinectServer-parse: number format error:" + msg);
+			return;
+		}
+		
+		/*if (player!=1){
+			System.out.println("Currently, no second player is implemented.");
+			return;
+		}*/
+		
+		//ignore last joint, which is skeleton count
+		if (jointNum <positions.length) positions[jointNum]=new Vector3d(x,y,z);
+		
+	}
+	
+	
 	/*
 	 * sample xml block
 	 * 
@@ -147,8 +196,7 @@ public class KinectServer implements Runnable{
 		</Kinect_Data>
 	 */
 	public void parseXML(String msg) throws ModulException {
-			
-		
+
 		int begin=msg.indexOf("<Kinect_Data>");
 		if (begin>1)msg=msg.substring(begin);
 		
@@ -188,14 +236,20 @@ public class KinectServer implements Runnable{
 			Element e=(Element) o;
 
 			
-			parsePos(e, rightHandPos, "Right_hand_pos");
-			parsePos(e, leftHandPos, "Left_hand_pos");	
+			parsePos(e, 11, "Right_hand_pos");
+			parsePos(e, 7, "Left_hand_pos");	
 				
 		}
 		
 	}
 
-	private void parsePos(Element e, KinectPoint destination, String identString) throws ModulException {
+	public static Vector3d getPosition(int i){
+		Vector3d nullv=new Vector3d();
+		if (i<0||i>=positions.length) return nullv;
+		if(positions[i]!=null) return positions[i];
+		return nullv;
+	}
+	private void parsePos(Element e, int destination, String identString) throws ModulException {
 		
 		if (e.getName().equals(identString)){
 			
@@ -210,9 +264,7 @@ public class KinectServer implements Runnable{
 				catch(NumberFormatException nf){
 					throw new ModulException("KinectServer Could not parse position");
 				}
-				destination.x=x;
-				destination.y=y;
-				destination.z=z;
+				positions[destination]=new Vector3d(x,y,z);
 			}
 		}
 	}
