@@ -16,11 +16,12 @@ public class KinectInput3D extends InputModule {
 
 	
 	public KinectInput3D(){
-		outputPins=new OutputPin3D[2];
+		outputPins=new OutputPin3D[19];
 		
-		outputPins[0]=new OutputPin3D(PinName.LEFT_HAND, this);
-		outputPins[1]=new OutputPin3D(PinName.RIGHT_HAND, this);
-		
+		for (int i=0;i<outputPins.length;i++){
+			outputPins[i]=new OutputPin3D(PinName.values()[PinName.HIP_CENTER.ordinal()+i],this);
+		}
+				
 		
 	}
 	
@@ -31,16 +32,9 @@ public class KinectInput3D extends InputModule {
 	
 	@Override
 	protected void processData() throws ModulException {
-		OutputPin3D leftHand=getOutputPin3D(PinName.LEFT_HAND);
-		OutputPin3D rightHand=getOutputPin3D(PinName.RIGHT_HAND);
-		
-		leftHand.writeData(KinectServer.getLeftHandPos().x);
-		leftHand.writeData2(KinectServer.getLeftHandPos().y);
-		leftHand.writeData3(KinectServer.getLeftHandPos().z);
-		
-		rightHand.writeData(KinectServer.getRightHandPos().x);
-		rightHand.writeData2(KinectServer.getRightHandPos().y);
-		rightHand.writeData3(KinectServer.getRightHandPos().z);
+		for (int i=0; i<outputPins.length;i++){
+			((OutputPin3D)outputPins[i]).writeDataVector(KinectServer.getPosition(i));
+		}
 	}
 
 	@Override
