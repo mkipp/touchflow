@@ -153,7 +153,7 @@ public class KinectServer implements Runnable{
 		
 	
 		if (parts.length!=5){
-			System.err.println("KinectServer-parse:invalid number of tokens:" + parts.length);
+			System.err.println("KinectServer-parse:invalid number of tokens:" + parts.length + " - msg: " + msg);
 			return;
 		}
 		double x = 0,y = 0,z = 0;

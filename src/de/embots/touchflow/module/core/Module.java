@@ -41,7 +41,7 @@ public abstract class Module extends Observable implements Runnable
 //fuer Grafik: sagt an welchem gemalten Anschluss welcher Pin ist
     protected HashMap<Integer, PinName> portMap = new HashMap<Integer, PinName>();
     private static int idcounter;
-    private int id;
+    protected int id;
     protected boolean forceAlwaysUpdate;
 //GFX
     protected int graphXPos = 0;
