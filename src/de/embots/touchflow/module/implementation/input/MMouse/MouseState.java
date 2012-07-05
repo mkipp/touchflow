@@ -26,6 +26,7 @@ public class MouseState implements Runnable{
 		scrollpos--;
 	}
 	
+	
 	public MouseState(Socket s){
 		try {
 			source=new BufferedReader(new InputStreamReader(
@@ -73,6 +74,12 @@ public class MouseState implements Runnable{
 		
 	}
 
+	public boolean isLMouseDown() {
+		return isLMouseDown;
+	}
+	public boolean isRMouseDown() {
+		return isRMouseDown;
+	}
 	public boolean isRunning() {
 		return running;
 	}
@@ -110,7 +117,7 @@ public class MouseState implements Runnable{
 				if (parts[partslength].equals("1")){
 					this.isLMouseDown=true;
 				}
-				else if(parts[partslength].equals("2")){
+				else if(parts[partslength].equals("3")){
 					this.isRMouseDown=true;
 				}
 				else if(parts[partslength].equals("4")){
@@ -124,7 +131,7 @@ public class MouseState implements Runnable{
 				if (parts[partslength].equals("1")){
 					this.isLMouseDown=false;
 				}
-				else if(parts[partslength].equals("2")){
+				else if(parts[partslength].equals("3")){
 					this.isRMouseDown=false;
 				}
 				
