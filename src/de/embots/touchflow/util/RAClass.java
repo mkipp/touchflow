@@ -29,6 +29,10 @@ public class RAClass {
 	 *            Objekt zum ausgeben.
 	 */
 	
+	public static int BooleanToInt(boolean in){
+		if (in) return 1;
+		return 0;
+	}
 	public void Textout(Object obj)
 	{
 		System.out.println(obj);

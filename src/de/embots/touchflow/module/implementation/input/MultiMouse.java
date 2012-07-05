@@ -20,6 +20,7 @@ import de.embots.touchflow.module.implementation.input.MMouse.MouseBuffer;
 import de.embots.touchflow.module.implementation.input.MMouse.MouseState;
 import de.embots.touchflow.module.pin.OutputPin;
 import de.embots.touchflow.module.pin.OutputPin2D;
+import de.embots.touchflow.util.RAClass;
 
 public class MultiMouse  extends InputModule{
 
@@ -30,11 +31,17 @@ public class MultiMouse  extends InputModule{
 	@Override
 	protected void processData() throws ModulException {
 		OutputPin2D out=getOutputPin2D(PinName.POSITION);
+		OutputPin lButton=getOutputPin(PinName.LButton);
+		OutputPin rButton=getOutputPin(PinName.RButton);
+		
 		MouseState state=server.getMouseState(id);
 		if (state!=null){
 			out.writeData(state.getXpos());
 			out.writeData2(state.getYpos());
 			getOutputPin(PinName.SCROLL).writeData(state.getScrollpos());
+			
+			rButton.writeData(RAClass.BooleanToInt(state.isRMouseDown()));
+			lButton.writeData(RAClass.BooleanToInt(state.isLMouseDown()));
 		}
 	}
 
@@ -51,9 +58,11 @@ public class MultiMouse  extends InputModule{
 	}
 	
 	public MultiMouse(){
-		outputPins=new OutputPin[2];
+		outputPins=new OutputPin[4];
 		outputPins[0]=new OutputPin2D(PinName.POSITION,this);
 		outputPins[1]=new OutputPin(PinName.SCROLL, this);
+		outputPins[2]=new OutputPin(PinName.LButton, this);
+		outputPins[3]=new OutputPin(PinName.RButton, this);
 		
 		if (server==null){
 			server=new MouseBuffer();
